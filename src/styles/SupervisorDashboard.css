@@ -1,0 +1,413 @@
+/* ONS Supervisor workspace — unified contemporary Saudi Islamic visual system */
+.campaign-workspace.role-supervisor {
+  --supervisor-deep: #0b3029;
+  --supervisor-green: #103f35;
+  --supervisor-emerald: #176b57;
+  --supervisor-soft: #e9f2ea;
+  --supervisor-ivory: #f7f6f0;
+  --supervisor-gold: #c6a56b;
+  --supervisor-ink: #173d32;
+  --supervisor-muted: #6d8075;
+  --supervisor-border: #e2e9e2;
+  min-height: 100vh;
+  grid-template-columns: 264px minmax(0, 1fr);
+  color: var(--supervisor-ink);
+  background: #f3f6f3;
+  font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tajawal, Tahoma, sans-serif;
+}
+
+/* Right navigation rail */
+.campaign-workspace.role-supervisor .workspace-sidebar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  height: 100vh;
+  min-height: 620px;
+  flex-direction: column;
+  padding: 21px 16px 15px;
+  border: 0;
+  color: #eff5ef;
+  background: linear-gradient(165deg, #103f35 0%, #0b3029 100%);
+  box-shadow: -12px 0 34px #0b302914;
+}
+.campaign-workspace.role-supervisor .workspace-brand {
+  display: grid;
+  min-height: 100px;
+  place-items: center;
+  margin: 0 0 17px;
+  padding: 10px;
+  border: 1px solid #c6a56b38;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 10px 25px #061c171c;
+}
+.campaign-workspace.role-supervisor .workspace-brand img { width: 83px; height: 79px; object-fit: contain; }
+.campaign-workspace.role-supervisor .workspace-campaign {
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #ffffff1b;
+  border-radius: 14px;
+  background: #ffffff09;
+}
+.campaign-workspace.role-supervisor .workspace-campaign-icon { width: 38px; height: 38px; color: var(--supervisor-gold); background: #ffffff10; border-radius: 11px; }
+.campaign-workspace.role-supervisor .workspace-campaign small,
+.campaign-workspace.role-supervisor .workspace-campaign em { color: #b9d0c4; font-size: 10px; }
+.campaign-workspace.role-supervisor .workspace-campaign b { max-width: 155px; color: #fff; font-size: 12px; }
+.campaign-workspace.role-supervisor .workspace-nav-title { margin: 22px 11px 8px; color: #8fb0a0; font-size: 10px; font-weight: 700; }
+.campaign-workspace.role-supervisor .workspace-nav { display: grid; gap: 2px; }
+.campaign-workspace.role-supervisor .workspace-nav { min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #ffffff35 transparent; }
+.campaign-workspace.role-supervisor .workspace-nav-group-block { display: grid; gap: 2px; }
+.campaign-workspace.role-supervisor .workspace-nav-item { min-width: 0; }
+.campaign-workspace.role-supervisor .supervisor-nav-group {
+  display: block;
+  margin: 14px 12px 5px;
+  color: #a1bcae;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .02em;
+}
+.campaign-workspace.role-supervisor .workspace-nav-item:first-child .supervisor-nav-group { margin-top: 0; }
+.campaign-workspace.role-supervisor .workspace-nav button {
+  position: relative;
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  color: #d2e3d8;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.5;
+  transition: color .18s ease, background .18s ease, transform .18s ease;
+}
+.campaign-workspace.role-supervisor .workspace-nav button svg { width: 18px; flex: none; color: #a7c5b4; }
+.campaign-workspace.role-supervisor .workspace-nav button:hover { color: #fff; background: #ffffff0c; transform: translateX(-2px); }
+.campaign-workspace.role-supervisor .workspace-nav button.is-active {
+  border-color: #ffffff18;
+  color: #123c31;
+  background: linear-gradient(105deg, #f5f6ed, #e5f0e7);
+  box-shadow: inset -3px 0 var(--supervisor-gold), 0 5px 14px #061c1714;
+  font-weight: 700;
+}
+.campaign-workspace.role-supervisor .workspace-nav button.is-active svg { color: var(--supervisor-emerald); }
+.campaign-workspace.role-supervisor .workspace-sidebar-spacer { min-height: 18px; }
+.campaign-workspace.role-supervisor .workspace-help {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 13px;
+  border: 1px solid #ffffff17;
+  border-radius: 13px;
+  color: #bbd0c4;
+  background: #ffffff08;
+}
+.campaign-workspace.role-supervisor .workspace-help svg { color: var(--supervisor-gold); }
+.campaign-workspace.role-supervisor .workspace-help b { color: #f4f5ea; font-size: 11px; }
+.campaign-workspace.role-supervisor .workspace-help span { color: #b6cfc0; font-size: 10px; line-height: 1.7; }
+.campaign-workspace.role-supervisor .workspace-logout { min-height: 43px; margin-top: 8px; border-radius: 10px; color: #e5beb2; font-size: 11px; }
+.campaign-workspace.role-supervisor .workspace-logout:hover { color: #fff; background: #ffffff0d; }
+
+/* Top bar and page canvas */
+.campaign-workspace.role-supervisor .workspace-main { min-width: 0; background: #f3f6f3; }
+.campaign-workspace.role-supervisor .workspace-header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  min-height: 72px;
+  padding-inline: clamp(22px, 4vw, 54px);
+  border-bottom: 1px solid #e4eae4;
+  background: #ffffffed;
+  box-shadow: 0 5px 20px #183b2c07;
+  backdrop-filter: blur(14px);
+}
+.campaign-workspace.role-supervisor .workspace-breadcrumb { color: #77897e; font-size: 11px; }
+.campaign-workspace.role-supervisor .workspace-profile { padding: 4px 10px 4px 4px; border-color: #e3e9e1; background: #f8faf7; }
+.campaign-workspace.role-supervisor .workspace-profile b { color: #224c3a; font-size: 11px; }
+.campaign-workspace.role-supervisor .workspace-profile small { color: #76877a; }
+.campaign-workspace.role-supervisor .workspace-avatar { color: #15533e; background: #e6f0e8; }
+.campaign-workspace.role-supervisor .workspace-mobile-menu { display: none; }
+.campaign-workspace.role-supervisor .workspace-page-content {
+  display: grid;
+  gap: 18px;
+  width: min(1560px, 100%);
+  padding: 27px clamp(20px, 4vw, 54px) 48px;
+}
+.campaign-workspace.role-supervisor .workspace-page-intro {
+  min-height: 110px;
+  padding: 22px 25px;
+  border: 1px solid var(--supervisor-border);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 5px 18px #163c2a07;
+}
+.campaign-workspace.role-supervisor .workspace-page-intro h1 { color: var(--supervisor-ink); font-size: 25px; }
+.campaign-workspace.role-supervisor .workspace-page-intro p { color: #718278; font-size: 12px; }
+.campaign-workspace.role-supervisor .workspace-page-intro>div:first-child>span { color: #456b56; background: var(--supervisor-soft); }
+
+/* Personal welcome: compact, calm, and high contrast */
+.campaign-workspace.role-supervisor .supervisor-hero {
+  position: relative;
+  display: grid;
+  min-height: 300px;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  overflow: hidden;
+  padding: 30px 34px;
+  border: 1px solid #1a59483b;
+  border-radius: 22px;
+  color: #f4f6ed;
+  background: radial-gradient(ellipse at 12% 110%, #c6a56b22 0 17%, transparent 17.5%),
+    linear-gradient(118deg, #0b3029 0%, #103f35 54%, #176b57 100%);
+  box-shadow: 0 14px 34px #0b30291a;
+  isolation: isolate;
+  animation: ons-supervisor-enter .55s cubic-bezier(.2,.7,.25,1) both;
+}
+.campaign-workspace.role-supervisor .supervisor-hero::before {
+  position: absolute;
+  z-index: -1;
+  top: -170px;
+  left: 22%;
+  width: 470px;
+  height: 470px;
+  border: 1px solid #f4ead01b;
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px #ffffff05, 0 0 0 50px #ffffff04, 0 0 0 78px #ffffff03;
+  content: "";
+}
+.campaign-workspace.role-supervisor .supervisor-hero::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  width: 42%;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, #c6a56b, transparent);
+  content: "";
+}
+.campaign-workspace.role-supervisor .supervisor-hero-copy { position: relative; z-index: 1; max-width: 760px; }
+.campaign-workspace.role-supervisor .supervisor-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid #ffffff22;
+  border-radius: 99px;
+  color: #eee4c9;
+  background: #ffffff0b;
+  font-size: 10px;
+}
+.campaign-workspace.role-supervisor .supervisor-hero-eyebrow svg { color: var(--supervisor-gold); }
+.campaign-workspace.role-supervisor .supervisor-hero-eyebrow i { width: 4px; height: 4px; border-radius: 50%; background: var(--supervisor-gold); }
+.campaign-workspace.role-supervisor .supervisor-hero-greeting { margin: 16px 0 5px; color: #c5d9ca; font-size: 14px; }
+.campaign-workspace.role-supervisor .supervisor-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  color: #fffdf4;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 750;
+  letter-spacing: -.035em;
+  line-height: 1.5;
+}
+.campaign-workspace.role-supervisor .supervisor-hero h1 span { color: #e5cf9d; }
+.campaign-workspace.role-supervisor .supervisor-hero-message { max-width: 650px; margin: 10px 0 0; color: #d0e0d5; font-size: 12px; line-height: 2; }
+.campaign-workspace.role-supervisor .supervisor-hero-hadith {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 10px;
+  max-width: 610px;
+  margin: 15px 0 0;
+  padding: 10px 14px;
+  border: 1px solid #ffffff1a;
+  border-radius: 13px;
+  background: #ffffff08;
+}
+.campaign-workspace.role-supervisor .supervisor-hadith-mark { grid-row: span 2; color: var(--supervisor-gold); font-size: 36px; line-height: 1; }
+.campaign-workspace.role-supervisor .supervisor-hero-hadith p { margin: 0; color: #fff8e7; font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", serif; font-size: 15px; font-weight: 650; line-height: 1.8; }
+.campaign-workspace.role-supervisor .supervisor-hero-hadith footer { display: flex; align-items: center; gap: 7px; color: #bcd1c2; font-size: 9px; }
+.campaign-workspace.role-supervisor .supervisor-hero-hadith footer i { width: 4px; height: 4px; border-radius: 50%; background: var(--supervisor-gold); }
+.campaign-workspace.role-supervisor .supervisor-hero-art { position: relative; z-index: 0; justify-self: center; width: 176px; opacity: .88; filter: drop-shadow(0 12px 20px #061c1733); }
+.campaign-workspace.role-supervisor .supervisor-hero-art svg { display: block; width: 100%; height: auto; }
+
+/* Actual campaign metrics */
+.campaign-workspace.role-supervisor .workspace-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11px; }
+.campaign-workspace.role-supervisor .workspace-stat {
+  position: relative;
+  display: grid;
+  min-height: 95px;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 3px 11px;
+  overflow: hidden;
+  padding: 15px;
+  border: 1px solid #e3e9e2;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 5px 17px #163c2a06;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.campaign-workspace.role-supervisor .workspace-stat:hover { transform: translateY(-2px); box-shadow: 0 10px 22px #163c2a0c; }
+.campaign-workspace.role-supervisor .workspace-stat::before { position: absolute; inset-block: 17px; inset-inline-end: 0; width: 3px; border-radius: 3px 0 0 3px; background: var(--supervisor-gold); content: ""; }
+.campaign-workspace.role-supervisor .workspace-stat-icon { display: grid; grid-row: span 2; width: 40px; height: 40px; place-items: center; border-radius: 12px; color: var(--supervisor-emerald); background: var(--supervisor-soft); }
+.campaign-workspace.role-supervisor .workspace-stat-icon.gold { color: #94733e; background: #f7f1e4; }
+.campaign-workspace.role-supervisor .workspace-stat-icon.blue { color: #55788a; background: #edf3f5; }
+.campaign-workspace.role-supervisor .workspace-stat-icon.rose { color: #9b645e; background: #f8efed; }
+.campaign-workspace.role-supervisor .workspace-stat-label { color: #718278; font-size: 10px; }
+.campaign-workspace.role-supervisor .workspace-stat>b { color: var(--supervisor-ink); font-size: 23px; font-variant-numeric: tabular-nums; }
+.campaign-workspace.role-supervisor .workspace-stat:first-child { border-color: #174e3d; background: linear-gradient(125deg, #103f35, #176b57); }
+.campaign-workspace.role-supervisor .workspace-stat:first-child::before { background: #e4c887; }
+.campaign-workspace.role-supervisor .workspace-stat:first-child .workspace-stat-icon { color: #f1dfb5; background: #ffffff13; }
+.campaign-workspace.role-supervisor .workspace-stat:first-child .workspace-stat-label { color: #c5d9ca; }
+.campaign-workspace.role-supervisor .workspace-stat:first-child>b { color: #fff; }
+
+/* Action queue, visualization, quick destinations */
+.campaign-workspace.role-supervisor .supervisor-focus-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(240px, .85fr); gap: 14px; }
+.campaign-workspace.role-supervisor .workspace-panel,
+.campaign-workspace.role-supervisor .ons-visual-panel { border-color: var(--supervisor-border); border-radius: 16px; background: #fff; box-shadow: 0 5px 18px #163c2a06; }
+.campaign-workspace.role-supervisor .supervisor-priority { padding: 19px; }
+.campaign-workspace.role-supervisor .workspace-panel-heading { margin-bottom: 11px; }
+.campaign-workspace.role-supervisor .workspace-panel-heading h3 { color: var(--supervisor-ink); font-size: 16px; }
+.campaign-workspace.role-supervisor .workspace-panel-heading p { color: #75867b; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-section-kicker,.campaign-workspace.role-supervisor .ons-kicker { color: #a17d42; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-focus-list { display: grid; gap: 4px; }
+.campaign-workspace.role-supervisor .supervisor-focus-list>button {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 9px;
+  border: 1px solid transparent;
+  border-bottom-color: #edf1ec;
+  border-radius: 10px;
+  background: transparent;
+  text-align: right;
+  transition: border-color .16s ease, background .16s ease;
+}
+.campaign-workspace.role-supervisor .supervisor-focus-list>button:hover { border-color: #e7eee6; background: #f8faf7; }
+.campaign-workspace.role-supervisor .supervisor-focus-icon { width: 38px; height: 38px; border-radius: 11px; color: #9b7940; background: #f7f2e6; }
+.campaign-workspace.role-supervisor .supervisor-focus-list b { color: #234b39; font-size: 11px; }
+.campaign-workspace.role-supervisor .supervisor-focus-list small { color: #78887d; font-size: 9px; }
+.campaign-workspace.role-supervisor .supervisor-focus-list .pd-badge { padding: 5px 8px; border-radius: 99px; font-size: 9px; }
+.campaign-workspace.role-supervisor .supervisor-all-tasks { padding: 13px 8px 2px; color: #176b57; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-calm-state { min-height: 195px; }
+.campaign-workspace.role-supervisor .supervisor-calm-state>span { width: 52px; height: 52px; border-radius: 16px; color: #277052; background: #e9f2ea; }
+.campaign-workspace.role-supervisor .supervisor-calm-state h4 { color: #234b39; font-size: 14px; }
+.campaign-workspace.role-supervisor .supervisor-calm-state p { color: #74857a; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-guide { padding: 20px; border: 1px solid #e8e3d3; border-radius: 16px; background: linear-gradient(150deg, #fbfaf5, #f3f4ec); }
+.campaign-workspace.role-supervisor .supervisor-guide h3 { margin: 0 0 15px; color: #355642; font-size: 19px; line-height: 1.55; }
+.campaign-workspace.role-supervisor .supervisor-guide ol { gap: 13px; }
+.campaign-workspace.role-supervisor .supervisor-guide li>span { border-color: #e7dec5; color: #917447; background: #fffdf7; }
+.campaign-workspace.role-supervisor .supervisor-guide li b { color: #405f4a; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-guide li small { color: #78887a; font-size: 9px; }
+.campaign-workspace.role-supervisor .supervisor-guide>button { color: #17624c; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-chart-area .ons-overview-charts.is-single { margin: 0; }
+.campaign-workspace.role-supervisor .ons-visual-panel { padding: 19px; }
+.campaign-workspace.role-supervisor .ons-visual-panel>header { margin-bottom: 9px; }
+.campaign-workspace.role-supervisor .ons-visual-panel h2 { color: #234b39; font-size: 16px; }
+.campaign-workspace.role-supervisor .ons-visual-panel>header p { color: #76877b; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-shortcuts { margin: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.campaign-workspace.role-supervisor .supervisor-shortcuts .workspace-panel-heading { margin-bottom: 12px; }
+.campaign-workspace.role-supervisor .workspace-task-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.campaign-workspace.role-supervisor .workspace-task-grid>button {
+  display: grid;
+  min-height: 138px;
+  grid-template-rows: auto auto 1fr auto;
+  justify-items: start;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #e2e9e1;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 14px #163c2a05;
+  text-align: right;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.campaign-workspace.role-supervisor .workspace-task-grid>button:hover { transform: translateY(-3px); border-color: #bfd3c2; box-shadow: 0 10px 20px #163c2a0c; }
+.campaign-workspace.role-supervisor .workspace-task-grid>button>span { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 11px; color: #176b57; background: #e9f2ea; }
+.campaign-workspace.role-supervisor .workspace-task-grid>button>b { color: #244b39; font-size: 12px; }
+.campaign-workspace.role-supervisor .workspace-task-grid>button>small { color: #78877b; font-size: 9px; line-height: 1.7; }
+.campaign-workspace.role-supervisor .workspace-task-grid>button>svg { width: 15px; color: #9a8358; }
+
+/* Forms, records and report surfaces share one component language */
+.campaign-workspace.role-supervisor :is(.workspace-panel,.pilgrim-directory,.ons-visual-panel,.workspace-modal,.pd-table-scroll,.workspace-table-scroll) { border-radius: 16px; }
+.campaign-workspace.role-supervisor .workspace-primary-button { min-height: 41px; border-color: var(--supervisor-green); color: #fff; background: var(--supervisor-green); }
+.campaign-workspace.role-supervisor .workspace-primary-button:hover { border-color: var(--supervisor-emerald); background: var(--supervisor-emerald); }
+.campaign-workspace.role-supervisor .workspace-secondary-button { min-height: 39px; border-color: #dce6de; color: #315c48; background: #fff; }
+.campaign-workspace.role-supervisor .workspace-secondary-button:hover { background: #f2f7f2; }
+.campaign-workspace.role-supervisor .workspace-form label { color: #315644; font-size: 11px; }
+.campaign-workspace.role-supervisor .workspace-form input,
+.campaign-workspace.role-supervisor .workspace-form select { min-height: 43px; border-color: #dce6de; border-radius: 10px; color: #264b39; background: #fff; }
+.campaign-workspace.role-supervisor .workspace-form :is(input,select):focus { border-color: #78a58b; outline: 3px solid #e8f2e9; }
+.campaign-workspace.role-supervisor .workspace-table-scroll { overflow-x: auto; border: 1px solid #e5ebe5; }
+.campaign-workspace.role-supervisor .workspace-table th { color: #5e7667; background: #f3f7f3; }
+.campaign-workspace.role-supervisor .workspace-table td { border-color: #edf1ed; color: #50685a; }
+.campaign-workspace.role-supervisor .workspace-table tbody tr:hover { background: #f8fbf8; }
+.campaign-workspace.role-supervisor .workspace-modal-backdrop { z-index: 80; background: #0b2822a8; backdrop-filter: blur(5px); }
+.campaign-workspace.role-supervisor .workspace-modal { width: min(620px, 100%); padding: 27px; border-color: #e2e9df; border-radius: 19px; box-shadow: 0 24px 70px #071f1933; }
+.campaign-workspace.role-supervisor .workspace-modal h2 { margin: 2px 0 18px; color: #173f32; font-size: 21px; }
+.campaign-workspace.role-supervisor .workspace-modal-close { top: 16px; left: 16px; border-radius: 10px; color: #587363; background: #eff4ee; }
+.campaign-workspace.role-supervisor .workspace-modal-actions { margin-top: 12px; padding-top: 15px; border-top: 1px solid #e9eee8; }
+.campaign-workspace.role-supervisor .workspace-notice.is-error,.campaign-workspace.role-supervisor .pd-error { border: 1px solid #f1d9d4; color: #9c4e45; background: #fbefec; }
+.campaign-workspace.role-supervisor :is(button,a,input,select):focus-visible { outline: 3px solid #c6a56b; outline-offset: 3px; }
+.campaign-workspace.role-supervisor .pd-pagination button { min-height: 36px; border-color: #dce6de; color: #315c48; background: #fff; }
+.campaign-workspace.role-supervisor .pd-pagination button:disabled { opacity: .45; }
+
+/* Entrance motion and responsive navigation */
+@keyframes ons-supervisor-enter { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1250px) {
+  .campaign-workspace.role-supervisor { grid-template-columns: 245px minmax(0, 1fr); }
+  .campaign-workspace.role-supervisor .workspace-task-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .campaign-workspace.role-supervisor .supervisor-focus-grid { grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr); }
+  .campaign-workspace.role-supervisor .workspace-page-content { padding-inline: 25px; }
+}
+@media (max-width: 900px) {
+  .campaign-workspace.role-supervisor { display: block; }
+  .campaign-workspace.role-supervisor .workspace-sidebar { position: fixed; inset: 0 0 0 auto; z-index: 45; display: flex; width: min(290px, 86vw); height: 100dvh; min-height: 0; transform: translateX(110%); transition: transform .24s ease; }
+  .campaign-workspace.role-supervisor .workspace-sidebar.is-open { transform: translateX(0); }
+  .campaign-workspace.role-supervisor .workspace-mobile-menu { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0; border-radius: 10px; color: #315c48; background: #eef4ee; }
+  .campaign-workspace.role-supervisor .workspace-header { min-height: 65px; padding-inline: 18px; }
+  .campaign-workspace.role-supervisor .workspace-page-content { padding: 20px 18px 38px; }
+  .campaign-workspace.role-supervisor .supervisor-hero { min-height: 275px; grid-template-columns: minmax(0, 1fr) 150px; padding: 25px; }
+  .campaign-workspace.role-supervisor .supervisor-hero-art { width: 140px; }
+  .campaign-workspace.role-supervisor .workspace-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .campaign-workspace.role-supervisor .supervisor-focus-grid { grid-template-columns: 1fr; }
+  .campaign-workspace.role-supervisor .supervisor-guide { display: none; }
+}
+@media (max-width: 600px) {
+  .campaign-workspace.role-supervisor .workspace-header { min-height: 60px; padding-inline: 12px; }
+  .campaign-workspace.role-supervisor .workspace-profile { gap: 6px; padding-inline: 4px 8px; }
+  .campaign-workspace.role-supervisor .workspace-profile b { max-width: 120px; font-size: 10px; }
+  .campaign-workspace.role-supervisor .workspace-avatar { width: 30px; height: 30px; }
+  .campaign-workspace.role-supervisor .workspace-page-content { gap: 14px; padding: 14px 12px 30px; }
+  .campaign-workspace.role-supervisor .supervisor-hero { min-height: 0; grid-template-columns: 1fr; gap: 10px; padding: 20px 17px; border-radius: 18px; }
+  .campaign-workspace.role-supervisor .supervisor-hero::before { top: -230px; left: -220px; }
+  .campaign-workspace.role-supervisor .supervisor-hero-art { position: absolute; left: -20px; bottom: -28px; width: 135px; opacity: .13; }
+  .campaign-workspace.role-supervisor .supervisor-hero h1 { font-size: 27px; }
+  .campaign-workspace.role-supervisor .supervisor-hero-message { max-width: 100%; font-size: 11px; }
+  .campaign-workspace.role-supervisor .supervisor-hero-hadith { max-width: 100%; padding: 9px 10px; }
+  .campaign-workspace.role-supervisor .supervisor-hero-hadith p { font-size: 12px; }
+  .campaign-workspace.role-supervisor .workspace-stats { gap: 8px; }
+  .campaign-workspace.role-supervisor .workspace-stat { min-height: 78px; grid-template-columns: 32px minmax(0,1fr); gap: 2px 8px; padding: 11px; border-radius: 12px; }
+  .campaign-workspace.role-supervisor .workspace-stat-icon { width: 31px; height: 31px; border-radius: 9px; }
+  .campaign-workspace.role-supervisor .workspace-stat-label { font-size: 9px; }
+  .campaign-workspace.role-supervisor .workspace-stat>b { font-size: 19px; }
+  .campaign-workspace.role-supervisor .workspace-task-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .campaign-workspace.role-supervisor .workspace-task-grid>button { min-height: 106px; padding: 12px; gap: 6px; }
+  .campaign-workspace.role-supervisor .workspace-task-grid>button>small { display: none; }
+  .campaign-workspace.role-supervisor .workspace-panel,.campaign-workspace.role-supervisor .ons-visual-panel { padding: 15px; }
+  .campaign-workspace.role-supervisor .supervisor-priority { padding: 14px; }
+  .campaign-workspace.role-supervisor .supervisor-focus-list>button { display: grid; grid-template-columns: 36px minmax(0,1fr) auto; gap: 8px; }
+  .campaign-workspace.role-supervisor .supervisor-focus-list>button>svg:last-child { display: none; }
+  .campaign-workspace.role-supervisor .supervisor-focus-list .pd-badge { grid-column: 2 / -1; justify-self: start; }
+  .campaign-workspace.role-supervisor .workspace-modal { padding: 22px 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .campaign-workspace.role-supervisor *,
+  .campaign-workspace.role-supervisor *::before,
+  .campaign-workspace.role-supervisor *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

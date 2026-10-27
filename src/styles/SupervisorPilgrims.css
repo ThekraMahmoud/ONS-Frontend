@@ -1,0 +1,204 @@
+.campaign-workspace.role-supervisor .pilgrim-directory {
+  padding: 26px;
+  border-color: #e4eae2;
+  border-radius: 20px;
+  background: linear-gradient(150deg, #fff, #fbfcf9);
+  box-shadow: 0 9px 28px #183b2c08;
+}
+.campaign-workspace.role-supervisor .pilgrim-directory .pd-summary {
+  width: max-content;
+  max-width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #e8ede5;
+  border-radius: 99px;
+  background: #f8faf6;
+}
+.campaign-workspace.role-supervisor .supervisor-pilgrim-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card {
+  display: grid;
+  align-content: start;
+  gap: 15px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e5ebe3;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 4px 16px #183b2c05;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbdaca;
+  box-shadow: 0 12px 24px #183b2c0c;
+}
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card>header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+.campaign-workspace.role-supervisor .supervisor-pilgrim-avatar,
+.campaign-workspace.role-supervisor .pilgrim-profile-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #dfeadf;
+  border-radius: 14px;
+  color: #1c614b;
+  background: linear-gradient(145deg, #edf5ed, #f7f6eb);
+  font-size: 19px;
+  font-weight: 700;
+}
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card>header>div { display: grid; gap: 3px; min-width: 0; flex: 1; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card h3 { overflow: hidden; margin: 0; color: #193f33; font-size: 15px; text-overflow: ellipsis; white-space: nowrap; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card>header small { color: #89958b; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card>header small b { color: #60776b; font-variant-numeric: tabular-nums; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-nationality { max-width: 88px; overflow: hidden; padding: 5px 8px; border-radius: 99px; color: #667f6c; background: #f2f6ef; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-info { display: grid; gap: 9px; padding-block: 11px; border-block: 1px solid #eff2ed; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-info>span { display: flex; align-items: center; gap: 8px; min-width: 0; color: #849288; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-info svg { flex: none; color: #b08a4b; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-info b { overflow: hidden; color: #51675a; font-size: 11px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-visa { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-visa span { color: #87938a; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-visa b { color: #315a47; font-size: 11px; font-variant-numeric: tabular-nums; }
+.campaign-workspace.role-supervisor .supervisor-card-status { display: flex; align-items: center; gap: 7px; min-height: 34px; padding: 7px 10px; border: 1px solid #e5e9df; border-radius: 9px; color: #697b6d; background: #f7f8f4; font-size: 11px; }
+.campaign-workspace.role-supervisor .supervisor-card-status.is-linked { border-color: #d3e8dc; color: #176447; background: #eff8f2; }
+.campaign-workspace.role-supervisor .supervisor-card-status.is-empty { border-color: #eee1c7; color: #8a6a32; background: #fcf7eb; }
+.campaign-workspace.role-supervisor .pilgrim-card-api-note { margin: 0 0 12px; padding: 10px 12px; border: 1px solid #eee1c7; border-radius: 10px; color: #806a43; background: #fcf8ef; font-size: 12px; line-height: 1.7; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card>footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 4px; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-card>footer>div { display: flex; gap: 2px; }
+.campaign-workspace.role-supervisor .supervisor-open-pilgrim {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 11px;
+  border: 1px solid #dce8dd;
+  border-radius: 10px;
+  color: #15543f;
+  background: #f5f9f4;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease;
+}
+.campaign-workspace.role-supervisor .supervisor-open-pilgrim:hover { border-color: #c5d9c6; background: #eaf3e9; }
+.campaign-workspace.role-supervisor .pilgrim-profile-heading { display: flex; align-items: center; gap: 13px; }
+.campaign-workspace.role-supervisor .pilgrim-profile-heading h3 { margin: 0 0 4px; color: #153f33; font-size: 21px; }
+.campaign-workspace.role-supervisor .pilgrim-card-management {
+  margin: 18px 0 24px;
+  padding: 17px;
+  border: 1px solid #e2e9dc;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fbfcf8, #f4f8f1);
+}
+.campaign-workspace.role-supervisor .pilgrim-card-management>header { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
+.campaign-workspace.role-supervisor .pilgrim-card-management>header>span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: #a17a39; background: #f5efdf; }
+.campaign-workspace.role-supervisor .pilgrim-card-management>header>div { display: grid; gap: 3px; }
+.campaign-workspace.role-supervisor .pilgrim-card-management>header b { color: #264f3c; font-size: 14px; }
+.campaign-workspace.role-supervisor .pilgrim-card-management>header small { color: #829084; font-size: 11px; line-height: 1.7; }
+.campaign-workspace.role-supervisor .pilgrim-card-management>.workspace-primary-button { width: 100%; min-height: 44px; }
+.campaign-workspace.role-supervisor .pilgrim-card-linked { display: grid; gap: 5px; padding: 12px; border: 1px solid #dbe8da; border-radius: 11px; background: #fff; }
+.campaign-workspace.role-supervisor .pilgrim-card-linked span { color: #819084; font-size: 10px; }
+.campaign-workspace.role-supervisor .pilgrim-card-linked b { color: #1d5945; font-size: 13px; }
+.campaign-workspace.role-supervisor .pilgrim-card-form { position: relative; display: grid; gap: 11px; padding-top: 4px; }
+.campaign-workspace.role-supervisor .pilgrim-card-form label { display: grid; gap: 6px; color: #496553; font-size: 11px; font-weight: 600; }
+.campaign-workspace.role-supervisor .pilgrim-card-form input { width: 100%; min-height: 42px; padding: 0 11px; border: 1px solid #dce6d9; border-radius: 10px; color: #244b38; background: #fff; font: inherit; }
+.campaign-workspace.role-supervisor .pilgrim-card-form input:focus { border-color: #8cad91; outline: 3px solid #eaf2e8; }
+.campaign-workspace.role-supervisor .pilgrim-card-form>p { margin: 0; color: #809084; font-size: 10px; line-height: 1.7; }
+.campaign-workspace.role-supervisor .pilgrim-card-form>.workspace-primary-button { width: 100%; }
+.campaign-workspace.role-supervisor .pilgrim-card-form-close { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #e0e8dd; border-radius: 9px; color: #718275; background: #fff; cursor: pointer; }
+.campaign-workspace.role-supervisor .pilgrim-card-form .pd-error { font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
+.campaign-workspace.role-supervisor .supervisor-card-option {
+  padding: 14px;
+  border: 1px solid #e0e9dc;
+  border-radius: 13px;
+  background: #f8faf5;
+}
+.campaign-workspace.role-supervisor .supervisor-card-option summary { display: grid; gap: 4px; cursor: pointer; list-style: none; }
+.campaign-workspace.role-supervisor .supervisor-card-option summary::-webkit-details-marker { display: none; }
+.campaign-workspace.role-supervisor .supervisor-card-option summary::after { float: left; color: #8d9d89; content: "+"; font-size: 19px; line-height: 1; }
+.campaign-workspace.role-supervisor .supervisor-card-option[open] summary::after { content: "−"; }
+.campaign-workspace.role-supervisor .supervisor-card-option summary b { color: #315941; font-size: 12px; }
+.campaign-workspace.role-supervisor .supervisor-card-option summary b span { color: #a17a39; font-weight: 500; }
+.campaign-workspace.role-supervisor .supervisor-card-option summary small { color: #829084; font-size: 10px; }
+.campaign-workspace.role-supervisor .supervisor-card-option-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 14px; }
+.campaign-workspace.role-supervisor .supervisor-card-option-fields label { display: grid; gap: 6px; color: #496553; font-size: 11px; font-weight: 600; }
+.campaign-workspace.role-supervisor .supervisor-card-option-fields input { width: 100%; min-height: 42px; padding: 0 10px; border: 1px solid #dce6d9; border-radius: 9px; color: #244b38; background: #fff; font: inherit; }
+.campaign-workspace.role-supervisor .supervisor-card-option-fields input:focus { border-color: #8cad91; outline: 3px solid #eaf2e8; }
+.campaign-workspace.role-supervisor .supervisor-pilgrim-grid + .pd-empty { min-height: 220px; border: 1px dashed #dce7dc; border-radius: 16px; background: #fafcf9; }
+@media(max-width:1150px) { .campaign-workspace.role-supervisor .supervisor-pilgrim-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media(max-width:700px) {
+  .campaign-workspace.role-supervisor .pilgrim-directory { padding: 18px; }
+  .campaign-workspace.role-supervisor .supervisor-pilgrim-grid { grid-template-columns: 1fr; gap: 11px; }
+  .campaign-workspace.role-supervisor .supervisor-pilgrim-card { padding: 15px; }
+  .campaign-workspace.role-supervisor .supervisor-pilgrim-info { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+  .campaign-workspace.role-supervisor .supervisor-open-pilgrim { flex: 1; }
+  .campaign-workspace.role-supervisor .supervisor-card-option-fields { grid-template-columns: 1fr; }
+}
+
+/* Supervisor campaign pilgrim hub */
+.campaign-workspace.role-supervisor .pilgrim-directory {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(20px, 3vw, 34px);
+  border-color: #e6e9df;
+  background: linear-gradient(150deg, #fff 0%, #fbfcf8 58%, #f7f8f1 100%);
+}
+.campaign-workspace.role-supervisor .pd-heading {
+  align-items: center;
+  padding: 4px 0 22px;
+  border-bottom: 1px solid #edf0e9;
+}
+.campaign-workspace.role-supervisor .pd-heading-copy { min-width: 0; }
+.campaign-workspace.role-supervisor .pd-heading h2 { margin: 7px 0 6px; color: #143e32; font-size: clamp(24px, 3vw, 32px); letter-spacing: -.035em; }
+.campaign-workspace.role-supervisor .pd-heading p { max-width: 620px; color: #77857b; font-size: 13px; }
+.campaign-workspace.role-supervisor .pd-eyebrow { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border: 1px solid #e7e6d9; border-radius: 30px; color: #8a7141; background: #faf8ef; }
+.campaign-workspace.role-supervisor .pd-actions { flex-wrap: wrap; }
+.campaign-workspace.role-supervisor .pd-actions .pd-primary { min-height: 44px; padding-inline: 18px; border-radius: 11px; box-shadow: 0 5px 14px #075a431a; }
+.campaign-workspace.role-supervisor .pd-actions .pd-secondary { min-height: 42px; border-radius: 11px; }
+.campaign-workspace.role-supervisor .pd-stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+.campaign-workspace.role-supervisor .pd-stat-grid article { display: grid; grid-template-columns: 38px minmax(0, 1fr); align-items: center; column-gap: 10px; min-height: 85px; padding: 13px; border: 1px solid #e7ebe3; border-radius: 14px; background: #fff; }
+.campaign-workspace.role-supervisor .pd-stat-grid article>span { grid-row: span 2; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; color: #a17a39; background: #f7f2e5; }
+.campaign-workspace.role-supervisor .pd-stat-grid article:nth-child(1)>span { color: #17634c; background: #edf6ef; }
+.campaign-workspace.role-supervisor .pd-stat-grid small { color: #7c897e; font-size: 11px; }
+.campaign-workspace.role-supervisor .pd-stat-grid b { color: #194333; font-size: 22px; line-height: 1.2; }
+.campaign-workspace.role-supervisor .pd-stat-grid em { grid-column: 2; color: #9b8358; font-size: 9px; font-style: normal; }
+.campaign-workspace.role-supervisor .pd-toolbar { display: grid; grid-template-columns: minmax(220px, 1fr) auto auto auto; gap: 9px; padding: 11px; border: 1px solid #e8ece5; border-radius: 14px; background: #f8faf7; }
+.campaign-workspace.role-supervisor .pd-search { min-height: 42px; border-color: #e2e8df; border-radius: 10px; background: #fff; }
+.campaign-workspace.role-supervisor .pd-search input { min-height: 40px; }
+.campaign-workspace.role-supervisor .pd-toolbar>select,
+.campaign-workspace.role-supervisor .pd-sort { min-height: 42px; border: 1px solid #e2e8df; border-radius: 10px; background: #fff; }
+.campaign-workspace.role-supervisor .pd-toolbar>select { min-width: 130px; padding-inline: 11px; }
+.campaign-workspace.role-supervisor .pd-sort { display: flex; align-items: center; gap: 6px; padding: 0 9px; color: #819084; }
+.campaign-workspace.role-supervisor .pd-sort select { max-width: 120px; border: 0; outline: 0; color: #496153; background: transparent; font: inherit; font-size: 11px; }
+.campaign-workspace.role-supervisor .pd-summary { display: none; }
+.campaign-workspace.role-supervisor .pilgrim-card-linked { grid-template-columns: 1fr auto; align-items: center; }
+.campaign-workspace.role-supervisor .pilgrim-card-linked span { grid-column: 1 / -1; }
+.campaign-workspace.role-supervisor .pd-pagination { padding-top: 8px; }
+@media(max-width:900px) {
+  .campaign-workspace.role-supervisor .pd-heading { align-items: flex-start; flex-direction: column; }
+  .campaign-workspace.role-supervisor .pd-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .campaign-workspace.role-supervisor .pd-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .campaign-workspace.role-supervisor .pd-search { grid-column: 1 / -1; }
+}
+@media(max-width:580px) {
+  .campaign-workspace.role-supervisor .pd-heading { gap: 14px; }
+  .campaign-workspace.role-supervisor .pd-actions { width: 100%; }
+  .campaign-workspace.role-supervisor .pd-actions>* { flex: 1; }
+  .campaign-workspace.role-supervisor .pd-stat-grid { gap: 8px; }
+  .campaign-workspace.role-supervisor .pd-stat-grid article { min-height: 77px; padding: 10px; grid-template-columns: 32px minmax(0,1fr); column-gap: 8px; }
+  .campaign-workspace.role-supervisor .pd-stat-grid article>span { width: 32px; height: 32px; }
+  .campaign-workspace.role-supervisor .pd-stat-grid b { font-size: 19px; }
+  .campaign-workspace.role-supervisor .pd-toolbar { grid-template-columns: 1fr; }
+  .campaign-workspace.role-supervisor .pd-search { grid-column: auto; }
+  .campaign-workspace.role-supervisor .pd-toolbar>select,.campaign-workspace.role-supervisor .pd-sort { width: 100%; }
+}

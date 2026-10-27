@@ -1,0 +1,137 @@
+/* Shared dashboard rhythm: readable Arabic, calm hierarchy, clear actions. */
+.campaign-workspace,.admin-shell{font-family:"IBM Plex Sans Arabic","Noto Sans Arabic",Tahoma,sans-serif;color:#24483b;background:#f4f7f5;font-size:14px;line-height:1.7}
+.workspace-sidebar{overflow-y:auto;background:linear-gradient(165deg,#113f32,#0c3027);padding:24px 16px}
+.workspace-brand img{width:86px;height:90px}.workspace-nav button,.workspace-logout{font-size:13px;min-height:46px}.workspace-nav-title{font-size:11px}.workspace-campaign b{font-size:13px}.workspace-help span{font-size:12px}
+.workspace-page-content{gap:22px;padding-top:28px}.workspace-page-intro{border-radius:18px;padding:24px;background:linear-gradient(115deg,#fff 60%,#f4f8f0);border-color:#dce6df}.workspace-page-intro h1{font-size:28px}.workspace-page-intro p{font-size:13px}.workspace-intro-context{font-size:12px}.workspace-header{min-height:76px}.workspace-breadcrumb{font-size:12px}.workspace-profile b{font-size:12px}.workspace-profile small{font-size:11px}
+.workspace-panel{padding:24px;border-radius:16px}.workspace-panel-heading h3{font-size:18px}.workspace-panel-heading p{font-size:13px;line-height:1.8}.workspace-primary-button,.workspace-secondary-button{min-height:42px;font-size:13px;border-radius:10px}.workspace-form{max-width:920px}.workspace-form label{font-size:13px}.workspace-form input,.workspace-form select,.workspace-form textarea{min-height:46px;font-size:14px;border-radius:10px}.workspace-form-row{gap:18px}.workspace-table th{font-size:12px;padding:14px}.workspace-table td{font-size:13px;padding:16px 14px}.workspace-text-action{font-size:12px}.workspace-notice{font-size:13px;line-height:1.8;overflow-wrap:anywhere}.workspace-stats{gap:14px}.workspace-stat{min-height:100px;padding:18px;border-radius:14px}.workspace-stat-label{font-size:12px}.workspace-stat>b{font-size:26px}.workspace-stat-campaign-name{font-size:14px!important}.workspace-stats.supervisor-stats{display:grid}.workspace-empty{font-size:13px}.workspace-status{font-size:12px}
+.workspace-quick-links{display:flex;flex-wrap:wrap;gap:12px}.workspace-quick-links button{min-height:46px}.pd-actions a{text-decoration:none}.pd-badge.is-open{color:#8b6628;background:#fff4dc}.pd-badge.is-assigned{color:#315e89;background:#edf4ff}.pd-badge.is-in_progress{color:#226967;background:#e7f5f2}.pd-badge.is-resolved{color:#256446;background:#e9f5eb}.pd-badge.is-cancelled{color:#8a5550;background:#f9edeb}
+.admin-shell .admin-nav button,.admin-shell .admin-logout{font-size:13px;min-height:44px}.admin-shell .admin-side-label{font-size:11px}.admin-shell .admin-content{gap:22px}.admin-shell .admin-panel{border-radius:16px;padding:22px}.admin-shell .admin-panel-heading h2{font-size:18px}.admin-shell .admin-panel-heading p{font-size:12px}.admin-shell .admin-table th{font-size:12px;padding:14px}.admin-shell .admin-table td{font-size:13px;padding:15px 14px}.admin-shell .admin-tabs button{font-size:12px;padding:9px 13px}.admin-shell .admin-search input{font-size:13px}.admin-shell .admin-search{height:42px}.admin-shell .admin-pill{font-size:11px}.admin-shell .admin-metric-label{font-size:12px}.admin-shell .admin-section-error,.admin-shell .admin-loading,.admin-shell .admin-empty{font-size:13px}.admin-shell .admin-row-main b{font-size:13px}.admin-shell .admin-row-main small{font-size:11px}.admin-shell .admin-count{font-size:12px}.admin-shell .admin-add-button{min-height:42px;font-size:13px}.admin-shell .admin-welcome p{font-size:13px}
+.workspace-modal-actions{flex-wrap:wrap}.campaign-entry-form{padding:22px;background:#f8faf8;border:1px solid #e1e9e2;border-radius:14px;margin:18px 0}.campaign-data-panel>.workspace-primary-button{margin-block:18px}.workspace-form label:has(input[type="checkbox"]){display:flex;align-items:center;gap:9px}.workspace-form input[type="checkbox"]{min-height:20px;width:20px;accent-color:#174d3b}
+@media(max-width:900px){.workspace-stats,.workspace-stats.campaign-overview-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace-page-content{padding:18px}.workspace-page-intro{padding:20px}.workspace-intro-context{display:none}}
+@media(max-width:600px){.workspace-panel{padding:18px}.workspace-panel-heading{align-items:flex-start;flex-direction:column}.workspace-panel-actions{flex-wrap:wrap}.workspace-page-intro h1{font-size:23px}.workspace-form-row{grid-template-columns:1fr}.workspace-stat{padding:13px}.workspace-quick-links>*{flex:1}.workspace-header{padding:12px}.workspace-breadcrumb{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.campaign-workspace *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+.workspace-task-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.workspace-task-grid>button{display:grid;grid-template-columns:1fr auto;gap:8px;text-align:right;font:inherit;padding:22px;border:1px solid #e1e9e3;border-radius:14px;color:#264d3c;background:#fbfcfa;cursor:pointer;transition:background .15s,border-color .15s}.workspace-task-grid>button:hover{background:#f1f6f0;border-color:#91af99}.workspace-task-grid>button>span{grid-column:1/-1;color:#a48950}.workspace-task-grid>button>b{font-size:16px}.workspace-task-grid>button>small{grid-column:1/-1;color:#728477;line-height:1.8;font-size:13px}.workspace-task-grid>button>svg{grid-row:2;grid-column:2}.pd-danger{color:#a14b43}.workspace-mobile-menu,.workspace-mobile-scrim{display:none}.workspace-panel>summary{font-size:15px;font-weight:600;cursor:pointer}.workspace-modal .workspace-modal-description{font-size:13px}.workspace-modal h2{font-size:23px}
+@media(max-width:1050px){.workspace-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.campaign-workspace{display:block}.campaign-workspace .workspace-sidebar{position:fixed;display:flex;flex-direction:column;right:0;top:0;width:265px;height:100dvh;z-index:30;transform:translateX(110%);overflow-y:auto}.campaign-workspace .workspace-sidebar.is-open{transform:none}.campaign-workspace .workspace-nav{display:grid;grid-template-columns:1fr;overflow:visible}.campaign-workspace .workspace-campaign{display:flex}.campaign-workspace .workspace-brand{display:flex}.campaign-workspace .workspace-nav-title,.campaign-workspace .workspace-help,.campaign-workspace .workspace-logout,.campaign-workspace .workspace-sidebar-spacer{display:flex}.campaign-workspace .workspace-help{display:grid}.campaign-workspace .workspace-main{display:block}.workspace-mobile-menu{display:inline-flex}.workspace-mobile-scrim{display:block;position:fixed;inset:0;z-index:29;border:0;background:#142f2373}.workspace-header{z-index:20}.workspace-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.workspace-task-grid{grid-template-columns:1fr}.workspace-profile b{max-width:145px}.workspace-modal{width:min(96vw,640px);max-height:90dvh;overflow:auto}.workspace-task-grid>button{padding:18px}}
+
+/* Campaign analytics: actual counts, a calm completion ring and readable bars. */
+.campaign-analytics-grid{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.5fr);gap:40px;align-items:center;padding:28px 16px}.campaign-completion{display:grid;justify-items:center;gap:20px}.campaign-completion-ring{width:190px;height:190px;border-radius:50%;padding:14px;transform:rotate(-90deg)}.campaign-completion-ring>span{height:100%;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(90deg)}.campaign-completion-ring b{font-size:38px;color:#174d3b;line-height:1.4}.campaign-completion-ring small{font-size:13px;color:#7b8a80}.campaign-completion p{font-size:14px;color:#6a7f71;margin:0}.campaign-status-bars{display:grid;gap:22px}.campaign-status-bars>div>span{display:flex;justify-content:space-between;font-size:14px;color:#60766a;margin-bottom:9px}.campaign-status-bars b{color:#244e3b;font-size:16px}.campaign-status-bars>div>div{height:9px;border-radius:8px;background:#edf2ee;overflow:hidden}.campaign-status-bars i{display:block;height:100%;background:#709a85;border-radius:8px}.campaign-status-bars i.is-open{background:#c6a46a}.campaign-status-bars i.is-assigned{background:#779ba6}.campaign-status-bars i.is-in_progress{background:#4a8e80}.campaign-status-bars i.is-resolved{background:#226449}.campaign-status-bars i.is-cancelled{background:#bd8a7c}.campaign-analytics-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #e4eae5;padding-top:24px;margin-top:15px}.campaign-analytics-footer>span{display:flex;align-items:center;gap:9px;font-size:13px;color:#7b8b80}.campaign-workspace .pd-summary{flex-wrap:wrap}
+.campaign-workspace.role-campaign_owner .workspace-page-intro{position:relative;min-height:160px;padding:30px 32px;border:0;border-radius:20px;background:linear-gradient(115deg,#123f34,#1e5c47);box-shadow:0 10px 30px #163f3020}.campaign-workspace.role-campaign_owner .workspace-page-intro h1{color:#fff;font-size:32px;font-weight:600;margin-block:10px}.campaign-workspace.role-campaign_owner .workspace-page-intro p{color:#c1d5c9;font-size:14px;max-width:650px}.campaign-workspace.role-campaign_owner .workspace-page-intro>div:first-child>span{color:#ecd8a7;background:#ffffff12;border:1px solid #ffffff1f;padding:5px 12px}.campaign-workspace.role-campaign_owner .workspace-intro-context{color:#f0dfb8;border:1px solid #ffffff25;background:#ffffff0b;max-width:240px}.campaign-workspace.role-campaign_owner .workspace-stat{border-top:0;border-radius:16px;box-shadow:0 3px 15px #1b462b05;min-height:114px}.campaign-workspace.role-campaign_owner .workspace-stat-icon{width:42px;height:42px;background:#f6f1e5;color:#a48a50;border-radius:12px}.campaign-workspace.role-campaign_owner .workspace-stat>b{font-size:30px}.campaign-workspace.role-campaign_owner .workspace-page-content{gap:24px}.campaign-workspace.role-campaign_owner .workspace-task-grid>button{background:#fff;border-color:#e2e9e2;padding:24px;border-radius:16px;box-shadow:0 3px 12px #1b462b03}.campaign-workspace.role-campaign_owner .workspace-task-grid>button:hover{border-color:#a5bba8;box-shadow:0 5px 18px #1b462b0a}.campaign-workspace.role-campaign_owner .workspace-task-grid>button>span{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:#f1f6f0;color:#42755a;margin-bottom:5px}.campaign-workspace.role-campaign_owner .workspace-task-grid>button>b{font-size:17px}.campaign-workspace.role-campaign_owner .workspace-task-grid>button>small{font-size:13px}.campaign-workspace.role-campaign_owner .workspace-sidebar .workspace-brand{padding:12px;background:#fbfcf7;border-radius:14px;margin-bottom:25px}.campaign-workspace.role-campaign_owner .workspace-sidebar .workspace-brand img{width:94px;height:96px}.campaign-workspace.role-campaign_owner .workspace-nav{gap:7px}.campaign-workspace.role-campaign_owner .workspace-nav button{min-height:48px;padding:12px;font-size:13px}.campaign-workspace.role-campaign_owner .workspace-profile{border-radius:12px;padding:7px 10px;background:white}.campaign-workspace.role-campaign_owner .workspace-header{border-bottom-color:#e4eae4}
+@media(max-width:700px){.campaign-analytics-grid{grid-template-columns:1fr;gap:30px;padding:20px 0}.campaign-analytics-footer{flex-direction:column;align-items:stretch}.campaign-workspace.role-campaign_owner .workspace-page-intro{padding:24px}.campaign-workspace.role-campaign_owner .workspace-page-intro h1{font-size:26px}.campaign-completion-ring{width:165px;height:165px}.campaign-workspace.role-campaign_owner .workspace-sidebar .workspace-brand{margin-bottom:20px}}
+
+/* Unified professional finish for authenticated dashboards only. */
+.campaign-workspace,
+.admin-shell { background: #f3f6f3; }
+.campaign-workspace .workspace-sidebar,
+.admin-shell .admin-sidebar {
+  background: linear-gradient(165deg, #103d32 0%, #092f27 100%);
+  box-shadow: -8px 0 30px #102f2514;
+}
+.campaign-workspace .workspace-header,
+.admin-shell .admin-topbar {
+  min-height: 74px;
+  border-bottom-color: #e6ebe5;
+  box-shadow: 0 4px 18px #1c3e2b07;
+}
+.campaign-workspace .workspace-page-content,
+.admin-shell .admin-content { gap: 20px; }
+.campaign-workspace .workspace-page-intro,
+.admin-shell .admin-welcome {
+  border-color: #e1e9e2;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px #183b2c08;
+}
+.campaign-workspace:not(.role-campaign_owner) .workspace-page-intro {
+  min-height: 130px;
+  padding: 25px 28px;
+  background: linear-gradient(110deg, #fff 55%, #f5f8f2);
+}
+.campaign-workspace:not(.role-campaign_owner) .workspace-page-intro h1 { font-size: clamp(25px, 2.4vw, 32px); }
+.campaign-workspace .workspace-stat,
+.admin-shell .admin-metric {
+  position: relative;
+  overflow: hidden;
+  min-height: 104px;
+  padding: 17px;
+  border-color: #e3eae3;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px #183b2c07;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.campaign-workspace .workspace-stat::after,
+.admin-shell .admin-metric::after {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 3px;
+  border-radius: 4px 0 0 4px;
+  background: #c5a46a;
+  content: "";
+  opacity: .75;
+}
+.campaign-workspace .workspace-stat:hover,
+.admin-shell .admin-metric:hover {
+  transform: translateY(-2px);
+  border-color: #ceddcf;
+  box-shadow: 0 11px 24px #183b2c10;
+}
+.campaign-workspace .workspace-stat-icon,
+.admin-shell .admin-metric-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+}
+.campaign-workspace .workspace-stat>b,
+.admin-shell .admin-metric>b { color: #174d3b; font-variant-numeric: tabular-nums; }
+.campaign-workspace .workspace-panel,
+.admin-shell .admin-panel {
+  border-color: #e3e9e2;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px #183b2c07;
+}
+.campaign-workspace .workspace-task-grid>button {
+  position: relative;
+  min-height: 166px;
+  padding: 22px;
+  border-color: #e3eae3;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #fff, #fbfcfa);
+  box-shadow: 0 5px 18px #183b2c06;
+}
+.campaign-workspace .workspace-task-grid>button:hover {
+  transform: translateY(-2px);
+  border-color: #b8cdbb;
+  background: #fff;
+  box-shadow: 0 12px 26px #183b2c0d;
+}
+.campaign-workspace .workspace-nav button.is-active,
+.admin-shell .admin-nav button.is-active {
+  color: #fff;
+  background: linear-gradient(90deg, #ffffff0b, #ffffff16);
+  box-shadow: inset -3px 0 #d1b477;
+}
+.admin-shell .admin-welcome {
+  min-height: 112px;
+  padding: 20px 23px;
+  background: linear-gradient(105deg, #fff 48%, #f7f8f1);
+}
+.admin-shell .admin-welcome-icon { width: 48px; height: 48px; border-radius: 15px; }
+.admin-shell .admin-welcome h1 { font-size: 23px; }
+.admin-shell .admin-overview-grid,
+.admin-shell .admin-recent-grid { gap: 16px; }
+.admin-shell .admin-table-wrap { border-color: #e5ebe5; border-radius: 12px; }
+.admin-shell .admin-table th { background: #f5f8f5; }
+.admin-shell .admin-table tbody tr { transition: background .15s ease; }
+.admin-shell .admin-table tbody tr:hover { background: #f6faf6; }
+.campaign-workspace :is(button, a):focus-visible,
+.admin-shell :is(button, a):focus-visible { outline: 3px solid #c9a768; outline-offset: 3px; }
+@media(max-width:700px) {
+  .campaign-workspace:not(.role-campaign_owner) .workspace-page-intro { min-height: 0; padding: 20px; }
+  .campaign-workspace .workspace-stat,
+  .admin-shell .admin-metric { min-height: 88px; padding: 13px; }
+  .campaign-workspace .workspace-task-grid>button { min-height: 140px; }
+  .admin-shell .admin-welcome { min-height: 84px; }
+}

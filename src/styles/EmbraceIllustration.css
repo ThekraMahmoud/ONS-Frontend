@@ -1,0 +1,73 @@
+.auth-embrace-illustration {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: min(350px, 100%);
+  flex: none;
+  margin: auto auto 25px;
+  padding: 13px 18px 16px;
+  overflow: hidden;
+  color: #164538;
+  background: #f8f4e9ed;
+  border: 1px solid #e5d8bd;
+  border-radius: 22px;
+  box-shadow: 0 12px 30px #061c1724;
+  backdrop-filter: blur(10px);
+  animation: embrace-card-arrive .8s .12s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.auth-embrace-art { display: block; width: min(100%, 318px); height: auto; overflow: visible; }
+.embrace-arch,.embrace-arch-inner { fill: none; stroke: #cbb98e; stroke-width: 1.2; }
+.embrace-arch-inner { stroke: #e0d4bb; stroke-width: 1; }
+.embrace-ground { fill: none; stroke: #cfc3a8; stroke-width: 1.4; }
+.figure-head { fill: #dbc69a; }
+.figure-head-light { fill: #e9dfcb; }
+.figure-head-gold { fill: #c99b55; }
+.figure-body { stroke: #f8f4e9; stroke-width: 2; }
+.figure-left { fill: #aebdb0; }
+.figure-right { fill: #d8c8a6; }
+.figure-main { fill: #174d3e; }
+.gather-left { transform-box: fill-box; transform-origin: center; animation: gather-left 4.8s cubic-bezier(.35,.05,.22,1) infinite alternate; }
+.gather-right { transform-box: fill-box; transform-origin: center; animation: gather-right 4.8s cubic-bezier(.35,.05,.22,1) infinite alternate; }
+.figure-center { transform-box: fill-box; transform-origin: center bottom; animation: center-breathe 4.8s ease-in-out infinite alternate; }
+.embrace-arm { fill: none; stroke: #b88d4a; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 145; stroke-dashoffset: 145; animation: arms-open 4.8s cubic-bezier(.35,.05,.22,1) infinite alternate; }
+.arm-right { animation-delay: .1s; }
+.embrace-heart { fill: #b88943; transform-box: fill-box; transform-origin: center; opacity: .75; animation: heart-settle 4.8s ease-in-out infinite alternate; }
+.team-connections { opacity: 0; }
+.team-connections path { fill: none; stroke: #c8ad76; stroke-width: 1.5; stroke-dasharray: 4 4; }
+.team-connections circle { fill: #f8f4e9; stroke: #bd9856; stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: role-node 2.6s ease-in-out infinite alternate; }
+.team-connections circle:nth-of-type(2) { animation-delay: .25s; }
+.team-connections circle:nth-of-type(3) { animation-delay: .5s; }
+.is-team .team-connections { opacity: 1; }
+.is-team .embrace-heart { opacity: .25; }
+.auth-embrace-illustration figcaption { display: grid; justify-items: center; gap: 3px; text-align: center; }
+.auth-embrace-illustration figcaption b { color: #173f34; font-size: 13px; font-weight: 700; }
+.auth-embrace-illustration figcaption span { color: #788177; font-size: 10px; line-height: 1.7; }
+
+@keyframes gather-left { 0%, 14% { transform: translateX(-11px); } 72%, 100% { transform: translateX(3px); } }
+@keyframes gather-right { 0%, 14% { transform: translateX(11px); } 72%, 100% { transform: translateX(-3px); } }
+@keyframes arms-open { 0%, 14% { stroke-dashoffset: 145; } 70%, 100% { stroke-dashoffset: 0; } }
+@keyframes center-breathe { from { transform: scaleY(.985); } to { transform: scaleY(1.015); } }
+@keyframes heart-settle { from { transform: scale(.88); opacity: .5; } to { transform: scale(1.06); opacity: .9; } }
+@keyframes role-node { from { transform: scale(.9); } to { transform: scale(1.16); } }
+@keyframes embrace-card-arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 1050px) and (min-width: 761px) {
+  .auth-embrace-illustration { width: min(300px, 100%); padding: 10px 13px 12px; }
+  .auth-embrace-art { width: min(100%, 276px); }
+}
+
+@media (max-width: 760px) {
+  .auth-embrace-illustration { width: min(210px, 68vw); margin: 0 auto; padding: 7px 10px 8px; border-radius: 15px; box-shadow: 0 7px 18px #061c1724; }
+  .auth-embrace-art { width: 100%; max-height: 106px; }
+  .auth-embrace-illustration figcaption b { font-size: 10px; }
+  .auth-embrace-illustration figcaption span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-embrace-illustration,.gather-left,.gather-right,.figure-center,.embrace-arm,.embrace-heart,.team-connections circle { animation: none; }
+  .embrace-arm { stroke-dashoffset: 0; }
+  .gather-left { transform: translateX(3px); }
+  .gather-right { transform: translateX(-3px); }
+}

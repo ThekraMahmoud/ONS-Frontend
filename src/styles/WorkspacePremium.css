@@ -1,0 +1,95 @@
+/* ONS workspaces: a shared identity with task-specific page composition. */
+.ons-workspace-theme{--ons-panel-radius:18px}
+body .ons-workspace-theme :is(.workspace-panel,.pilgrim-directory,.admin-panel){border-radius:var(--ons-panel-radius);border-color:#e3e7df;box-shadow:0 3px 18px #0d463a04}
+body .ons-workspace-theme :is(.workspace-header,.admin-topbar){min-height:82px;background:#ffffffed;backdrop-filter:blur(12px)}
+body .ons-workspace-theme :is(.workspace-page-content,.admin-content){padding:32px clamp(20px,2.6vw,42px)}
+body .ons-workspace-theme :is(.workspace-sidebar,.admin-sidebar){width:260px;padding:22px 16px}
+body .campaign-workspace.ons-workspace-theme,body .admin-shell.ons-workspace-theme{grid-template-columns:260px minmax(0,1fr)}
+body .ons-workspace-theme :is(.workspace-brand,.admin-brand){min-height:108px;border-radius:15px;margin-bottom:24px}
+body .ons-workspace-theme :is(.workspace-nav button,.admin-nav button){min-height:48px;padding:11px 14px;margin-block:3px;border-radius:10px;font-size:15px}
+body .ons-workspace-theme :is(.workspace-nav button.is-active,.admin-nav button.active){background:#f7f6f0;color:#0d463a;box-shadow:inset -3px 0 #c7a66a;font-weight:600}
+body .ons-workspace-theme :is(.workspace-help,.admin-help){background:#ffffff08;border-color:#ffffff20;padding:16px;border-radius:12px}
+body .ons-workspace-theme :is(.workspace-stats,.admin-metrics){gap:16px;margin-bottom:24px}
+body .ons-workspace-theme :is(.workspace-stat,.admin-metric){border-radius:15px;padding:20px 22px;min-height:116px;border-color:#e3e7df;box-shadow:0 2px 10px #0d463a03}
+body .ons-workspace-theme :is(.workspace-stat b,.admin-metric>b){font-variant-numeric:tabular-nums;font-size:30px;font-weight:600;letter-spacing:-.7px}
+body .ons-workspace-theme :is(.workspace-stat-icon,.admin-metric-icon){width:40px;height:40px;border-radius:12px;background:#edf4ee;color:#176b56}
+body .ons-workspace-theme :is(.workspace-page-intro,.admin-welcome){border:0;background:transparent;box-shadow:none;padding:0 0 24px;border-bottom:1px solid #e3e7df;margin-bottom:24px;border-radius:0}
+body .ons-workspace-theme .admin-welcome-icon{background:#efe8d9;color:#9d7b42;border-radius:14px}
+body .ons-workspace-theme .admin-welcome h1{font-size:28px;margin-bottom:8px}
+body .ons-workspace-theme :is(.pd-heading,.admin-directory-heading){align-items:center;padding-bottom:20px;border-bottom:1px solid #edf0e9;margin-bottom:22px}
+body .ons-workspace-theme :is(.pd-heading h2,.admin-directory-heading h2,.workspace-panel-heading h3){font-size:22px;margin-block:4px}
+body .ons-workspace-theme :is(.pd-toolbar,.admin-directory-tools){gap:12px}
+body .ons-workspace-theme :is(.pd-search,.admin-search){min-height:48px;background:#fafbf8;border:1px solid #e3e7df;border-radius:10px}
+body .ons-workspace-theme :is(.pd-table-scroll,.workspace-table-scroll,.admin-table-wrap){border:1px solid #e7ebe3;border-radius:12px}
+body .ons-workspace-theme :is(.pd-table-scroll,.workspace-table-scroll,.admin-table-wrap) th{background:#f6f8f3;font-size:13px;letter-spacing:0;font-weight:500;padding:15px 18px;color:#64766b;border-bottom:1px solid #e3e7df}
+body .ons-workspace-theme :is(.pd-table-scroll,.workspace-table-scroll,.admin-table-wrap) td{padding:18px;vertical-align:middle}
+body .ons-workspace-theme :is(.pd-table-scroll,.workspace-table-scroll,.admin-table-wrap) tbody tr:hover{background:#fafbf7}
+body .ons-workspace-theme :is(.pd-table-scroll,.workspace-table-scroll,.admin-table-wrap) td b{font-weight:600}
+body .ons-workspace-theme :is(.pd-primary,.workspace-primary-button,.admin-add-button){border-radius:10px;min-height:46px;padding:11px 18px}
+body .ons-workspace-theme .pd-summary{background:transparent;border:0;padding:0 0 20px;margin:0;gap:26px;justify-content:flex-start}
+body .ons-workspace-theme .pd-summary b{font-size:20px}
+.ons-report-tabs{display:flex;gap:5px;flex-wrap:wrap;padding:6px;background:#f2f4ed;border:1px solid #e4e8dd;border-radius:13px;margin:0 0 22px}
+.ons-report-tabs>button{display:flex;align-items:center;justify-content:center;gap:9px;flex:1;min-width:112px;min-height:48px;padding:10px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:#5c6d61;font:500 14px/1.6 "IBM Plex Sans Arabic",sans-serif;cursor:pointer;white-space:nowrap}
+.ons-report-tabs>button>b{min-width:25px;padding:1px 6px;border-radius:6px;background:#e7ebdf;font-size:13px;font-weight:600}
+.ons-report-tabs>button.is-active{background:#fff;color:#0d463a;border-color:#dfe5d8;box-shadow:0 2px 5px #0d463a05}
+.ons-report-tabs>button.is-active>b{background:#e5efe7;color:#0d463a}
+.ons-tab-dot{height:7px;width:7px;border-radius:50%;background:#c7a66a;flex:none}.ons-tab-dot.is-assigned{background:#668ca5}.ons-tab-dot.is-in_progress{background:#c67a35}.ons-tab-dot.is-resolved{background:#176b56}.ons-tab-dot.is-cancelled{background:#919990}
+.ons-overview-charts{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:0 0 26px}
+.ons-overview-charts.is-single{display:block;margin:0}
+.ons-visual-panel{padding:24px;background:#fff;border:1px solid #e3e7df;border-radius:18px;min-width:0;box-shadow:0 3px 18px #0d463a04}
+.ons-visual-panel>header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}
+body .ons-workspace-theme .ons-visual-panel h2{font-size:22px;margin:4px 0 6px;font-weight:600}
+.ons-visual-panel>header p{color:#64766b;margin:0;font-size:14px}
+.ons-visual-panel>header>svg{color:#a68c58;margin-top:8px}
+.ons-visual-panel>footer{margin-top:18px;padding-top:14px;border-top:1px solid #edf0e9}
+.ons-chart-distribution{display:grid;grid-template-columns:minmax(160px,1fr) minmax(180px,1fr);align-items:center;gap:20px;min-height:260px}
+.ons-donut-wrap{position:relative;width:100%;max-width:250px;margin-inline:auto;aspect-ratio:1}
+.ons-donut-wrap svg{display:block;width:100%;height:100%;overflow:visible}
+.ons-donut-wrap circle{transition:stroke-width .16s ease,opacity .16s ease}
+.ons-donut-center{position:absolute;inset:25%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.ons-donut-center>b{font-size:34px;line-height:1.2;color:#0d463a;font-weight:600;font-variant-numeric:tabular-nums}
+.ons-donut-center>span{font-size:13px;color:#64766b;margin-top:8px;white-space:nowrap}
+.ons-donut-center>small{font-size:11px;color:#8a968c;margin-top:3px;white-space:nowrap}
+.ons-chart-legend{display:grid;gap:4px}
+body .ons-workspace-theme .ons-chart-legend>button{display:flex;align-items:center;gap:10px;background:transparent;border:1px solid transparent;border-radius:9px;padding:10px;min-height:44px;font:14px/1.6 "IBM Plex Sans Arabic",sans-serif;color:#53685a;cursor:pointer;text-align:start}
+body .ons-workspace-theme .ons-chart-legend>button.is-active{background:#f6f8f2;border-color:#e6ebdf}
+.ons-chart-legend>button>i{height:8px;width:8px;border-radius:50%;flex:none}
+.ons-chart-legend>button>span{flex:1}.ons-chart-legend>button>b{font-size:16px;color:#244c38;font-weight:600}.ons-chart-legend>button>small{font-size:12px;width:36px;color:#7b8a80;text-align:end}
+.ons-chart-empty{padding:25px 10px;color:#6f7c72;text-align:center;font-size:14px;grid-column:1/-1}
+.ons-trend-chart{direction:ltr;margin-top:8px}
+.ons-trend-caption{display:flex;justify-content:space-between;align-items:center;gap:20px;direction:rtl;padding:0 10px;margin-bottom:12px;color:#64766b;font-size:14px;min-height:38px}
+.ons-trend-caption>b{color:#176b56;font-size:25px;font-weight:600}.ons-trend-caption small{font-size:13px;font-weight:400}
+.ons-trend-chart>svg{display:block;width:100%;height:auto;max-height:260px;overflow:visible}
+.ons-trend-axis{display:flex;justify-content:space-between;gap:4px;padding:0 10px}
+body .ons-workspace-theme .ons-trend-axis>button{min-height:44px;flex:1;min-width:0;padding:6px 3px;border:0;background:transparent;color:#79867d;font:12px/1.6 "IBM Plex Sans Arabic",sans-serif;cursor:pointer;border-radius:8px}
+body .ons-workspace-theme .ons-trend-axis>button.is-active{color:#0d463a;background:#edf3e8}
+.ons-allocation-chart{display:grid;gap:9px;max-height:335px;overflow:auto}
+body .ons-workspace-theme .ons-allocation-chart>button{display:grid;gap:10px;padding:12px 10px;min-height:63px;border:1px solid transparent;background:transparent;border-radius:9px;cursor:pointer;text-align:start;color:#385646;font:15px/1.6 "IBM Plex Sans Arabic",sans-serif}
+body .ons-workspace-theme .ons-allocation-chart>button.is-active{border-color:#e3e8dc;background:#fafbf7}
+.ons-allocation-chart>button>span{display:flex;align-items:center;justify-content:space-between;gap:15px}.ons-allocation-chart b{font-weight:600}.ons-allocation-chart small{font-size:12px;color:#7e8b81}.ons-allocation-chart>button>i{height:8px;background:#f0f3eb;border-radius:8px;overflow:hidden}.ons-allocation-chart em{display:block;height:100%;border-radius:8px;min-width:2px}
+.ons-supervisor-overview{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:26px}
+.ons-supervisor-overview .supervisor-focus-grid{display:block;margin:0;height:100%}
+.ons-supervisor-overview .supervisor-guide{display:none}
+.ons-supervisor-overview .supervisor-priority{height:100%;margin:0}
+body .ons-workspace-theme .supervisor-calm-state{padding:28px 18px;min-height:240px}
+body .ons-workspace-theme .supervisor-calm-state h4{font-size:20px}
+body .ons-workspace-theme .workspace-team-summary{margin-top:-7px}
+body .ons-workspace-theme .workspace-task-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body .ons-workspace-theme .workspace-task-grid>button{min-height:132px;background:#fff;position:relative;padding:20px}
+body .ons-workspace-theme .workspace-task-grid>button>span{height:38px;width:38px;border-radius:11px;background:#edf4e9;color:#176b56}
+body .ons-workspace-theme .workspace-task-grid>button>small{font-size:13px}
+body .ons-workspace-theme .workspace-task-grid>button>svg{color:#8b9b8c}
+body .ons-workspace-theme .workspace-task-grid>button:hover{box-shadow:0 6px 20px #0d463a08}
+body .field-staff-shell.ons-workspace-theme .field-staff-content{max-width:1060px;padding-top:34px}
+body .field-staff-shell.ons-workspace-theme .field-staff-intro{border-bottom:1px solid #e3e7df;padding-bottom:22px}
+body .field-staff-shell.ons-workspace-theme .field-staff-intro h1{font-size:30px;font-weight:600}
+body .field-staff-shell.ons-workspace-theme .field-staff-panel{border-radius:18px;padding:28px}
+body .field-staff-shell.ons-workspace-theme .ons-task-card{border-radius:18px;padding:28px}
+body .ons-workspace-theme .ons-task-card>footer{grid-template-columns:1fr 1fr}
+body .ons-workspace-theme .ons-task-card>footer>:first-child{grid-column:1/-1}
+@media(max-width:1150px){.ons-supervisor-overview,.ons-overview-charts{grid-template-columns:1fr}.ons-chart-distribution{grid-template-columns:minmax(160px,230px) 1fr}.ons-overview-charts.is-single{height:100%}body .ons-workspace-theme .workspace-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body .campaign-workspace.ons-workspace-theme,body .admin-shell.ons-workspace-theme{grid-template-columns:236px minmax(0,1fr)}body .ons-workspace-theme :is(.workspace-sidebar,.admin-sidebar){width:236px}}
+@media(max-width:900px){body .campaign-workspace.ons-workspace-theme,body .admin-shell.ons-workspace-theme{display:block}body .ons-workspace-theme :is(.workspace-sidebar,.admin-sidebar){width:min(290px,85vw)}body .ons-workspace-theme :is(.workspace-page-content,.admin-content){padding:22px}body .ons-workspace-theme :is(.workspace-header,.admin-topbar){min-height:72px}}
+@media(max-width:700px){.ons-report-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:5px;margin-bottom:18px}.ons-report-tabs>button{flex:none;min-width:105px}.ons-visual-panel{padding:20px}.ons-overview-charts,.ons-supervisor-overview{gap:16px;margin-bottom:20px}.ons-chart-distribution{grid-template-columns:1fr;gap:8px}.ons-donut-wrap{max-width:210px}.ons-chart-legend{grid-template-columns:1fr 1fr;gap:2px}body .ons-workspace-theme .ons-chart-legend>button{font-size:13px;gap:7px;padding:8px 5px}.ons-chart-legend>button>small{display:none}.ons-chart-distribution{min-height:0}body .ons-workspace-theme .workspace-task-grid{grid-template-columns:1fr}body .ons-workspace-theme .workspace-task-grid>button{min-height:116px}body .ons-workspace-theme :is(.workspace-page-content,.admin-content){padding:18px 14px}.ons-trend-axis{padding:0}.ons-trend-axis button{font-size:10px!important}.ons-donut-center>b{font-size:30px}body .ons-workspace-theme :is(.pd-table-scroll,.workspace-table-scroll,.admin-table-wrap){border:0}.ons-supervisor-overview .supervisor-calm-state{min-height:0}body .ons-workspace-theme .ons-task-card>footer{grid-template-columns:1fr}body .field-staff-shell.ons-workspace-theme .field-staff-panel,body .field-staff-shell.ons-workspace-theme .ons-task-card{padding:20px}}
+@media(prefers-reduced-motion:reduce){.ons-workspace-theme *{transition:none!important}}
+
+.ons-campaign-performance{display:grid;grid-template-columns:minmax(200px,.65fr) 1.35fr;gap:36px;align-items:center;padding:15px 0 25px}.ons-performance-summary{padding:28px;background:#f5f7f0;border:1px solid #e6eadc;border-radius:14px}.ons-performance-summary>strong{display:block;font-size:46px;line-height:1.4;color:#176b56;font-weight:600;font-variant-numeric:tabular-nums}.ons-performance-summary>p{margin:10px 0;color:#385c46}.ons-performance-summary>small{display:block;font-size:13px;line-height:1.8;color:#758276}@media(max-width:900px){.ons-campaign-performance{grid-template-columns:1fr;gap:18px}.ons-performance-summary{padding:22px}.ons-performance-summary>strong{font-size:36px}}

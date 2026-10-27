@@ -1,0 +1,11 @@
+/* Representative dashboard: field-first, warm amber identity */
+.campaign-workspace.role-representative { --role-accent:#a85c19; --role-accent-soft:#fff1df; --role-ink:#66380f; --role-surface:#fffaf4; background:var(--role-surface); }
+.campaign-workspace.role-representative .workspace-sidebar { background:linear-gradient(180deg,#613b1f 0%,#392311 100%); color:#fffaf4; }
+.campaign-workspace.role-representative .workspace-campaign-icon { background:rgba(255,255,255,.12); color:#ffd19c; }
+.campaign-workspace.role-representative .workspace-nav button.is-active { background:#fff0dc; color:#87460f; box-shadow:inset -3px 0 #e79b43; }
+.campaign-workspace.role-representative .workspace-primary-button { background:#a85c19; }
+.campaign-workspace.role-representative .workspace-stat { border-top:3px solid #d78a35; }
+.campaign-workspace.role-representative .workspace-page-intro { border-bottom:1px solid #f1dfc9; }
+.campaign-workspace.role-representative .workspace-panel { border-color:#f0e2d1; box-shadow:0 8px 28px rgba(116,70,25,.05); }
+.campaign-workspace.role-representative .workspace-profile .workspace-avatar { background:#ffebd2; color:#87460f; }
+.campaign-workspace.role-representative .representative-priority-panel { border-top:4px solid #d78a35; }

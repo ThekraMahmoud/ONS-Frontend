@@ -1,0 +1,25 @@
+/* Campaign dashboard: administrative, spacious, navy/teal visual identity */
+.campaign-workspace.role-campaign_admin { --role-accent:#146b63; --role-accent-soft:#e6f4f1; --role-ink:#173b3a; --role-surface:#f4f8f7; background:var(--role-surface); }
+.campaign-workspace.role-campaign_admin .workspace-sidebar { background:linear-gradient(180deg,#123d3b 0%,#0b2928 100%); color:#f4fffd; }
+.campaign-workspace.role-campaign_admin .workspace-campaign-icon { background:rgba(255,255,255,.12); color:#9de3d8; }
+.campaign-workspace.role-campaign_admin .workspace-nav button.is-active { background:#e3f4f0; color:#125d56; box-shadow:inset -3px 0 #36a99a; }
+.campaign-workspace.role-campaign_admin .workspace-primary-button { background:#146b63; }
+.campaign-workspace.role-campaign_admin .workspace-stat { border-top:3px solid #2a9387; }
+.campaign-workspace.role-campaign_admin .workspace-page-intro { border-bottom:1px solid #d6e8e4; }
+.campaign-workspace.role-campaign_admin .workspace-panel { border-color:#dce9e6; box-shadow:0 8px 28px rgba(17,65,59,.045); }
+.campaign-workspace.role-campaign_admin .workspace-profile .workspace-avatar { background:#d8eee9; color:#125d56; }
+
+.campaign-workspace.role-campaign_owner { --role-accent:#0c5146; --role-accent-soft:#e8f4ef; --role-ink:#173b34; --role-surface:#f4f7f3; background:var(--role-surface); }
+.campaign-workspace.role-campaign_owner .workspace-sidebar { background:linear-gradient(180deg,#103f37 0%,#0b302c 100%); color:#f4fffa; }
+.campaign-workspace.role-campaign_owner .workspace-campaign-icon { background:rgba(255,255,255,.12); color:#d6b878; }
+.campaign-workspace.role-campaign_owner .workspace-nav button.is-active { background:#e4f1eb; color:#14574b; box-shadow:inset -3px 0 #c5a45f; }
+.campaign-workspace.role-campaign_owner .workspace-primary-button { background:#0c5146; }
+.campaign-workspace.role-campaign_owner .workspace-stat { border-top:3px solid #b89856; }
+.campaign-workspace.role-campaign_owner .workspace-page-intro { border-bottom:1px solid #e7dfcb; }
+.campaign-workspace.role-campaign_owner .workspace-panel { border-color:#e7e8dc; box-shadow:0 8px 28px rgba(39,62,48,.05); }
+.campaign-workspace.role-campaign_owner .workspace-profile .workspace-avatar { background:#e7efe7; color:#14574b; }
+.workspace-payment-confirmation { display:flex; align-items:center; gap:12px; margin:0 0 14px; padding:13px 17px; color:#185b46; background:linear-gradient(100deg,#e9f6ed,#f5f8ec); border:1px solid #d7e9d9; border-radius:14px; }
+.workspace-payment-confirmation>span { display:grid; width:34px; height:34px; flex:0 0 auto; place-items:center; color:#fff; background:#2d8b65; border-radius:11px; }
+.workspace-payment-confirmation div { display:grid; gap:3px; }
+.workspace-payment-confirmation b { font-size:12px; }
+.workspace-payment-confirmation small { color:#688174; font-size:10px; }
