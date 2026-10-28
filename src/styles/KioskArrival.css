@@ -126,3 +126,16 @@
  .kiosk-menu .kiosk-service-copy small{font-size:15px}
  .kiosk-menu .kiosk-service-action{width:38px;height:38px;min-height:38px}
 }
+.kiosk-menu .kiosk-service-icon{margin:0}
+.kiosk-menu .kiosk-service-action{margin:0}
+.kiosk-menu .kiosk-screen-heading{margin-bottom:16px}
+.kiosk-menu .kiosk-service-tile.is-help{transform:none}
+.kiosk-menu .kiosk-service-tile:hover{transform:translateY(-2px)}
+.kiosk-terminal.kiosk-menu .kiosk-service-icon,.kiosk-terminal.kiosk-menu .kiosk-service-action{margin:0}
+.kiosk-terminal.kiosk-menu .kiosk-service-tile{gap:12px;animation:none;transform:none}
+@media(max-width:720px){
+ .kiosk-terminal.kiosk-menu .kiosk-service-tile,.kiosk-terminal.kiosk-menu .kiosk-service-tile:last-child{width:100%;grid-column:auto;grid-template-rows:auto}
+ .kiosk-terminal.kiosk-menu .kiosk-service-icon{grid-column:1;grid-row:1;align-self:center}
+ .kiosk-terminal.kiosk-menu .kiosk-service-copy{grid-column:2;grid-row:1;align-self:center;min-width:0;padding:0}
+ .kiosk-terminal.kiosk-menu .kiosk-service-action{grid-column:3;grid-row:1;align-self:center;justify-self:center}
+}
