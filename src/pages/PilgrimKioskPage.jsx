@@ -287,7 +287,7 @@ function PilgrimKioskPage() {
   const registeredSite = useMemo(() => (device.record ? getRegisteredSite(device.record) : null), [device]);
   const activeSite = registeredSite;
   const photo = activeSite === "madinah" ? madinahPhoto : makkahPhoto;
-  const screenPhoto = ["welcome", "menu", "assistance", "identity", "report-tracking"].includes(screen) ? goldenWelcomePhoto : photo;
+  const screenPhoto = ["welcome", "menu", "assistance", "identity", "report-tracking", "places"].includes(screen) ? goldenWelcomePhoto : photo;
   const isRTL = locale.dir === "rtl";
   const linkedCampaignId = getPilgrimCampaignId(pilgrimRecord);
   const trackedStatus = String(reportTracking.record?.status ?? reportTracking.record?.Status ?? "").toUpperCase();
