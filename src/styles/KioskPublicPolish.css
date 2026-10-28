@@ -1,0 +1,26 @@
+/* Original screen composition, with concise copy and usable navigation controls. */
+.kiosk-terminal{--public-type-scale:1}
+.kiosk-terminal.kiosk-large-text{--public-type-scale:1.25}
+.kiosk-terminal .kiosk-terminal-header{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-rows:auto;min-height:84px;padding:12px clamp(14px,3vw,48px);gap:12px}
+.kiosk-terminal .kiosk-terminal-brand{grid-column:2;grid-row:1;justify-self:center}
+.kiosk-terminal .kiosk-header-actions{grid-column:1;grid-row:1;justify-self:start;width:max-content;max-width:100%;display:flex;gap:8px;flex-wrap:wrap;align-items:center;direction:rtl}
+.kiosk-terminal .kiosk-location-chip{grid-column:3;grid-row:1}
+.kiosk-terminal .kiosk-header-button{display:inline-flex;width:auto;min-width:max-content;min-height:48px;height:auto;flex:0 0 auto;align-items:center;justify-content:center;gap:8px;padding:11px 14px;white-space:nowrap;word-break:normal;border:1px solid #dacfb6;border-radius:12px;background:#fffdf5f5;box-shadow:0 3px 10px #183c2d08;color:#214f3f;font-size:calc(14px * var(--public-type-scale));font-weight:600;line-height:1.4}
+.kiosk-terminal .kiosk-header-button span{display:inline;white-space:nowrap}
+.kiosk-terminal .kiosk-header-button svg{flex:none;width:19px;height:19px}
+.kiosk-terminal .kiosk-header-button:focus-visible{outline:3px solid #176b56;outline-offset:3px}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-side{margin-top:clamp(24px,4vh,52px);padding:20px 14px;text-align:start}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content{max-width:580px;margin-inline:0}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content h1{font-size:calc(clamp(30px,3.2vw,46px) * var(--public-type-scale));line-height:1.65;font-weight:700;letter-spacing:0;max-width:19ch;margin:0;color:#0d463a;text-wrap:balance}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-motto{font-size:calc(clamp(20px,1.9vw,28px) * var(--public-type-scale));line-height:1.9;font-weight:500;margin:12px 0 0;color:#84632f;max-width:28ch;text-wrap:balance}
+.kiosk-terminal.kiosk-welcome .kiosk-brand-rule{justify-content:flex-start;margin-top:24px}
+.ons-guide-language{display:inline-block;margin:0 0 9px;padding:3px 9px;border-radius:8px;background:#edf2e8;color:#315b47;font-size:13px}
+@container (max-width:900px){.kiosk-menu .kiosk-terminal-header{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-rows:auto;min-height:84px;flex-basis:auto}.kiosk-menu .kiosk-header-actions{grid-column:1;grid-row:1;width:max-content;max-width:100%;flex-wrap:wrap}}
+@media(max-width:1000px){.kiosk-terminal .kiosk-terminal-header{grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:8px;min-height:78px;padding:10px 14px}.kiosk-terminal .kiosk-terminal-brand{grid-column:2;grid-row:1}.kiosk-terminal .kiosk-header-actions{grid-column:1;grid-row:1;width:auto;max-width:100%;justify-content:flex-start}.kiosk-terminal .kiosk-location-chip{grid-column:1 / -1;grid-row:2;justify-self:end}.kiosk-terminal .kiosk-header-button{min-height:48px;padding:10px 12px;font-size:calc(13px * var(--public-type-scale));gap:7px}.kiosk-terminal .kiosk-header-button span{display:inline;white-space:nowrap}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content{margin-inline:auto}}
+@media(max-width:620px){.kiosk-terminal .kiosk-terminal-header{display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;flex-basis:auto;min-height:72px}.kiosk-terminal .kiosk-terminal-brand{order:0;margin-inline:auto}.kiosk-terminal .kiosk-terminal-brand>img{width:48px;height:48px}.kiosk-terminal .kiosk-header-actions{order:1;flex:1 1 100%;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.kiosk-terminal .kiosk-header-button{min-width:0;width:100%;min-height:48px;padding:10px 8px;font-size:calc(13px * var(--public-type-scale))}.kiosk-terminal .kiosk-header-button span{display:inline;white-space:nowrap}.kiosk-terminal .kiosk-location-chip{order:2;max-width:100%;margin-inline-start:auto}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-side{margin-top:0;padding:14px 8px;text-align:center}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content h1{font-size:calc(28px * var(--public-type-scale));line-height:1.6;margin-inline:auto;max-width:20ch}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-motto{font-size:calc(18px * var(--public-type-scale));margin:8px auto 0}.kiosk-terminal.kiosk-welcome .kiosk-brand-rule{justify-content:center;margin-top:16px}}
+
+.kiosk-terminal .kiosk-language-tile.is-speaking{position:relative;border:2px solid #176b56;background:#e4f0df;box-shadow:0 0 0 4px #c7a66a55,0 6px 20px #0d463a12}
+.kiosk-terminal .kiosk-language-tile.is-speaking .kiosk-language-symbol{transform:scale(1.08)}
+.kiosk-language-voice{position:absolute;inset-inline-end:7px;top:7px;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#176b56;color:#fff;animation:ons-flag-speaking 1.5s ease-in-out infinite}
+@keyframes ons-flag-speaking{50%{box-shadow:0 0 0 5px #176b5620}}
+@media(prefers-reduced-motion:reduce){.kiosk-language-voice{animation:none}}

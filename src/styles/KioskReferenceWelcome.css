@@ -1,0 +1,85 @@
+/* Reference composition; original ONS logo, photograph and animated guide retained. */
+.kiosk-terminal.kiosk-welcome{background:#0b4539;min-height:100dvh}
+.kiosk-welcome .kiosk-photo{opacity:1;filter:none;transform:none;background-size:cover;background-position:center 52%}
+.kiosk-welcome .kiosk-scrim{background:linear-gradient(110deg,#fffaf00d 32%,#fffaf025 68%,#fffaf045)}
+.kiosk-terminal.kiosk-welcome .kiosk-terminal-header{display:grid;direction:ltr;grid-template-columns:1fr auto 1fr;grid-template-rows:auto;flex:0 0 74px;min-height:74px;padding:8px clamp(20px,3.6vw,56px);gap:18px;border:0;border-radius:0 0 26px 26px;background:#fffdf4f5;box-shadow:0 1px 0 #d6c5a621;backdrop-filter:blur(8px);z-index:3}
+.kiosk-welcome .kiosk-terminal-brand{grid-column:2;grid-row:1;justify-self:center}
+.kiosk-welcome .kiosk-terminal-brand>img{width:73px;height:59px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;object-fit:contain}
+.kiosk-terminal.kiosk-welcome .kiosk-header-actions{grid-column:1;grid-row:1;display:flex;flex-wrap:nowrap;justify-self:start;align-items:center;gap:18px;max-width:none;width:auto;direction:ltr}
+.kiosk-terminal.kiosk-welcome .kiosk-header-button{min-width:max-content;min-height:36px;height:auto;display:inline-flex;gap:7px;padding:7px 12px;border:1px solid #448071;border-radius:99px;background:transparent;box-shadow:none;font-size:13px;color:#174f40;white-space:nowrap}
+.kiosk-welcome .kiosk-header-button span{display:inline;white-space:nowrap}
+.kiosk-welcome .kiosk-header-button svg{width:16px;height:16px}
+.kiosk-header-language{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:5px 0 5px 16px;border:0;border-inline-start:1px solid #e8dfce;background:none;color:#234f43;font:inherit;font-size:13px;cursor:pointer;direction:rtl}
+.kiosk-header-accessibility{grid-column:3;grid-row:1;display:flex;align-items:center;justify-self:end;gap:13px;color:#17483b;direction:rtl}
+.kiosk-header-accessibility>span{display:flex;align-items:center;gap:7px;font-size:13px;white-space:nowrap}
+.kiosk-header-accessibility>div{display:flex;align-items:center;gap:5px;border-inline-start:1px solid #ded2b8;padding-inline-start:12px;direction:ltr}
+.kiosk-header-accessibility button{display:grid;place-items:center;width:30px;height:34px;min-width:30px;border:0;border-radius:50%;background:none;color:#17483b;cursor:pointer;font-weight:500;line-height:1}
+.kiosk-header-accessibility button[aria-pressed=true]{background:#0d463a;color:#fffdf3;width:28px;height:28px;min-width:28px}
+.kiosk-header-accessibility button:focus-visible,.kiosk-header-language:focus-visible{outline:3px solid #b48b3e;outline-offset:3px}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-screen{position:relative;display:grid;direction:ltr;grid-template-areas:"language welcome";grid-template-columns:minmax(340px,420px) minmax(0,1fr);align-items:start;gap:clamp(36px,6vw,90px);flex:1 0 auto;width:100%;max-width:none;margin:0;padding:clamp(38px,8vh,78px) clamp(30px,4.5vw,72px) 78px;overflow:visible}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-side{grid-area:welcome;align-self:start;justify-self:end;width:min(100%,600px);margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;text-align:start;overflow:visible;direction:rtl}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content{display:block;width:100%;max-width:none;margin:0;text-align:start}
+.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-eyebrow{margin:0 0 6px;font-size:calc(21px * var(--public-type-scale));line-height:1.7;color:#174a3c;font-weight:500}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content h1{margin:0;font-size:calc(clamp(44px,5.1vw,70px) * var(--public-type-scale));line-height:1.4;font-weight:650;color:#073e33;letter-spacing:0;max-width:none;text-shadow:none;text-wrap:balance}
+.kiosk-welcome .kiosk-welcome-brand-content h1>span{color:#aa7b2f}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-motto{margin:12px 0 0;font-size:calc(clamp(18px,1.65vw,23px) * var(--public-type-scale));line-height:1.85;font-weight:400;color:#174b3e;max-width:none;text-shadow:none;text-wrap:balance}
+.kiosk-welcome .kiosk-brand-rule{justify-content:flex-start;margin:16px 0 0}
+.kiosk-welcome .kiosk-brand-rule i{background:#ae843e}
+.kiosk-welcome .kiosk-brand-rule i:nth-child(2){display:none}
+.kiosk-welcome .kiosk-photo-caption,.kiosk-welcome .kiosk-brand-emblem{display:none}
+.kiosk-terminal.kiosk-welcome .kiosk-language-side{position:relative;grid-area:language;direction:rtl;align-self:start;width:100%;max-width:420px;max-height:calc(100dvh - 155px);overflow:auto;padding:22px 26px 18px;border:1px solid #d6c19b;border-radius:25px;background:#fffdf7f7;box-shadow:0 14px 35px #28372a12;backdrop-filter:blur(10px);scroll-padding:14px;scrollbar-width:thin;scrollbar-color:#c8bea5 transparent}
+.kiosk-welcome .kiosk-language-side::before{content:"";position:absolute;inset:0 auto auto 0;width:105px;height:105px;border-radius:24px 0 0 0;background:repeating-linear-gradient(45deg,transparent 0 15px,#c9b78919 16px 17px,transparent 18px 31px),repeating-linear-gradient(-45deg,transparent 0 15px,#c9b78919 16px 17px,transparent 18px 31px);mask-image:linear-gradient(135deg,#000,transparent 72%);pointer-events:none}
+.kiosk-welcome .kiosk-language-heading{position:relative;margin:0 0 20px;text-align:center}
+.kiosk-welcome .kiosk-terminal-step{display:none}
+.kiosk-language-heading-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#eeede3;color:#164e40;margin:0 auto 9px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-heading h2{margin:0;font-size:calc(27px * var(--public-type-scale));font-weight:700;line-height:1.65;color:#0d463a}
+.kiosk-terminal.kiosk-welcome .kiosk-language-heading p{margin:4px auto 0;font-size:calc(14px * var(--public-type-scale));font-weight:400;line-height:1.8;color:#7a7d73}
+.kiosk-welcome .kiosk-language-grid{display:grid;direction:ltr;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-tile{position:relative;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:9px;width:100%;min-width:0;min-height:52px;padding:8px 11px;border:1px solid #e3dac7;border-radius:10px;background:#fffdf7;box-shadow:none;text-align:start;transform:none}
+.kiosk-welcome .kiosk-language-tile[dir=rtl]{flex-direction:row-reverse}
+.kiosk-terminal.kiosk-welcome .kiosk-language-symbol{width:31px;height:31px;min-width:31px;flex:none}
+.kiosk-terminal.kiosk-welcome .kiosk-language-native{font-size:calc(13px * var(--public-type-scale));font-weight:500;line-height:1.5;letter-spacing:0;color:#163d32;overflow-wrap:normal;word-break:normal;min-width:0}
+.kiosk-terminal.kiosk-welcome .kiosk-language-tile.is-speaking{border-color:#176b56;background:#edf3e8;box-shadow:inset 0 0 0 1px #176b5620}
+.kiosk-welcome .kiosk-language-tile.is-speaking .kiosk-language-symbol{transform:none}
+.kiosk-welcome .kiosk-language-voice{width:19px;height:19px;top:50%;inset-inline-end:7px;transform:translateY(-50%)}
+.kiosk-welcome .kiosk-language-voice svg{width:12px;height:12px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-other{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;gap:7px;min-height:40px;margin-top:0;border:1px solid #e3dac7;border-radius:10px;background:#fffdf7;color:#21483b;font-size:13px}
+.kiosk-welcome .kiosk-selected-mark{display:none}
+.kiosk-welcome .kiosk-terminal-footer{display:none}
+.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{position:absolute;inset:auto clamp(24px,4vw,64px) 64px auto;display:grid;grid-template-columns:minmax(0,225px) 164px;grid-template-areas:"bubble avatar" "voice voice";align-items:end;gap:12px 8px;width:397px;max-width:calc(100% - 32px);margin:0;direction:ltr;z-index:2}
+.kiosk-welcome .ons-guide-avatar{grid-area:avatar;align-self:end;justify-self:end}
+.kiosk-welcome .ons-guide-character{width:164px;height:195px}
+.kiosk-welcome .ons-guide-avatar>span:not(.ons-guide-move):not(.ons-guide-stage){display:none}
+.kiosk-welcome .ons-guide-bubble{grid-area:bubble;align-self:start;position:relative;width:100%;max-width:none;min-width:0;direction:rtl;padding:17px 19px;border:1px solid #d4c09c;border-radius:22px;background:#fffdf5f5;box-shadow:0 6px 22px #2643300c;text-align:start}
+.kiosk-welcome .ons-guide-bubble strong{display:block;font-size:calc(18px * var(--public-type-scale));font-weight:650;line-height:1.6;padding-inline-end:8px;color:#113f32}
+.kiosk-welcome .ons-guide-bubble p{display:block;margin:7px 0 0;font-size:calc(14px * var(--public-type-scale));font-weight:400;line-height:1.85;color:#254d3d;max-width:none}
+.kiosk-welcome .ons-guide-close{display:grid;width:27px;height:27px;min-width:27px;border-radius:50%;inset-inline-end:auto;inset-inline-start:-7px;top:-7px;background:#f2f1e7;color:#4d6455}
+.kiosk-welcome .ons-guide-language{margin-top:7px;margin-bottom:0;font-size:11px;background:#edf1e6}
+.ons-welcome-voice-controls{grid-area:voice;justify-self:end;display:flex;flex-direction:column;align-items:center;gap:5px;max-width:100%}
+.kiosk-welcome .ons-welcome-voice-controls .ons-guide-listen{display:flex;align-items:center;justify-content:center;gap:10px;width:225px;min-height:48px;padding:10px 17px;border:1px solid #d8c59f;border-radius:99px;background:#fffdf5;color:#17483a;font-size:calc(14px * var(--public-type-scale));font-weight:600;box-shadow:0 4px 12px #2d442c08}
+.kiosk-welcome .ons-guide-credit{font-size:9px;margin:0;padding:1px 4px;color:#415a49;background:#fffaf0c9;border-radius:4px}
+.ons-voice-bars{display:flex;gap:3px;align-items:center;height:20px;color:#25976e}
+.ons-voice-bars i{display:block;width:3px;height:6px;border-radius:3px;background:currentColor}
+.ons-voice-bars.is-speaking i{animation:ons-voice-level .65s ease-in-out infinite alternate}
+.ons-voice-bars i:nth-child(2){height:16px;animation-delay:-.2s}.ons-voice-bars i:nth-child(3){height:11px;animation-delay:-.4s}.ons-voice-bars i:nth-child(4){height:19px;animation-delay:-.1s}.ons-voice-bars i:nth-child(5){height:8px;animation-delay:-.3s}
+@keyframes ons-voice-level{to{transform:scaleY(.35)}}
+@media(max-width:1000px){.kiosk-terminal.kiosk-welcome .kiosk-terminal-header{min-height:74px;grid-template-columns:1fr auto 1fr;padding:8px 20px;gap:10px}.kiosk-terminal.kiosk-welcome .kiosk-header-actions{gap:9px}.kiosk-header-accessibility>span{font-size:0;gap:0}.kiosk-header-accessibility>span svg{width:19px}.kiosk-terminal.kiosk-welcome .kiosk-welcome-screen{grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:30px;padding:42px 28px 80px}.kiosk-terminal.kiosk-welcome .kiosk-language-side{padding:20px;max-height:calc(100dvh - 145px)}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content h1{font-size:calc(48px * var(--public-type-scale))}.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{width:340px;grid-template-columns:minmax(0,195px) 136px;inset-inline-end:26px}.kiosk-welcome .ons-guide-character{width:136px;height:162px}}
+@media(max-width:720px){.kiosk-terminal.kiosk-welcome .kiosk-terminal-header{display:grid;flex-basis:auto;grid-template-columns:1fr auto;grid-template-rows:auto auto;padding:10px 14px;gap:6px 12px;border-radius:0 0 20px 20px}.kiosk-welcome .kiosk-terminal-brand{grid-column:2;grid-row:1 / 3}.kiosk-welcome .kiosk-terminal-brand>img{width:65px;height:62px}.kiosk-terminal.kiosk-welcome .kiosk-header-actions{grid-column:1;grid-row:1;display:flex;flex-wrap:wrap;flex-basis:auto;gap:10px;width:auto;max-width:none}.kiosk-welcome .kiosk-header-accessibility{grid-column:1;grid-row:2;justify-self:start;direction:ltr;gap:8px}.kiosk-header-accessibility>span{display:none}.kiosk-header-accessibility>div{padding:0;border:0}.kiosk-terminal.kiosk-welcome .kiosk-header-button{min-height:36px;width:auto;min-width:max-content;padding:7px 10px;font-size:12px}.kiosk-header-language{font-size:12px;padding-inline-start:10px}.kiosk-terminal.kiosk-welcome .kiosk-welcome-screen{display:flex;flex-direction:column;align-items:stretch;gap:25px;padding:28px 20px 22px}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-side{order:0;align-self:stretch;justify-self:auto;width:100%;margin:0;padding:0;text-align:start}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content h1{font-size:calc(44px * var(--public-type-scale));line-height:1.5}.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-eyebrow{font-size:calc(17px * var(--public-type-scale))}.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-motto{font-size:calc(17px * var(--public-type-scale));line-height:1.8}.kiosk-terminal.kiosk-welcome .kiosk-language-side{order:1;align-self:center;width:100%;max-width:480px;max-height:none;padding:22px;border-radius:24px}.kiosk-terminal.kiosk-welcome .kiosk-language-heading h2{font-size:calc(25px * var(--public-type-scale))}.kiosk-terminal.kiosk-welcome .kiosk-language-native{font-size:calc(13px * var(--public-type-scale))}.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{position:relative;inset:auto;width:min(390px,calc(100% - 32px));grid-template-columns:minmax(0,1fr) 135px;align-self:center;margin:4px auto 25px;gap:10px}.kiosk-welcome .ons-guide-character{width:135px;height:161px}.kiosk-welcome .ons-welcome-voice-controls .ons-guide-listen{min-height:48px}.kiosk-welcome .ons-guide-bubble strong{font-size:17px}.kiosk-welcome .ons-guide-bubble p{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.ons-voice-bars.is-speaking i{animation:none}}
+/* Match the reference's compact title, panel rhythm and lower-right guide. */
+@media(min-width:721px){
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-screen{padding-bottom:32px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-side{max-height:calc(100dvh - 170px);padding:20px 26px 18px}
+.kiosk-welcome .kiosk-language-heading-icon{width:46px;height:46px;margin-bottom:7px}
+.kiosk-welcome .kiosk-language-heading{margin-bottom:16px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-heading h2{font-size:calc(28px * var(--public-type-scale));line-height:1.5}
+.kiosk-terminal.kiosk-welcome .kiosk-language-heading p{font-size:calc(14px * var(--public-type-scale));line-height:1.8;margin-top:4px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-tile{min-height:50px;padding-block:7px}
+.kiosk-terminal.kiosk-welcome .kiosk-language-other{min-height:38px}
+.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-eyebrow{font-size:calc(20px * var(--public-type-scale));line-height:1.5;margin-bottom:3px}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content h1{font-family:"Noto Naskh Arabic","IBM Plex Sans Arabic",serif;font-size:calc(clamp(48px,4.6vw,62px) * var(--public-type-scale));line-height:1.3;font-weight:700}
+.kiosk-terminal.kiosk-welcome .kiosk-welcome-brand-content>.kiosk-welcome-motto{font-size:calc(20px * var(--public-type-scale));line-height:1.7;margin-top:8px}
+.kiosk-welcome .kiosk-brand-rule{margin-top:12px}
+.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{bottom:78px}
+}
+.kiosk-welcome .ons-guide-language{display:none}

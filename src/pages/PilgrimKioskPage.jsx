@@ -1,10 +1,13 @@
+import KioskWelcomeScreen from "../components/kiosk/KioskWelcomeScreen.jsx";
+import {getKioskNarrator} from "../utils/kioskNarrator.js";
+import OnsKioskGuide from "../components/kiosk/OnsKioskGuide.jsx";
 import ReportQrCode from "../components/kiosk/ReportQrCode.jsx";
 import {buildReportTrackingLink,getReportShareOrigin} from "../utils/reportShareLink.js";
 import "../styles/ReportShare.css";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import {
-  Accessibility, ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, Copy, DoorOpen, Globe, Home, Languages, LifeBuoy,
-  MapPin, QrCode, RefreshCw, Search, ShieldCheck, Toilet, UserRound, Volume2, VolumeX, X,
+  ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, Copy, DoorOpen, Home, Languages, LifeBuoy,
+  MapPin, QrCode, RefreshCw, Search, ShieldCheck, Toilet, UserRound, X,
 } from "lucide-react";
 import logo from "../assets/logos/ons-logo-optimized.png";
 import goldenWelcomePhoto from "../assets/Golden Welcome at the Grand Mosque.png";
@@ -16,10 +19,13 @@ import { createSelfServiceReport, getReportTrackingHistory } from "../services/a
 import { getKioskLanguage, kioskLanguages } from "../i18n/kioskLocales.js";
 import NearestPlacePanel from "../components/kiosk/NearestPlacePanel.jsx";
 import QrCameraScanner from "../components/kiosk/QrCameraScanner.jsx";
-import KioskLanguageFlag from "../components/kiosk/KioskLanguageFlag.jsx";
 import "../styles/PilgrimKiosk.css";
+import "../styles/KioskTextSize.css";
+import "../styles/KioskPublicPolish.css";
+import "../styles/KioskReferenceWelcome.css";
+import "../styles/KioskArrival.css";
 
-const primaryLanguageCodes = ["ar", "en", "ur", "tr", "bn", "id", "ha", "fr", "fa", "sw", "zh", "ru"];
+const primaryLanguageCodes = ["ar", "en", "ur", "id", "tr", "fr", "fa", "sw"];
 const DEVICE_SESSION_KEY = "ons-pilgrim-kiosk-device";
 
 function getSavedDeviceId() {
@@ -146,9 +152,16 @@ function PilgrimKioskPage() {
   const [screen, setScreen] = useState("device-selection");
   const [deviceList, setDeviceList] = useState({ status: "loading", records: [], error: null });
   const [deviceQuery, setDeviceQuery] = useState("");
-  const [largeText, setLargeText] = useState(false);
+  const [textScale, setTextScale] = useState(1);
+  const largeText = textScale > 1;
   const [showOtherLanguages, setShowOtherLanguages] = useState(false);
-  const [audioUnavailable, setAudioUnavailable] = useState(false);
+  const narrator = getKioskNarrator();
+  const narration = useSyncExternalStore(narrator.subscribe, narrator.getSnapshot, narrator.getSnapshot);
+  useEffect(() => narrator.subscribe(() => {
+    const state=narrator.getSnapshot();
+    if (state.language && !primaryLanguageCodes.includes(state.language)) setShowOtherLanguages(true);
+    if(state.playing) window.requestAnimationFrame(()=>document.querySelector('.arrival-language-button.is-speaking')?.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'}));
+  }), [narrator]);
   const [identityMethod, setIdentityMethod] = useState(null);
   const [qrPayload, setQrPayload] = useState("");
   const [qrStatus, setQrStatus] = useState("idle");
@@ -499,25 +512,12 @@ function PilgrimKioskPage() {
     return deviceList.records.filter((record) => [record.kioskCode, record.locationName]
       .some((value) => String(value || "").toLocaleLowerCase(locale.code).includes(query)));
   }, [deviceList.records, deviceQuery, locale.code]);
-  const playWelcomeAudio = () => {
-    if (!("speechSynthesis" in window)) {
-      setAudioUnavailable(true);
-      return;
-    }
-    window.speechSynthesis.cancel();
-    const message = new SpeechSynthesisUtterance(t.officialSlogan);
-    message.lang = locale.code;
-    window.speechSynthesis.speak(message);
-    setAudioUnavailable(false);
-  };
-
-
   const kioskApplication = (
-    <main className={`kiosk-terminal kiosk-${screen} ${screenPhoto ? "has-location-photo" : "no-location-photo"}${largeText ? " kiosk-large-text" : ""}`} lang={locale.code} dir={locale.dir}>
+    <main className={`kiosk-terminal kiosk-${screen} ${screenPhoto ? "has-location-photo" : "no-location-photo"}${largeText ? " kiosk-large-text" : ""}`} lang={locale.code} dir={locale.dir} style={{"--public-type-scale":textScale}}> 
       {screenPhoto && <div className="kiosk-photo" style={{ "--kiosk-photo": `url(${screenPhoto})` }} aria-hidden="true" />}
       <div className="kiosk-scrim" aria-hidden="true" />
 
-      <header className="kiosk-terminal-header">
+      {screen !== "welcome" && <header className="kiosk-terminal-header">
         <div className="kiosk-terminal-brand">
           <img src={logo} alt="ONS" />
           <span className="kiosk-brand-divider" />
@@ -540,12 +540,13 @@ function PilgrimKioskPage() {
                 <Languages size={20} /><span>{t.changeLanguage}</span>
               </button>
             </>}
-            <button type="button" className="kiosk-header-button kiosk-home-button" onClick={resetSession} aria-label={t.home}>
+            {screen !== "welcome" && <button type="button" className="kiosk-header-button kiosk-home-button" onClick={resetSession} aria-label={t.home}>
               <Home size={20} /><span>{t.home}</span>
-            </button>
+            </button>}
           </div>
         )}
-      </header>
+
+      </header>}
 
       {screen === "device-selection" && (
         <section className="kiosk-site-setup kiosk-device-selection" aria-labelledby="kiosk-site-title" dir="rtl">
@@ -586,77 +587,7 @@ function PilgrimKioskPage() {
         </section>
       )}
 
-      {screen === "welcome" && (
-        <section className="kiosk-welcome-screen" aria-labelledby="kiosk-welcome-title">
-          <div className="kiosk-welcome-brand-side">
-            <div className="kiosk-welcome-brand-content">
-              <span className="kiosk-brand-emblem"><img src={logo} alt="" /></span>
-              <h1 id="kiosk-welcome-title">{t.welcome}</h1>
-              <p className="kiosk-welcome-motto">{t.welcomeReassurance}</p>
-              <p className="kiosk-welcome-supporting">{t.welcomeHospitality}</p>
-              <p className="kiosk-welcome-original-slogan">{t.officialSlogan}</p>
-              <div className="kiosk-brand-rule"><i /><i /><i /></div>
-              {/* {device.record && !registeredSite && <div className="kiosk-config-note"><MapPin size={16} /><span>{t.noLocation}: {device.record.locationName}</span></div>} */}
-            </div>
-            <small className="kiosk-photo-caption">{device.record?.locationName || t.cityMakkah}</small>
-          </div>
-          <div className="kiosk-language-side">
-            <div className="kiosk-language-heading">
-              <span className="kiosk-terminal-step">01 <i /> 02</span>
-              <h2>{t.choose}</h2>
-              <p>{t.menuHint}</p>
-              <div className="kiosk-welcome-tools">
-                <button type="button" className="kiosk-welcome-tool" onClick={playWelcomeAudio} aria-label={t.audioAssistance || "المساعدة الصوتية"} title={audioUnavailable ? (t.audioUnavailable || "الصوت غير متاح على هذا الجهاز") : (t.audioAssistance || "المساعدة الصوتية")}>
-                  {audioUnavailable ? <VolumeX size={20} /> : <Volume2 size={20} />}<span>{t.audioAssistance || "استمع للترحيب"}</span>
-                </button>
-                <button type="button" className={`kiosk-welcome-tool${largeText ? " is-active" : ""}`} onClick={() => setLargeText((value) => !value)} aria-pressed={largeText} aria-label={t.accessibility || "إمكانية الوصول"}>
-                  <Accessibility size={20} /><span>{t.textSize || "تكبير النص"}</span>
-                </button>
-              </div>
-            </div>
-            <div className="kiosk-language-grid">
-              {primaryLanguageCodes.map((code) => kioskLanguages.find((language) => language.code === code)).filter(Boolean).map((language) => (
-                <button
-                  type="button"
-                  key={language.code}
-                  className={`kiosk-language-tile${language.code === locale.code ? " is-selected" : ""}`}
-                  onClick={() => selectLanguage(language.code)}
-                  lang={language.code}
-                  dir={language.dir}
-                >
-                  <span className="kiosk-language-symbol"><KioskLanguageFlag code={language.code} /></span>
-                  <span className="kiosk-language-native">{language.nativeName}</span>
-                  {language.code === locale.code && <span className="kiosk-selected-mark"><ShieldCheck size={15} /></span>}
-                </button>
-              ))}
-              <button
-                type="button"
-                className="kiosk-language-other"
-                aria-expanded={showOtherLanguages}
-                onClick={() => setShowOtherLanguages((value) => !value)}
-              >
-                <Globe size={23} aria-hidden="true" />
-                <span>{t.otherLanguages}</span>
-                <span className={`kiosk-language-other-chevron${showOtherLanguages ? " is-open" : ""}`} aria-hidden="true">⌄</span>
-              </button>
-              {showOtherLanguages && kioskLanguages.filter((language) => !primaryLanguageCodes.includes(language.code)).map((language) => (
-                <button
-                  type="button"
-                  key={language.code}
-                  className={`kiosk-language-tile${language.code === locale.code ? " is-selected" : ""}`}
-                  onClick={() => selectLanguage(language.code)}
-                  lang={language.code}
-                  dir={language.dir}
-                >
-                  <span className="kiosk-language-symbol"><KioskLanguageFlag code={language.code} /></span>
-                  <span className="kiosk-language-native">{language.nativeName}</span>
-                  {language.code === locale.code && <span className="kiosk-selected-mark"><ShieldCheck size={15} /></span>}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {screen === "welcome" && <KioskWelcomeScreen locale={locale} t={t} languages={kioskLanguages} languageCode={languageCode} onSelect={selectLanguage} onSwitchDevice={()=>setScreen("device-selection")} textScale={textScale} onScale={setTextScale} expanded={showOtherLanguages} onExpanded={setShowOtherLanguages} narration={narration} onToggleAudio={()=>narrator.toggle()}/>}
 
       {screen === "menu" && (
         <section className="kiosk-service-screen" aria-labelledby="kiosk-menu-title">
@@ -710,6 +641,7 @@ function PilgrimKioskPage() {
             <button type="button" className="kiosk-inline-close" aria-label={t.back} onClick={goBack}><X size={21} /></button>
             <span className="kiosk-flow-step">{identityMethod === "qr" ? <><QrCode size={22} />{t.scan}</> : <><UserRound size={22} />{t.manual}</>}</span>
             <h1 id="kiosk-flow-title">{identityMethod === "qr" ? (qrPayload ? t.qrCapturedTitle : t.scan) : t.manual}</h1>
+
 
             {identityMethod === "qr" && !qrPayload && <QrCameraScanner
               key={cameraRetryToken}
@@ -870,6 +802,8 @@ function PilgrimKioskPage() {
       )}
 
       {screen === "places" && <NearestPlacePanel kiosk={device.record} type={placeType} language={locale.code} onBack={goBack} />}
+
+      {screen !== "device-selection" && <OnsKioskGuide screen={screen} language={locale.code} t={t} identityMethod={identityMethod} phase={screen === "identity" && pilgrimRecord ? "identity-review" : undefined}/> }
 
       <footer className="kiosk-terminal-footer">
         <span>ONS <i>·</i> {t.sessionNote}</span>

@@ -1,0 +1,42 @@
+/* Compact companion; no overlay over the pilgrim's service choices. */
+.ons-kiosk-guide{position:relative;z-index:2;display:flex;align-items:center;gap:16px;width:min(920px,calc(100% - 40px));margin:8px auto 16px;flex-shrink:0;color:#0d463a;font-family:inherit}
+.ons-guide-avatar{border:0;background:transparent;padding:0;display:flex;flex-direction:column;align-items:center;flex:none;cursor:pointer;color:inherit;font:inherit}
+.ons-guide-character{display:block;width:105px;height:125px;overflow:visible}
+.ons-guide-avatar>span{display:flex;align-items:center;gap:8px;background:#fffdf4;border:1px solid #d8c59a;border-radius:24px;min-height:36px;padding:2px 16px;font-size:17px;font-weight:700;margin-top:-6px}
+.ons-guide-bubble{position:relative;background:#fffdf5;border:1px solid #d7c59b;border-radius:20px;padding:18px 22px;max-width:540px;box-shadow:0 5px 20px #173a2c0b;text-align:start}
+.ons-guide-bubble strong{display:block;font-size:20px;line-height:1.6;padding-inline-end:26px}.ons-guide-bubble p{font-size:18px;line-height:1.8;color:#395c4f;margin:5px 0 12px;max-width:42ch}
+.ons-guide-close{position:absolute;inset-inline-end:5px;top:5px;display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;color:#60766a;border-radius:12px;cursor:pointer}
+.ons-guide-listen{display:flex;align-items:center;gap:9px;min-height:48px;border:1px solid #c3d3c9;background:#edf4ee;border-radius:12px;padding:8px 16px;font:inherit;font-size:16px;font-weight:600;color:#0d463a;cursor:pointer}.ons-guide-bubble small{display:block;margin-top:8px;color:#9d4838}
+.ons-guide-mouth{display:none}.ons-guide-eyes{transform-box:fill-box;transform-origin:center;animation:ons-guide-blink 7s infinite}.ons-guide-character.is-speaking .ons-guide-smile{display:none}.ons-guide-character.is-speaking .ons-guide-mouth{display:block;transform-box:fill-box;transform-origin:center;animation:ons-guide-talk .35s infinite alternate}
+.ons-kiosk-guide button:focus-visible{outline:3px solid #9b782c;outline-offset:4px}.ons-guide-avatar:hover{filter:brightness(1.03)}
+@keyframes ons-guide-blink{0%,45%,49%,100%{transform:scaleY(1)}47%{transform:scaleY(.15)}}@keyframes ons-guide-talk{to{transform:scaleY(.45)}}
+@media(max-width:620px){.ons-kiosk-guide{width:calc(100% - 24px);gap:8px;margin-block:4px 12px;align-items:flex-end}.ons-guide-character{width:78px;height:94px}.ons-guide-avatar>span{font-size:15px;min-height:34px;padding-inline:11px}.ons-guide-bubble{padding:14px;flex:1;min-width:0;border-radius:16px}.ons-guide-bubble strong{font-size:17px}.ons-guide-bubble p{font-size:16px;line-height:1.7}.ons-guide-listen{font-size:14px;min-height:48px}}
+@media(prefers-reduced-motion:reduce){.ons-guide-eyes,.ons-guide-character.is-speaking .ons-guide-mouth{animation:none}}
+
+.ons-guide-credit{display:inline-block;margin-top:8px;font-size:11px;color:#536d62;text-decoration:underline;text-underline-offset:3px}
+
+/* The original Ons character, with restrained greeting and speech motion. */
+.ons-guide-hand{transform-origin:130px 122px;animation:ons-friendly-wave 1.7s ease-in-out 2}
+.ons-guide-head{transform-origin:90px 114px;animation:ons-friendly-nod 2s ease-in-out 1}
+.ons-guide-avatar:hover .ons-guide-hand{animation:ons-friendly-wave 1.7s ease-in-out 2}
+.ons-guide-character.is-speaking .ons-guide-head{animation:ons-speaking-nod 2.8s ease-in-out infinite}
+.ons-guide-character.is-speaking{animation:ons-speaking-breathe 3s ease-in-out infinite}
+@keyframes ons-friendly-wave{0%,100%{transform:rotate(0)}25%{transform:rotate(-13deg)}50%{transform:rotate(7deg)}75%{transform:rotate(-9deg)}}
+@keyframes ons-friendly-nod{0%,100%{transform:rotate(0)}40%{transform:rotate(-5deg)}70%{transform:rotate(2deg)}}
+@keyframes ons-speaking-nod{0%,100%{transform:rotate(0)}40%{transform:rotate(-2deg)}70%{transform:rotate(1deg)}}
+@keyframes ons-speaking-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.ons-kiosk-guide .ons-guide-hand,.ons-kiosk-guide .ons-guide-head,.ons-kiosk-guide .ons-guide-character{animation:none}}
+
+.ons-guide-avatar{position:relative;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.ons-guide-avatar:active{cursor:grabbing}
+.ons-guide-avatar>.ons-guide-move,.kiosk-welcome .ons-guide-avatar>.ons-guide-move{position:absolute;inset-inline-end:0;top:2px;display:grid;place-items:center;min-height:28px;width:28px;height:28px;margin:0;padding:0;border:1px solid #d4c397;border-radius:50%;background:#fffdf2;color:#315b47;font-size:12px;box-shadow:0 2px 8px #173b2d10}
+
+.ons-guide-avatar>.ons-guide-stage{display:block;background:transparent;border:0;border-radius:0;min-height:0;padding:0;margin:0;line-height:0}
+
+/* Keep the companion readable without becoming a second page panel. */
+.ons-kiosk-guide{width:fit-content;max-width:calc(100% - 32px);gap:10px}
+.ons-kiosk-guide .ons-guide-bubble{flex:0 1 270px;max-width:270px;padding:12px 15px;border-radius:17px}
+.ons-kiosk-guide .ons-guide-bubble strong{font-size:17px;line-height:1.5;padding-inline-end:25px}
+.ons-kiosk-guide .ons-guide-bubble p{font-size:15px;line-height:1.7;margin:5px 0 9px}
+.ons-kiosk-guide .ons-guide-listen{min-height:42px;padding:7px 12px;font-size:14px}
+@media(max-width:620px){.ons-kiosk-guide .ons-guide-bubble{max-width:250px;padding:11px 13px}.ons-kiosk-guide .ons-guide-bubble p{font-size:15px}}

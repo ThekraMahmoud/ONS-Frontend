@@ -135,10 +135,6 @@
 .kiosk-welcome-tool { min-height: 43px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 13px; border: 1px solid #dce6df; border-radius: 12px; color: #315b47; background: #f8faf8; font-size: 13px; font-weight: 600; transition: border-color .18s, background .18s, transform .18s; }
 .kiosk-welcome-tool:hover { transform: translateY(-1px); border-color: #9ab7a6; background: #eff5f0; }
 .kiosk-welcome-tool.is-active { border-color: #c4a05d; color: #785d30; background: #f8f1e5; }
-.kiosk-large-text { font-size: 1.12em; }
-.kiosk-large-text .kiosk-language-native, .kiosk-large-text .kiosk-language-heading p { font-size: 1.15em; }
-.kiosk-large-text .kiosk-welcome-brand-content h1, .kiosk-large-text .kiosk-language-heading h2 { font-size: 1.15em; }
-.kiosk-large-text .kiosk-service-copy b, .kiosk-large-text .kiosk-flow-card h1 { font-size: 1.12em; }
 .kiosk-language-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .kiosk-language-tile { position: relative; min-height: 108px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 10px 8px; overflow: hidden; border: 1px solid #e4e9e3; border-radius: 16px; color: #263e34; background: #fff; text-align: center; transition: transform .16s, border-color .16s, background .16s, box-shadow .16s; }
 .kiosk-language-tile:hover { transform: translateY(-1px); border-color: #9bb6a7; background: #f6faf7; box-shadow: 0 5px 14px #153e2d0b; }

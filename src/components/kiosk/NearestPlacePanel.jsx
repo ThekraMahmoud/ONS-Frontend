@@ -1,3 +1,4 @@
+import {presentApiError} from "../../utils/errorMessages.js";
 import { useEffect, useState } from "react";
 import { MapPin, RefreshCw, ArrowRight, Navigation, Toilet, DoorOpen } from "lucide-react";
 import { getNearestPlace } from "../../services/mapService.js";
@@ -17,7 +18,7 @@ export default function NearestPlacePanel({ kiosk, type, onBack, language = "ar"
         if (!result?.name || !Number.isFinite(Number(result.latitude)) || !Number.isFinite(Number(result.longitude)) || result.latitude == null || result.longitude == null) throw new Error(ar ? "تعذر تحديد موقع الوجهة." : "The destination location is unavailable.");
         if (active) setState({ loading: false, result, error: "" });
       } catch (error) {
-        const text = /No matching|No reachable/i.test(error.message || "") ? (ar ? "لم يُعثر على مكان قريب يمكن الوصول إليه. جرّبي مرة أخرى أو استعيني بأحد الموظفين." : "No reachable place was found. Retry or ask a staff member.") : /inactive/i.test(error.message || "") ? (ar ? "جهاز الخدمة غير نشط حاليًا." : "This kiosk is currently inactive.") : error.message;
+        const text = /No matching|No reachable/i.test(error.message || "") ? (ar ? "لم يُعثر على مكان قريب يمكن الوصول إليه. جرّبي مرة أخرى أو استعيني بأحد الموظفين." : "No reachable place was found. Retry or ask a staff member.") : /inactive/i.test(error.message || "") ? (ar ? "جهاز الخدمة غير نشط حاليًا." : "This kiosk is currently inactive.") : /429|RESOURCE_EXHAUSTED|quota/i.test(error.message || "") ? (ar ? "خدمة الاتجاهات مشغولة الآن. انتظر قليلًا ثم حاول مجددًا." : "Directions are busy right now. Wait a moment and try again.") : presentApiError(error, ar ? "تعذر تحديد الاتجاه الآن. حاول مجددًا أو اطلب مساعدة الموظفين." : "Directions are unavailable. Try again or ask a staff member.").message;
         if (active) setState({ loading: false, result: null, error: text });
       }
     }, 0);

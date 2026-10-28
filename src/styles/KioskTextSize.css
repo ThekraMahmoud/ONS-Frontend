@@ -1,0 +1,13 @@
+/* Keep the original layout; enlarge actual base sizes rather than inherited em. */
+.kiosk-terminal.kiosk-large-text .kiosk-welcome-brand-content h1{font-size:calc(clamp(34px,4vw,58px) * 1.25)}
+.kiosk-terminal.kiosk-large-text .kiosk-language-heading h2{font-size:calc(clamp(27px,2.5vw,36px) * 1.25)}
+.kiosk-terminal.kiosk-large-text .kiosk-language-native{font-size:17.5px}
+.kiosk-terminal.kiosk-large-text .kiosk-language-heading p{font-size:18.75px}
+.kiosk-terminal.kiosk-large-text .kiosk-service-copy b{font-size:clamp(26px,2.2vw,34px)}
+.kiosk-terminal.kiosk-large-text .kiosk-service-copy small{font-size:clamp(19px,1.5vw,23px)}
+.kiosk-terminal.kiosk-large-text .kiosk-flow-card h1{font-size:clamp(34px,3.4vw,48px)}
+.kiosk-terminal.kiosk-large-text .kiosk-method-tile b{font-size:26px}
+.kiosk-terminal.kiosk-large-text .kiosk-method-tile small,.kiosk-terminal.kiosk-large-text .kiosk-flow-intro{font-size:21px}
+.kiosk-terminal.kiosk-large-text .kiosk-manual-form :is(input,label,button){font-size:21px}
+.kiosk-terminal.kiosk-large-text .ons-guide-bubble p{font-size:22px}
+@media(max-width:760px){.kiosk-terminal.kiosk-large-text .kiosk-welcome-brand-content h1{font-size:calc(clamp(25px,7vw,32px) * 1.25)}.kiosk-terminal.kiosk-large-text .kiosk-language-heading h2{font-size:28.75px}.kiosk-terminal.kiosk-large-text .kiosk-language-native{font-size:13.75px}.kiosk-terminal.kiosk-large-text .kiosk-language-heading p{font-size:16.25px}}

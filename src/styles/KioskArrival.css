@@ -1,0 +1,128 @@
+/* Isolated reference layout. Existing background assets and their rendering are untouched. */
+.kiosk-arrival{position:relative;z-index:1;flex:1 0 auto;min-height:100dvh;width:100%;color:#0d463a;font-family:inherit}
+.arrival-header{position:relative;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:74px;padding:7px 44px;gap:20px;direction:ltr;border-radius:0 0 27px 27px;background:#fffcf4f5;box-shadow:0 1px 0 #d5c6a621}
+.arrival-logo{display:block;grid-column:2;width:82px;height:60px;object-fit:contain}
+.arrival-header-start,.arrival-header-end{display:flex;align-items:center;gap:16px;min-width:0;white-space:nowrap}
+.arrival-header-start{grid-column:1;grid-row:1;justify-self:start;direction:ltr}
+.arrival-header-end{grid-column:3;grid-row:1;justify-self:end;direction:ltr}
+.arrival-header button{font-family:inherit;cursor:pointer;color:#16483c;line-height:1.4}
+.arrival-device{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 12px;border:1px solid #438070;border-radius:99px;background:transparent;font-size:12px;white-space:nowrap;direction:rtl}
+.arrival-current-language,.arrival-access{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0;border:0;background:none;font-size:12px;direction:rtl;white-space:nowrap}
+.arrival-divider{display:block;width:1px;height:21px;flex:none;background:#e5dbca}
+.arrival-text-sizes{display:flex;align-items:center;gap:5px;direction:ltr}
+.arrival-text-sizes button{display:grid;place-items:center;min-width:28px;height:30px;padding:0 4px;border:0;border-radius:50%;background:none;color:#17483a;font-family:inherit;cursor:pointer}
+.arrival-text-sizes button[aria-pressed=true]{background:#0d463a;color:#fffdf4}
+.arrival-access-panel{position:absolute;top:calc(100% + 8px);right:28px;width:260px;padding:20px;direction:rtl;border:1px solid #d8c8a6;border-radius:18px;background:#fffdf5;box-shadow:0 12px 32px #153c2a1a;white-space:normal}
+.arrival-access-panel strong{font-size:18px}.arrival-access-panel p{margin:12px 0 7px;font-size:14px}.arrival-access-panel .arrival-text-sizes{gap:8px}.arrival-access-panel .arrival-text-sizes button{min-width:58px;border-radius:10px;background:#eff3e9;height:42px}.arrival-access-panel .arrival-text-sizes button[aria-pressed=true]{background:#0d463a}
+.arrival-audio-toggle{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;margin-top:14px;border:1px solid #d6dfcf;border-radius:10px;background:#f3f5ec;font-size:14px}
+.arrival-layout{position:relative;display:grid;grid-template-columns:420px minmax(0,1fr);align-items:start;column-gap:clamp(80px,9vw,140px);direction:ltr;width:100%;padding:68px 54px 45px;min-height:calc(100dvh - 74px)}
+.arrival-language-panel{position:relative;z-index:2;direction:rtl;padding:20px 25px 18px;border:1px solid #d6c09b;border-radius:26px;background:#fffdf6f7;box-shadow:0 12px 28px #3a492a12;max-height:calc(100dvh - 168px);overflow:auto;scroll-padding:12px;scrollbar-width:thin;scrollbar-color:#cbbd9f transparent}
+.arrival-language-panel:before{content:"";position:absolute;inset:0 auto auto 0;width:105px;height:105px;border-radius:25px 0 0 0;background:repeating-linear-gradient(45deg,transparent 0 15px,#c9b78917 16px 17px,transparent 18px 31px),repeating-linear-gradient(-45deg,transparent 0 15px,#c9b78917 16px 17px,transparent 18px 31px);mask-image:linear-gradient(135deg,#000,transparent 72%);pointer-events:none}
+.arrival-language-intro{position:relative;text-align:center;margin-bottom:17px}
+.arrival-globe{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 8px;border-radius:50%;background:#ecece2;color:#124e40}
+.arrival-language-intro h2{font-family:inherit;font-size:calc(28px * var(--public-type-scale,1));line-height:1.5;font-weight:700;margin:0;color:#073e33}
+.arrival-language-intro p{font-size:calc(14px * var(--public-type-scale,1));line-height:1.8;font-weight:400;color:#787e74;margin:4px 0 0}
+.arrival-language-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;direction:ltr}
+.arrival-language-button{display:grid;grid-template-columns:31px minmax(0,1fr) 18px;align-items:center;column-gap:8px;direction:ltr;width:100%;min-width:0;min-height:50px;padding:7px 10px;border:1px solid #e1d7c3;border-radius:10px;background:#fffcf7;box-shadow:none;color:#174538;font-family:inherit;cursor:pointer;text-align:start}
+.arrival-flag{grid-column:1;display:grid;place-items:center;width:31px;height:31px;flex:none}
+.arrival-flag svg,.arrival-flag img{display:block;width:31px;height:31px;max-width:100%;max-height:100%}
+.arrival-language-name{grid-column:2;min-width:0;font-size:calc(13px * var(--public-type-scale,1));line-height:1.5;font-weight:500;overflow-wrap:normal;word-break:normal;text-align:start}
+.arrival-language-status{grid-column:3;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;color:#fff;background:transparent}
+.arrival-language-button.is-speaking,.arrival-language-button.is-selected{border-color:#176b56;background:#edf3e8;box-shadow:inset 0 0 0 1px #176b5620}
+.arrival-language-button.is-speaking .arrival-language-status,.arrival-language-button.is-selected .arrival-language-status{background:#176b56}
+.arrival-language-button:hover{border-color:#176b56;background:#f0f4e9}
+.arrival-more-languages{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;min-height:39px;margin-top:7px;padding:7px;border:1px solid #e1d7c3;border-radius:10px;background:#fffcf7;color:#214b3d;font-family:inherit;font-size:13px;cursor:pointer}
+.arrival-more-languages .is-expanded{transform:rotate(180deg)}
+.arrival-extra-languages{margin-top:7px}
+.arrival-welcome-copy{padding-top:0;min-width:0;text-align:start;color:#0d463a}
+.arrival-eyebrow{font-family:inherit;font-size:calc(clamp(27px,2.5vw,34px) * var(--public-type-scale,1));line-height:1.6;font-weight:600;color:#174a3d;margin:0 0 10px}
+.arrival-welcome-copy h1{font-family:"Noto Naskh Arabic","IBM Plex Sans Arabic",serif;font-size:calc(clamp(53px,5vw,68px) * var(--public-type-scale,1));line-height:1.3;font-weight:700;letter-spacing:0;margin:0;color:#073e33;text-wrap:balance}
+.arrival-welcome-copy h1>span{color:#ad7d2c}
+.arrival-description{font-size:calc(20px * var(--public-type-scale,1));line-height:1.7;color:#174a3c;max-width:31ch;margin:12px 0 0;text-wrap:pretty}
+.arrival-gold-rule{display:block;width:31px;height:2px;background:#af8439;border-radius:2px;margin-top:16px;position:relative}
+.arrival-gold-rule:after{content:"";position:absolute;left:-4px;top:-1px;width:4px;height:4px;transform:rotate(45deg);background:#af8439}
+.arrival-header button:focus-visible,.arrival-language-button:focus-visible,.arrival-more-languages:focus-visible{outline:3px solid #b18b45;outline-offset:3px}
+/* The existing guide is a single persistent sibling, not recreated by this layout. */
+.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{position:absolute;inset:auto 32px 72px auto;display:grid;grid-template-columns:minmax(0,220px) 170px;grid-template-areas:"bubble avatar" "voice voice";width:398px;max-width:calc(100% - 32px);gap:12px 8px;align-items:end;margin:0;direction:ltr;z-index:3}
+.kiosk-welcome .ons-guide-avatar{grid-area:avatar;justify-self:end;align-self:end}
+.kiosk-welcome .ons-guide-character{width:170px;height:202px}
+.kiosk-welcome .ons-guide-bubble{grid-area:bubble;position:relative;width:100%;max-width:none;min-width:0;padding:17px 18px;border:1px solid #d5c09a;border-radius:22px;background:#fffdf5f7;box-shadow:0 7px 18px #29452e0a;direction:rtl;text-align:start;align-self:start}
+.kiosk-welcome .ons-guide-bubble strong{font-size:18px;line-height:1.6;font-weight:650;padding-inline-end:0}
+.kiosk-welcome .ons-guide-bubble p{font-size:14px;line-height:1.85;margin:7px 0 0;color:#254c3e}
+.kiosk-welcome .ons-guide-bubble .ons-guide-language{display:none}
+.kiosk-welcome .ons-guide-avatar>span:not(.ons-guide-move):not(.ons-guide-stage){display:none}
+.kiosk-welcome .ons-guide-close{width:25px;height:25px;inset-inline-start:-6px;inset-inline-end:auto;top:-6px;border-radius:50%;background:#f1f1e6}
+.ons-guide-stage{display:block;animation:ons-follow-step .65s ease-out both}
+@keyframes ons-follow-step{0%{transform:translateX(-20px) translateY(0)}25%{transform:translateX(-13px) translateY(-4px)}50%{transform:translateX(-7px) translateY(0)}75%{transform:translateX(-3px) translateY(-3px)}100%{transform:translateX(0) translateY(0)}}
+@media(max-width:1050px) and (min-width:721px){.arrival-header{padding-inline:28px;gap:12px}.arrival-header-start,.arrival-header-end{gap:10px}.arrival-access>span{display:none}.arrival-layout{grid-template-columns:365px minmax(0,1fr);padding:48px 34px 35px;column-gap:42px}.arrival-language-panel{padding:20px}.arrival-welcome-copy h1{font-size:calc(53px * var(--public-type-scale,1))}.arrival-description{font-size:calc(18px * var(--public-type-scale,1))}.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{right:22px;width:350px;grid-template-columns:minmax(0,195px) 147px}.kiosk-welcome .ons-guide-character{width:147px;height:175px}}
+@media(max-width:720px){.arrival-header{grid-template-columns:1fr auto;grid-template-rows:auto auto;height:auto;min-height:90px;padding:11px 16px;gap:6px 12px;border-radius:0 0 22px 22px}.arrival-logo{grid-column:2;grid-row:1 / 3;width:70px;height:64px}.arrival-header-start{grid-column:1;grid-row:1;gap:10px;flex-wrap:wrap}.arrival-header-end{grid-column:1;grid-row:2;justify-self:start;gap:10px}.arrival-header-end>.arrival-divider{display:none}.arrival-access>span{display:none}.arrival-device{min-height:36px;font-size:12px}.arrival-current-language{font-size:12px}.arrival-layout{display:flex;flex-direction:column;gap:28px;padding:28px 20px 25px;min-height:auto}.arrival-welcome-copy{order:0;align-self:stretch}.arrival-eyebrow{font-size:calc(25px * var(--public-type-scale,1))}.arrival-welcome-copy h1{font-size:calc(45px * var(--public-type-scale,1));line-height:1.4}.arrival-description{font-size:calc(17px * var(--public-type-scale,1));line-height:1.8;max-width:35ch;margin-top:8px}.arrival-language-panel{order:1;width:100%;max-width:480px;max-height:none;align-self:center;padding:22px;border-radius:24px}.arrival-language-button{min-height:54px}.arrival-language-name{font-size:calc(13px * var(--public-type-scale,1))}.arrival-language-intro h2{font-size:calc(26px * var(--public-type-scale,1))}.arrival-access-panel{right:14px;width:min(270px,calc(100vw - 28px))}.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{position:relative;inset:auto;width:min(398px,calc(100% - 32px));grid-template-columns:minmax(0,1fr) 142px;align-self:center;margin:0 auto 24px}.kiosk-welcome .ons-guide-character{width:142px;height:169px}}
+@media(prefers-reduced-motion:reduce){.ons-guide-stage{animation:none}}
+
+.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{width:345px;grid-template-columns:minmax(0,200px) 137px}
+.kiosk-welcome .ons-guide-character{width:137px;height:163px}
+.kiosk-welcome .ons-guide-bubble{padding:12px 14px}
+.kiosk-welcome .ons-guide-bubble strong{font-size:16px}
+.kiosk-welcome .ons-guide-bubble p{font-size:13px;line-height:1.75;margin-bottom:0}
+@media(max-width:720px){.kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{width:min(345px,calc(100% - 32px));grid-template-columns:minmax(0,1fr) 110px}.kiosk-welcome .ons-guide-character{width:110px;height:131px}}
+
+.arrival-eyebrow{display:flex;align-items:center;gap:12px;font-family:"Noto Naskh Arabic","IBM Plex Sans Arabic",serif;font-weight:700;line-height:1.8}
+.arrival-eyebrow::before{content:"✦";color:#af8439;font-size:.48em;flex:none}
+.arrival-description{font-weight:700;line-height:2;word-spacing:.08em;margin-top:18px}
+
+.arrival-welcome-copy{text-align:center}
+.arrival-eyebrow{justify-content:center}
+.arrival-description{margin-inline:auto}
+.arrival-gold-rule{margin-inline:auto}
+
+/* Center the welcome copy on the viewport, independently of the language card. */
+@media(min-width:1051px){
+ .arrival-layout{grid-template-columns:min(27vw,360px) minmax(0,1fr);column-gap:24px}
+ .arrival-welcome-copy{position:absolute;top:108px;left:50%;transform:translateX(-50%);width:calc(100% - 2 * (min(27vw,360px) + 78px));max-width:700px}
+ .arrival-language-panel{padding-inline:18px}
+ .arrival-description{max-width:none}
+}
+@media(min-width:721px) and (max-width:1050px){
+ .arrival-layout{grid-template-columns:280px minmax(0,1fr);column-gap:24px}
+ .arrival-welcome-copy{position:absolute;top:48px;left:50%;transform:translateX(-50%);width:calc(100% - 2 * 322px)}
+ .arrival-welcome-copy h1{font-size:calc(42px * var(--public-type-scale,1))}
+ .arrival-eyebrow{font-size:calc(25px * var(--public-type-scale,1))}
+ .arrival-description{font-size:calc(17px * var(--public-type-scale,1));max-width:none}
+}
+
+@media(min-width:721px) and (max-width:1050px){
+ .arrival-layout{display:flex;flex-direction:column;gap:28px}
+ .arrival-welcome-copy{position:static;transform:none;width:100%;max-width:650px;align-self:center;order:0;margin-top:28px}
+ .arrival-language-panel{order:1;width:420px;max-width:100%;max-height:none;align-self:center}
+ .kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{position:relative;inset:auto;margin:0 auto 24px}
+}
+@media(max-width:720px){.arrival-welcome-copy{margin-top:24px}}
+
+/* A dragged guide must not inherit the welcome screen's opposing anchors. */
+.kiosk-terminal>.ons-kiosk-guide.is-positioned{display:grid;grid-template-columns:minmax(0,1fr) 105px;grid-template-areas:"bubble avatar" "voice voice";direction:ltr;align-items:end;gap:8px}
+.ons-kiosk-guide.is-positioned .ons-guide-avatar{grid-area:avatar;justify-self:end}
+.ons-kiosk-guide.is-positioned .ons-guide-bubble{grid-area:bubble;min-width:0;width:100%;direction:rtl;align-self:start}
+.ons-kiosk-guide.is-positioned .ons-guide-character{width:105px;height:125px}
+.ons-kiosk-guide.is-positioned .ons-welcome-voice-controls{grid-area:voice}
+/* Reserve the companion's own row below the menu instead of covering choices. */
+.kiosk-terminal.kiosk-menu .kiosk-service-screen{flex:0 0 auto;width:min(100%,1100px);margin:14px auto 0;padding:16px 28px 14px}
+.kiosk-menu .kiosk-screen-heading{text-align:center;margin:0 auto 24px}
+.kiosk-menu .kiosk-screen-heading h1{font-size:clamp(30px,3.4vw,45px);line-height:1.5;margin:0 0 12px}
+.kiosk-menu .kiosk-screen-heading p{font-size:clamp(17px,1.7vw,22px);line-height:1.8;margin:0 auto;max-width:60ch}
+.kiosk-terminal.kiosk-menu .kiosk-service-grid{width:100%;margin-inline:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;direction:ltr}
+.kiosk-terminal.kiosk-menu .kiosk-service-tile{min-height:250px;height:auto;padding:22px 18px;gap:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:24px;direction:rtl}
+.kiosk-menu .kiosk-service-icon{width:62px;height:62px;flex:0 0 62px;border-radius:20px}
+.kiosk-menu .kiosk-service-icon svg{width:32px;height:32px}
+.kiosk-menu .kiosk-service-copy{flex:0 0 auto;gap:10px;justify-items:center}
+.kiosk-menu .kiosk-service-copy b{font-size:clamp(19px,1.8vw,25px);line-height:1.6}
+.kiosk-menu .kiosk-service-copy small{font-size:16px;line-height:1.75;max-width:28ch}
+.kiosk-menu .kiosk-service-action{width:44px;height:44px;min-height:44px;flex:0 0 44px}
+.kiosk-terminal.kiosk-menu>.ons-kiosk-guide:not(.is-positioned){position:relative;inset:auto;width:fit-content;max-width:calc(100% - 32px);margin:8px auto 18px;align-items:center;z-index:2}
+@media(max-width:720px){
+ .kiosk-terminal.kiosk-menu .kiosk-service-grid{grid-template-columns:1fr;gap:12px}
+ .kiosk-terminal.kiosk-menu .kiosk-service-tile{min-height:132px;padding:18px;display:grid;grid-template-columns:50px minmax(0,1fr) 38px;gap:14px;text-align:start}
+ .kiosk-menu .kiosk-service-icon{width:50px;height:50px}
+ .kiosk-menu .kiosk-service-copy{justify-items:start}
+ .kiosk-menu .kiosk-service-copy b{font-size:20px}
+ .kiosk-menu .kiosk-service-copy small{font-size:15px}
+ .kiosk-menu .kiosk-service-action{width:38px;height:38px;min-height:38px}
+}

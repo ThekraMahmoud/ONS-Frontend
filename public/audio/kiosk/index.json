@@ -1,0 +1,587 @@
+{
+  "ar": {
+    "welcome": "/audio/kiosk/ar.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/ar-steps.mp3",
+      "start": 0,
+      "end": 6.68,
+      "text": "اختر الخدمة التي تحتاجها: مساعدة، أو أقرب دورة مياه، أو أقرب بوابة."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/ar-steps.mp3",
+      "start": 6.68,
+      "end": 13.89,
+      "text": "للتعريف بك، أظهر بطاقة نسك أمام الكاميرا، أو أدخل رقم البطاقة يدويًا."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 0,
+      "end": 4.84,
+      "text": "ضع بطاقة نسك كاملة أمام الكاميرا، وانتظر قراءة الرمز."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 4.84,
+      "end": 9.78,
+      "text": "اكتب رقم بطاقة نسك كما يظهر عليها، ثم اضغط بحث."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/ar-steps.mp3",
+      "start": 19.72,
+      "end": 27.54,
+      "text": "تابع حالة طلبك هنا. امسح رمز المتابعة بجوالك، واضغط تحديث لمعرفة الجديد."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/ar-steps.mp3",
+      "start": 13.89,
+      "end": 19.72,
+      "text": "راجع البيانات المعروضة، ثم أكّدها وأرسل طلب المساعدة."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/ar-steps.mp3",
+      "start": 27.54,
+      "end": 34.194,
+      "text": "انتظر نتيجة البحث، ثم اتبع الاتجاهات المعروضة. يمكنك فتح الموقع على الخريطة."
+    }
+  },
+  "en": {
+    "welcome": "/audio/kiosk/en.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/en-steps.mp3",
+      "start": 0,
+      "end": 5.16,
+      "text": "Choose the help you need: assistance, a restroom, or a gate."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/en-steps.mp3",
+      "start": 5.16,
+      "end": 10.77,
+      "text": "Show your Nusuk card to the camera, or enter its number by hand."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 9.78,
+      "end": 14.97,
+      "text": "Hold your whole Nusuk card in front of the camera. Wait for the code to be read."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 14.97,
+      "end": 19.27,
+      "text": "Type the number printed on your Nusuk card, then tap search."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/en-steps.mp3",
+      "start": 10.77,
+      "end": 16.19,
+      "text": "Check your details, confirm them, then send your request for help."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/en-steps.mp3",
+      "start": 16.19,
+      "end": 23.25,
+      "text": "Check your request here. Scan the tracking code with your phone. Tap refresh for updates."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/en-steps.mp3",
+      "start": 23.25,
+      "end": 29.231,
+      "text": "Wait for the search, then follow the directions shown. You can open the location on the map."
+    }
+  },
+  "ur": {
+    "welcome": "/audio/kiosk/ur.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/ur-steps.mp3",
+      "start": 0,
+      "end": 5.17,
+      "text": "اپنی ضرورت منتخب کریں: مدد، بیت الخلا یا دروازہ۔"
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/ur-steps.mp3",
+      "start": 5.17,
+      "end": 10.22,
+      "text": "نسک کارڈ کیمرے کے سامنے دکھائیں، یا اس کا نمبر لکھیں۔"
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 19.27,
+      "end": 24.24,
+      "text": "نسک کارڈ پورا کیمرے کے سامنے رکھیں۔ کوڈ پڑھنے کا انتظار کریں۔"
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 24.24,
+      "end": 28.76,
+      "text": "نسک کارڈ پر لکھا نمبر درج کریں، پھر تلاش کا بٹن دبائیں۔"
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/ur-steps.mp3",
+      "start": 10.22,
+      "end": 15.53,
+      "text": "اپنی معلومات دیکھیں، تصدیق کریں، پھر مدد کی درخواست بھیجیں۔"
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/ur-steps.mp3",
+      "start": 15.53,
+      "end": 22.76,
+      "text": "اپنی درخواست یہاں دیکھیں۔ فون سے کوڈ اسکین کریں۔ نئی حالت کے لیے تازہ کریں دبائیں۔"
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/ur-steps.mp3",
+      "start": 22.76,
+      "end": 29.231,
+      "text": "تلاش مکمل ہونے دیں، پھر دکھائی گئی ہدایات دیکھیں۔ جگہ نقشے پر کھول سکتے ہیں۔"
+    }
+  },
+  "fr": {
+    "welcome": "/audio/kiosk/fr.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/fr-steps.mp3",
+      "start": 0,
+      "end": 3.65,
+      "text": "Choisissez une aide, les toilettes ou une porte."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/fr-steps.mp3",
+      "start": 3.65,
+      "end": 8.75,
+      "text": "Montrez votre carte Nusuk à la caméra, ou saisissez son numéro."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 28.76,
+      "end": 33.7,
+      "text": "Placez toute la carte Nusuk devant la caméra. Attendez la lecture du code."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 33.7,
+      "end": 39.12,
+      "text": "Saisissez le numéro inscrit sur la carte Nusuk, puis appuyez sur rechercher."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/fr-steps.mp3",
+      "start": 8.75,
+      "end": 14.14,
+      "text": "Vérifiez vos informations, confirmez-les, puis envoyez votre demande d’aide."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/fr-steps.mp3",
+      "start": 14.14,
+      "end": 20.85,
+      "text": "Suivez votre demande ici. Scannez le code avec votre téléphone. Actualisez pour voir les nouveautés."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/fr-steps.mp3",
+      "start": 20.85,
+      "end": 26.279,
+      "text": "Attendez la recherche, puis suivez les indications. Vous pouvez ouvrir le lieu sur la carte."
+    }
+  },
+  "id": {
+    "welcome": "/audio/kiosk/id.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/id-steps.mp3",
+      "start": 0,
+      "end": 3.44,
+      "text": "Pilih bantuan, toilet, atau gerbang."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/id-steps.mp3",
+      "start": 3.44,
+      "end": 7.92,
+      "text": "Tunjukkan kartu Nusuk ke kamera, atau ketik nomornya."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 39.12,
+      "end": 44.11,
+      "text": "Letakkan seluruh kartu Nusuk di depan kamera. Tunggu kode terbaca."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 44.11,
+      "end": 47.93,
+      "text": "Ketik nomor pada kartu Nusuk, lalu tekan cari."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/id-steps.mp3",
+      "start": 7.92,
+      "end": 12.77,
+      "text": "Periksa data Anda, konfirmasi, lalu kirim permintaan bantuan."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/id-steps.mp3",
+      "start": 12.77,
+      "end": 19.53,
+      "text": "Pantau permintaan di sini. Pindai kode dengan ponsel. Tekan perbarui untuk melihat perubahan."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/id-steps.mp3",
+      "start": 19.53,
+      "end": 24.764,
+      "text": "Tunggu pencarian, lalu ikuti petunjuk. Lokasinya bisa dibuka di peta."
+    }
+  },
+  "tr": {
+    "welcome": "/audio/kiosk/tr.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/tr-steps.mp3",
+      "start": 0,
+      "end": 3.21,
+      "text": "Yardım, tuvalet veya kapı seçin."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/tr-steps.mp3",
+      "start": 3.21,
+      "end": 8.21,
+      "text": "Nusuk kartınızı kameraya gösterin veya kart numarasını yazın."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 47.93,
+      "end": 52.72,
+      "text": "Nusuk kartının tamamını kameraya gösterin. Kodun okunmasını bekleyin."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 52.72,
+      "end": 57.34,
+      "text": "Nusuk kartında yazan numarayı girin, ardından ara düğmesine basın."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/tr-steps.mp3",
+      "start": 8.21,
+      "end": 12.96,
+      "text": "Bilgilerinizi kontrol edin, onaylayın ve yardım isteğinizi gönderin."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/tr-steps.mp3",
+      "start": 12.96,
+      "end": 18.83,
+      "text": "İsteğinizi buradan takip edin. Kodu telefonunuzla tarayın. Güncellemeler için yenileyin."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/tr-steps.mp3",
+      "start": 18.83,
+      "end": 24.033,
+      "text": "Aramayı bekleyin, sonra yönlendirmeleri izleyin. Konumu haritada açabilirsiniz."
+    }
+  },
+  "bn": {
+    "welcome": "/audio/kiosk/bn.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/bn-steps.mp3",
+      "start": 0,
+      "end": 3.91,
+      "text": "সাহায্য, শৌচাগার অথবা প্রবেশদ্বার বেছে নিন।"
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/bn-steps.mp3",
+      "start": 3.91,
+      "end": 8.7,
+      "text": "নুসুক কার্ড ক্যামেরায় দেখান, অথবা কার্ডের নম্বর লিখুন।"
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 57.34,
+      "end": 62.28,
+      "text": "সম্পূর্ণ নুসুক কার্ড ক্যামেরার সামনে ধরুন। কোড পড়ার অপেক্ষা করুন।"
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 62.28,
+      "end": 66.4,
+      "text": "নুসুক কার্ডে লেখা নম্বর লিখুন, তারপর অনুসন্ধান চাপুন।"
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/bn-steps.mp3",
+      "start": 8.7,
+      "end": 13.79,
+      "text": "আপনার তথ্য দেখুন, নিশ্চিত করুন, তারপর সাহায্যের অনুরোধ পাঠান।"
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/bn-steps.mp3",
+      "start": 13.79,
+      "end": 20.66,
+      "text": "আপনার অনুরোধ এখানে দেখুন। ফোন দিয়ে কোড স্ক্যান করুন। নতুন অবস্থার জন্য রিফ্রেশ চাপুন।"
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/bn-steps.mp3",
+      "start": 20.66,
+      "end": 27.559,
+      "text": "খোঁজা শেষ হওয়া পর্যন্ত অপেক্ষা করুন, তারপর নির্দেশনা দেখুন। স্থানটি মানচিত্রে খুলতে পারেন।"
+    }
+  },
+  "fa": {
+    "welcome": "/audio/kiosk/fa.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/fa-steps.mp3",
+      "start": 0,
+      "end": 4.79,
+      "text": "کمک، سرویس بهداشتی یا دروازه را انتخاب کنید."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/fa-steps.mp3",
+      "start": 4.79,
+      "end": 10.43,
+      "text": "کارت نسک را به دوربین نشان دهید، یا شماره کارت را بنویسید."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 66.4,
+      "end": 71.6,
+      "text": "تمام کارت نسک را جلوی دوربین بگیرید. منتظر خواندن کد بمانید."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 71.6,
+      "end": 76.2,
+      "text": "شماره روی کارت نسک را بنویسید، سپس جست‌وجو را بزنید."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/fa-steps.mp3",
+      "start": 10.43,
+      "end": 16.68,
+      "text": "اطلاعات خود را بررسی و تأیید کنید، سپس درخواست کمک را بفرستید."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/fa-steps.mp3",
+      "start": 16.68,
+      "end": 26.21,
+      "text": "درخواست خود را اینجا دنبال کنید. کد را با تلفن اسکن کنید. برای تازه شدن وضعیت، به‌روزرسانی را بزنید."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/fa-steps.mp3",
+      "start": 26.21,
+      "end": 34.194,
+      "text": "منتظر جست‌وجو بمانید، سپس راهنمای مسیر را ببینید. می‌توانید مکان را روی نقشه باز کنید."
+    }
+  },
+  "ha": {
+    "welcome": "/audio/kiosk/ha.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/ha-steps.mp3",
+      "start": 0,
+      "end": 3.31,
+      "text": "Zaɓi taimako, bandaki ko ƙofa."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/ha-steps.mp3",
+      "start": 3.31,
+      "end": 7.71,
+      "text": "Nuna katin Nusuk ga kyamara, ko rubuta lambarsa."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 76.2,
+      "end": 80.45,
+      "text": "Nuna duk katin Nusuk ga kyamara. Jira a karanta lambar."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 80.45,
+      "end": 84.68,
+      "text": "Rubuta lambar da ke kan katin Nusuk, sannan danna bincika."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/ha-steps.mp3",
+      "start": 7.71,
+      "end": 12.67,
+      "text": "Duba bayananku, tabbatar da su, sannan aika neman taimako."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/ha-steps.mp3",
+      "start": 12.67,
+      "end": 18.66,
+      "text": "Bi buƙatarku a nan. Duba lambar da wayarku. Danna sabuntawa don ganin canji."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/ha-steps.mp3",
+      "start": 18.66,
+      "end": 23.484,
+      "text": "Jira binciken, sannan bi umarnin. Kuna iya buɗe wurin a taswira."
+    }
+  },
+  "sw": {
+    "welcome": "/audio/kiosk/sw.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/sw-steps.mp3",
+      "start": 0,
+      "end": 2.96,
+      "text": "Chagua msaada, choo au lango."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/sw-steps.mp3",
+      "start": 2.96,
+      "end": 7.83,
+      "text": "Onyesha kadi ya Nusuk kwenye kamera, au andika nambari yake."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 84.68,
+      "end": 89.62,
+      "text": "Weka kadi nzima ya Nusuk mbele ya kamera. Subiri msimbo usomwe."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 89.62,
+      "end": 94.23,
+      "text": "Andika nambari iliyo kwenye kadi ya Nusuk, kisha bonyeza tafuta."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/sw-steps.mp3",
+      "start": 7.83,
+      "end": 13.13,
+      "text": "Kagua taarifa zako, zithibitishe, kisha tuma ombi la msaada."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/sw-steps.mp3",
+      "start": 13.13,
+      "end": 19.8,
+      "text": "Fuatilia ombi hapa. Changanua msimbo kwa simu yako. Bonyeza sasisha kwa taarifa mpya."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/sw-steps.mp3",
+      "start": 19.8,
+      "end": 25.887,
+      "text": "Subiri utafutaji, kisha fuata maelekezo. Unaweza kufungua eneo kwenye ramani."
+    }
+  },
+  "zh": {
+    "welcome": "/audio/kiosk/zh.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/zh-steps.mp3",
+      "start": 0,
+      "end": 3.47,
+      "text": "请选择求助、洗手间或出入口。"
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/zh-steps.mp3",
+      "start": 3.47,
+      "end": 8.3,
+      "text": "请把 Nusuk 卡放在摄像头前，或者手动输入卡号。"
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 94.23,
+      "end": 98.96,
+      "text": "请把整张 Nusuk 卡放在摄像头前，等待识别二维码。"
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 98.96,
+      "end": 103.23,
+      "text": "请输入 Nusuk 卡上印的卡号，然后点击搜索。"
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/zh-steps.mp3",
+      "start": 8.3,
+      "end": 12.57,
+      "text": "请核对个人信息，确认后发送求助申请。"
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/zh-steps.mp3",
+      "start": 12.57,
+      "end": 18.84,
+      "text": "在这里查看申请状态。用手机扫描跟踪码，点击刷新查看更新。"
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/zh-steps.mp3",
+      "start": 18.84,
+      "end": 24.842,
+      "text": "请等待搜索结果，然后查看路线指引。您也可以在地图上打开位置。"
+    }
+  },
+  "ru": {
+    "welcome": "/audio/kiosk/ru.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/ru-steps.mp3",
+      "start": 0,
+      "end": 3.38,
+      "text": "Выберите помощь, туалет или выход."
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/ru-steps.mp3",
+      "start": 3.38,
+      "end": 8.11,
+      "text": "Покажите карту Нусук камере или введите номер карты."
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 103.23,
+      "end": 107.77,
+      "text": "Покажите камере всю карту Нусук. Дождитесь чтения кода."
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 107.77,
+      "end": 111.51,
+      "text": "Введите номер с карты Нусук и нажмите поиск."
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/ru-steps.mp3",
+      "start": 8.11,
+      "end": 13.11,
+      "text": "Проверьте данные, подтвердите их и отправьте запрос о помощи."
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/ru-steps.mp3",
+      "start": 13.11,
+      "end": 20.28,
+      "text": "Следите за запросом здесь. Сканируйте код телефоном. Нажмите обновить для новой информации."
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/ru-steps.mp3",
+      "start": 20.28,
+      "end": 25.548,
+      "text": "Дождитесь поиска и следуйте указаниям. Место можно открыть на карте."
+    }
+  },
+  "am": {
+    "welcome": "/audio/kiosk/am.mp3",
+    "menu": {
+      "src": "/audio/kiosk/guides/am-steps.mp3",
+      "start": 0,
+      "end": 3.71,
+      "text": "እርዳታ፣ መጸዳጃ ቤት ወይም በር ይምረጡ።"
+    },
+    "assistance": {
+      "src": "/audio/kiosk/guides/am-steps.mp3",
+      "start": 3.71,
+      "end": 8.67,
+      "text": "የኑሱክ ካርድዎን ለካሜራው ያሳዩ፣ ወይም ቁጥሩን ይጻፉ።"
+    },
+    "identity-qr": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 111.51,
+      "end": 116.67,
+      "text": "ሙሉ የኑሱክ ካርድዎን በካሜራው ፊት ያድርጉ። ኮዱ እስኪነበብ ይጠብቁ።"
+    },
+    "identity-manual": {
+      "src": "/audio/kiosk/guides/identity-all.mp3",
+      "start": 116.67,
+      "end": 121.078,
+      "text": "በኑሱክ ካርድ ላይ ያለውን ቁጥር ይጻፉ፣ ከዚያ ፈልግ ይጫኑ።"
+    },
+    "identity-review": {
+      "src": "/audio/kiosk/guides/am-steps.mp3",
+      "start": 8.67,
+      "end": 13.29,
+      "text": "መረጃዎን ያረጋግጡ፣ ከዚያ የእርዳታ ጥያቄዎን ይላኩ።"
+    },
+    "report-tracking": {
+      "src": "/audio/kiosk/guides/am-steps.mp3",
+      "start": 13.29,
+      "end": 19.5,
+      "text": "ጥያቄዎን እዚህ ይከታተሉ። ኮዱን በስልክዎ ይቃኙ። አዲስ ሁኔታ ለማየት ያድሱ።"
+    },
+    "places": {
+      "src": "/audio/kiosk/guides/am-steps.mp3",
+      "start": 19.5,
+      "end": 25.469,
+      "text": "ፍለጋውን ይጠብቁ፣ ከዚያ መመሪያውን ይከተሉ። ቦታውን በካርታ ማየት ይችላሉ።"
+    }
+  }
+}
