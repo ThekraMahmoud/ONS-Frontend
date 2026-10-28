@@ -6,7 +6,7 @@ import {buildReportTrackingLink,getReportShareOrigin} from "../utils/reportShare
 import "../styles/ReportShare.css";
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import {
-  ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, Copy, DoorOpen, Home, Languages, LifeBuoy,
+  ArrowLeft, ArrowRight, CheckCircle2, Copy, DoorOpen, Home, Languages, LifeBuoy,
   MapPin, QrCode, RefreshCw, Search, ShieldCheck, Toilet, UserRound, X,
 } from "lucide-react";
 import logo from "../assets/logos/ons-logo-optimized.png";
@@ -24,6 +24,8 @@ import "../styles/KioskTextSize.css";
 import "../styles/KioskPublicPolish.css";
 import "../styles/KioskReferenceWelcome.css";
 import "../styles/KioskArrival.css";
+import "../styles/KioskResponsive.css";
+import "../styles/KioskTrackingTicket.css";
 
 const primaryLanguageCodes = ["ar", "en", "ur", "id", "tr", "fr", "fa", "sw"];
 const DEVICE_SESSION_KEY = "ons-pilgrim-kiosk-device";
@@ -166,7 +168,7 @@ function PilgrimKioskPage() {
   const [qrPayload, setQrPayload] = useState("");
   const [qrStatus, setQrStatus] = useState("idle");
   const [qrError, setQrError] = useState("");
-  const [qrIdentificationRequest, setQrIdentificationRequest] = useState(null);
+  const [, setQrIdentificationRequest] = useState(null);
   const [cameraRetryToken, setCameraRetryToken] = useState(0);
   const [manualCardNumber, setManualCardNumber] = useState("");
   const [manualStatus, setManualStatus] = useState("idle");
@@ -636,11 +638,11 @@ function PilgrimKioskPage() {
       )}
 
       {screen === "identity" && (
-        <section className="kiosk-flow-screen" aria-labelledby="kiosk-flow-title">
-          <div className={`kiosk-flow-card kiosk-result-card${identityMethod === "qr" ? " is-scanner-card" : " is-manual-card"}`}>
+        <section className={`kiosk-flow-screen${pilgrimRecord ? " is-review-screen" : ""}`} aria-labelledby="kiosk-flow-title">
+          <div className={`kiosk-flow-card kiosk-result-card${identityMethod === "qr" ? " is-scanner-card" : " is-manual-card"}${pilgrimRecord ? ` is-record-review${detailsConfirmed ? " is-request-ready" : ""}` : ""}`}>
             <button type="button" className="kiosk-inline-close" aria-label={t.back} onClick={goBack}><X size={21} /></button>
             <span className="kiosk-flow-step">{identityMethod === "qr" ? <><QrCode size={22} />{t.scan}</> : <><UserRound size={22} />{t.manual}</>}</span>
-            <h1 id="kiosk-flow-title">{identityMethod === "qr" ? (qrPayload ? t.qrCapturedTitle : t.scan) : t.manual}</h1>
+            <h1 id="kiosk-flow-title">{detailsConfirmed ? t.helpTitle : pilgrimRecord && locale.code === "ar" ? "هل هذه بياناتك؟" : identityMethod === "qr" ? (qrPayload ? t.qrCapturedTitle : t.scan) : t.manual}</h1>
 
 
             {identityMethod === "qr" && !qrPayload && <QrCameraScanner
@@ -692,28 +694,27 @@ function PilgrimKioskPage() {
                 <button type="button" className="kiosk-retry-button kiosk-track-report-button" onClick={() => setScreen("report-tracking")}><Search size={18} />{t.reportTrackButton}</button>
                 <button type="button" className="kiosk-retry-button" onClick={resetSession}><Home size={18} />{t.home}</button>
               </div> : <>
-                <dl>
-                  <div><dt>{t.manualName}</dt><dd>{pilgrimRecord?.fullName || pilgrimRecord?.FullName || "—"}</dd></div>
+                {!detailsConfirmed ? <dl>
+                  <div className="kiosk-review-name"><dt>{t.manualName}</dt><dd>{pilgrimRecord?.fullName || pilgrimRecord?.FullName || "—"}</dd></div>
                   <div><dt>{t.manualNationality}</dt><dd>{pilgrimRecord?.nationality || pilgrimRecord?.Nationality || "—"}</dd></div>
                   {(pilgrimRecord?.phoneNumber || pilgrimRecord?.PhoneNumber) && <div><dt>{t.manualPhoneNumber}</dt><dd dir="ltr">{pilgrimRecord.phoneNumber ?? pilgrimRecord.PhoneNumber}</dd></div>}
                   {(pilgrimRecord?.visaNumber || pilgrimRecord?.VisaNumber) && <div><dt>{t.manualVisaNumber}</dt><dd dir="ltr">{maskSensitiveValue(pilgrimRecord.visaNumber ?? pilgrimRecord.VisaNumber)}</dd></div>}
                   {(pilgrimRecord?.campaignName || pilgrimRecord?.CampaignName) && <div><dt>{t.manualCampaignName}</dt><dd>{pilgrimRecord.campaignName || pilgrimRecord.CampaignName}</dd></div>}
                   {getPilgrimCampaignId(pilgrimRecord) != null && <div><dt>{t.manualCampaignId}</dt><dd dir="ltr">{getPilgrimCampaignId(pilgrimRecord)}</dd></div>}
-                </dl>
+                </dl> : <div className="kiosk-request-person">
+                  <span className="kiosk-request-person-icon"><UserRound size={22}/></span>
+                  <div><strong>{pilgrimRecord?.fullName || pilgrimRecord?.FullName || "—"}</strong><small>{pilgrimRecord?.nationality || pilgrimRecord?.Nationality}</small></div>
+                  <button type="button" onClick={()=>setDetailsConfirmed(false)} disabled={reportStatus === "loading"}>{locale.code === "ar" ? "مراجعة البيانات" : t.back}</button>
+                </div>}
                 {!detailsConfirmed ? <>
-              <p className="kiosk-manual-notice">{identityMethod === "qr"
-                ? (locale.code === "ar"
-                  ? `تم التحقق من البطاقة وحفظ طلب المسح في النظام${qrIdentificationRequest?.requestId || qrIdentificationRequest?.RequestId ? ` (رقم الطلب: ${qrIdentificationRequest.requestId ?? qrIdentificationRequest.RequestId})` : ""}.`
-                  : `The card was verified and its scan request was saved${qrIdentificationRequest?.requestId || qrIdentificationRequest?.RequestId ? ` (request #${qrIdentificationRequest.requestId ?? qrIdentificationRequest.RequestId})` : ""}.`)
-                : (locale.code === "ar" ? "تم التحقق من رقم البطاقة لدى الخادم وربطه بسجل الحاج." : locale.code === "en" ? "The server verified the card and matched it to the pilgrim record." : t.manualRecordNotice)}</p>
+              <p className="kiosk-manual-notice">{locale.code === "ar" ? "تم العثور على بيانات البطاقة. راجعها قبل التأكيد." : locale.code === "en" ? "Card details found. Review them before confirming." : t.manualRecordNotice}</p>
                   <div className="kiosk-confirm-actions">
                     <button type="button" className="kiosk-retry-button" onClick={confirmPilgrimDetails}>{t.manualConfirm}</button>
                     <button type="button" className="kiosk-scanner-cancel" onClick={() => { setManualStatus("idle"); setPilgrimRecord(null); setDetailsConfirmed(false); setReportStatus("idle"); setReportError(""); setReportCaseNumber(""); setCreatedReportId(null); }}>{t.manualReject}</button>
                   </div>
                 </> : <section className="kiosk-report-submit-panel" aria-labelledby="kiosk-report-submit-title">
-                  <div className="kiosk-manual-confirmed"><b><ShieldCheck size={17} />{t.manualConfirmedTitle}</b><span>{t.manualConfirmStatus}</span></div>
-                  <h2 id="kiosk-report-submit-title">{t.reportStepTitle}</h2>
-                  <p>{t.reportRoutingNote}</p>
+                  <div className="kiosk-request-intro"><h2 id="kiosk-report-submit-title">{locale.code === "ar" ? "إرسال الطلب" : t.reportStepTitle}</h2><p>{locale.code === "ar" ? "أرسل الطلب إلى حملتك، ثم تابع حالته بالرمز الذي سيظهر لك." : t.reportRoutingNote}</p></div>
+                  {device.record?.locationName && <div className="kiosk-request-location"><MapPin size={18}/><div><span>{locale.code === "ar" ? "موقع الجهاز" : "Kiosk location"}</span><b>{device.record.locationName}</b></div></div>}
                   {!pilgrimRecord?.cardNumber && !pilgrimRecord?.CardNumber && !pilgrimRecord?.card_number && <span className="kiosk-report-error" role="status">{locale.code === "ar" ? "سجل الحاج لا يحتوي على رقم بطاقة، لذلك لا يمكن إرسال البلاغ بهذه الطريقة." : "This pilgrim record has no card number, so this report cannot be submitted."}</span>}
 
                   {!linkedCampaignId && <span className="kiosk-report-error" role="alert">{t.reportCampaignUnavailable}</span>}
@@ -723,7 +724,7 @@ function PilgrimKioskPage() {
                     {reportStatus === "loading" ? t.reportSubmitting : t.reportCreate}
                   </button>
                 </section>}
-                <button type="button" className="kiosk-scanner-cancel" onClick={() => { setManualStatus("idle"); setPilgrimRecord(null); setDetailsConfirmed(false); setReportStatus("idle"); setReportError(""); setReportCaseNumber(""); setCreatedReportId(null); }}>{t.startLookupAgain}</button>
+                {!detailsConfirmed && <button type="button" className="kiosk-scanner-cancel" onClick={() => { setManualStatus("idle"); setPilgrimRecord(null); setDetailsConfirmed(false); setReportStatus("idle"); setReportError(""); setReportCaseNumber(""); setCreatedReportId(null); }}>{t.startLookupAgain}</button>}
               </>}
             </div>}
           </div>
@@ -731,72 +732,46 @@ function PilgrimKioskPage() {
       )}
 
       {screen === "report-tracking" && (
-        <section className="kiosk-flow-screen kiosk-success-layout" aria-labelledby="kiosk-success-title">
-          <div className="kiosk-success-page">
-            <header className="kiosk-success-heading">
-              <span className="kiosk-report-success-icon"><CheckCircle2 size={38} /></span>
-              <div>
-                <span className="kiosk-success-eyebrow">ONS · {t.reportIdLabel}</span>
-                <h1 id="kiosk-success-title">{t.reportSuccessTitle}</h1>
-                <p>{locale.code === "ar" ? "تم تسجيل بلاغك بنجاح. يمكنك متابعة حالة طلبك في أي وقت." : t.reportSuccessMessage}</p>
-              </div>
+        <section className="kiosk-flow-screen kiosk-tracking-screen" aria-labelledby="kiosk-success-title">
+          <div className="kiosk-tracking-ticket">
+            <header className="tracking-ticket-heading">
+              <span className="tracking-ticket-check"><CheckCircle2 size={29}/></span>
+              <div><h1 id="kiosk-success-title">{t.reportSuccessTitle}</h1><p>{locale.code === "ar" ? "طلبك وصلنا. احتفظ برقم البلاغ، وتابع مستجداته من هنا أو من جوالك." : t.reportSuccessMessage}</p></div>
             </header>
-
-            <div className="kiosk-success-grid">
-              <article className="kiosk-success-panel kiosk-report-details-panel">
-                <div className="kiosk-success-panel-heading">
-                  <span className="kiosk-success-panel-icon"><ClipboardList size={23} /></span>
-                  <div><h2>{t.reportInfoTitle}</h2><p>{t.reportInfoHint}</p></div>
-                </div>
-                <div className="kiosk-success-reference">
-                  <span>{trackedReportId != null ? t.reportIdLabel : t.reportReference}</span>
-                  <strong dir="ltr">{trackedReportId ?? reportCaseNumber}</strong>
-                  {trackedReportId != null && reportCaseNumber && <div className="kiosk-case-reference">
-                    <div><span>{t.reportCaseLabel}</span><code dir="ltr">{reportCaseNumber}</code></div>
-                    <button type="button" onClick={copyReportReference} aria-label={`${t.reportCopy} ${t.reportCaseLabel}`} title={t.reportCopy}>
-                      <Copy size={16} />{referenceCopied ? t.reportCopied : t.reportCopy}
-                    </button>
-                  </div>}
-                </div>
-                <dl className="kiosk-success-facts">
-                  <div><dt>{reportTracking.status === "ready" ? t.reportStatusCurrent : t.reportStatusInitial}</dt><dd><span className="kiosk-live-status-dot" />{displayedReportStatusLabel}</dd></div>
-                  {device.record?.locationName && <div><dt>{locale.code === "ar" ? "موقع الجهاز" : "Kiosk location"}</dt><dd>{device.record.locationName}</dd></div>}
-                  {trackedCreatedAt && <div><dt>{t.reportTrackingCreatedAt}</dt><dd>{trackedCreatedAt}</dd></div>}
-                  {reportCampaignName && <div><dt>{t.manualCampaignName}</dt><dd>{reportCampaignName}</dd></div>}
-                  {activeTimelineIndex >= 1 && trackedStaffName && <div><dt>{t.reportRepresentative}</dt><dd>{trackedStaffName}</dd></div>}
-                </dl>
-                <div className="kiosk-report-qr">{shareLink ? <><ReportQrCode url={shareLink}/><div><strong>{locale.code === "ar" ? "تابع طلبك من جوالك" : "Track your request on your phone"}</strong><p>{locale.code === "ar" ? "امسح الرمز لعرض الحالة واسم المندوب وآخر التحديثات. يجب أن يكون الجوال والجهاز على نفس شبكة Wi-Fi." : "Scan to see the status and latest updates. Connect your phone to the same Wi-Fi network."}</p><a href={shareLink} target="_blank" rel="noopener noreferrer" dir="ltr">{shareLink}</a></div></> : <p role="status">{shareLinkError || (locale.code === "ar" ? "جارٍ تجهيز رابط المتابعة…" : "Preparing tracking link…")}</p>}</div>
-              </article>
-
-              <article className="kiosk-success-panel kiosk-report-timeline-panel">
-                <div className="kiosk-success-panel-heading">
-                  <span className="kiosk-success-panel-icon is-gold"><CheckCircle2 size={23} /></span>
-                  <div><h2>{t.reportTimelineTitle}</h2><p>{t.reportTimelineHint}</p></div>
-                </div>
-                {reportTracking.status === "loading" && <p className="kiosk-tracking-message" role="status"><RefreshCw size={16} className="kiosk-spin" />{t.reportTrackingLoading}</p>}
-                {reportTracking.status === "not-found" && <p className="kiosk-tracking-message is-error" role="status">{t.reportTrackingNotFound}</p>}
-                {reportTracking.status === "error" && <p className="kiosk-tracking-message is-error" role="alert">{t.reportTrackingError}</p>}
-                {trackedStatus === "CANCELLED" ? <p className="kiosk-tracking-cancelled">{trackedStatusLabel}</p> : <ol className="kiosk-report-timeline" aria-label={t.reportTrackTitle}>
-                  {reportTimelineSteps.map((step, index) => {
-                    const reached = activeTimelineIndex >= 0 && index <= activeTimelineIndex;
-                    const current = step === displayedReportStatus;
-                    const stepLabel = t[`reportStatus${step}`];
-                    return <li key={step} className={`${reached ? "is-reached" : ""} ${current ? "is-current" : ""}`}>
-                      <span className="kiosk-report-timeline-dot" aria-hidden="true">{reached ? <CheckCircle2 size={17} /> : null}</span>
-                      <span className="kiosk-report-timeline-copy"><b>{stepLabel}</b>
-                        {step === "OPEN" && displayedReportStatus === "OPEN" && <small>{t.reportWaitingForRepresentative}</small>}
-                        {step === "OPEN" && trackedCreatedAt && <small>{trackedCreatedAt}</small>}
-                        {step === "ASSIGNED" && reached && trackedStaffName && <small>{t.reportAcceptedBy} {trackedStaffName}</small>}
-                      </span>
+            <div className="tracking-ticket-summary">
+              <div className="tracking-ticket-number"><span>{trackedReportId != null ? t.reportIdLabel : t.reportReference}</span><strong dir="ltr">{trackedReportId ?? reportCaseNumber}</strong></div>
+              {reportCaseNumber && <div className="tracking-ticket-reference"><span>{t.reportCaseLabel}</span><div><code dir="ltr">{reportCaseNumber}</code><button type="button" onClick={copyReportReference} aria-label={`${t.reportCopy} ${t.reportCaseLabel}`}><Copy size={16}/><span>{referenceCopied ? t.reportCopied : t.reportCopy}</span></button></div></div>}
+              <span className="tracking-ticket-status" data-status={displayedReportStatus}><i aria-hidden="true"/>{displayedReportStatusLabel}</span>
+            </div>
+            <dl className="tracking-ticket-facts">
+              {device.record?.locationName && <div><dt><MapPin size={16}/>{locale.code === "ar" ? "موقع الجهاز" : "Kiosk location"}</dt><dd>{device.record.locationName}</dd></div>}
+              {trackedCreatedAt && <div><dt>{t.reportTrackingCreatedAt}</dt><dd>{trackedCreatedAt}</dd></div>}
+              {reportCampaignName && <div><dt>{t.manualCampaignName}</dt><dd>{reportCampaignName}</dd></div>}
+              {activeTimelineIndex >= 1 && trackedStaffName && <div><dt>{t.reportRepresentative}</dt><dd>{trackedStaffName}</dd></div>}
+            </dl>
+            <div className="tracking-ticket-body">
+              <section className="tracking-ticket-progress" aria-labelledby="tracking-progress-title">
+                <div className="tracking-section-title"><div><h2 id="tracking-progress-title">{t.reportTrackTitle}</h2><p>{t.reportTimelineHint}</p></div><button type="button" className="tracking-ticket-refresh" onClick={refreshReportTracking} disabled={reportTracking.status === "loading"}><RefreshCw size={17} className={reportTracking.status === "loading" ? "kiosk-spin" : undefined}/>{t.reportTrackingRefresh}</button></div>
+                {reportTracking.status === "loading" && <p className="tracking-ticket-message" role="status">{t.reportTrackingLoading}</p>}
+                {reportTracking.status === "not-found" && <p className="tracking-ticket-message is-error" role="status">{t.reportTrackingNotFound}</p>}
+                {reportTracking.status === "error" && <p className="tracking-ticket-message is-error" role="alert">{t.reportTrackingError}</p>}
+                {trackedStatus === "CANCELLED" ? <p className="tracking-ticket-message">{trackedStatusLabel}</p> : <ol className="tracking-ticket-steps" aria-label={t.reportTrackTitle}>
+                  {reportTimelineSteps.map((step,index)=>{
+                    const reached=activeTimelineIndex>=0&&index<=activeTimelineIndex;
+                    const current=step===displayedReportStatus;
+                    return <li key={step} className={`${reached?"is-reached":""} ${current?"is-current":""}`} aria-current={current?"step":undefined}>
+                      <span className="tracking-step-marker" aria-hidden="true">{reached?<CheckCircle2 size={20}/>:index+1}</span>
+                      <div><b>{t[`reportStatus${step}`]}</b>{step==="OPEN"&&displayedReportStatus==="OPEN"&&<small>{t.reportWaitingForRepresentative}</small>}{step==="ASSIGNED"&&reached&&trackedStaffName&&<small>{t.reportAcceptedBy} {trackedStaffName}</small>}</div>
                     </li>;
                   })}
                 </ol>}
-                <button type="button" className="kiosk-retry-button kiosk-success-refresh" onClick={refreshReportTracking} disabled={reportTracking.status === "loading"}>
-                  {reportTracking.status === "loading" ? <RefreshCw size={18} className="kiosk-spin" /> : <RefreshCw size={18} />}{t.reportTrackingRefresh}
-                </button>
-              </article>
+              </section>
+              <aside className="tracking-ticket-share" aria-labelledby="tracking-share-title">
+                <div className="tracking-share-caption"><QrCode size={18}/><h2 id="tracking-share-title">{locale.code === "ar" ? "امسح الباركود للمتابعة" : "Scan to track your request"}</h2></div>
+                {shareLink?<><div className="tracking-share-code"><ReportQrCode url={shareLink}/></div>{/^https?:\/\/(?:192\.168\.|10\.|172\.(?:1[6-9]|2\d|3[01])\.)/.test(shareLink)&&<small>{locale.code === "ar" ? "للتجربة: اتصل بشبكة Wi-Fi نفسها." : "For testing: connect to the same Wi-Fi."}</small>}</>:<p role="status">{shareLinkError || (locale.code === "ar" ? "جارٍ تجهيز رمز المتابعة…" : "Preparing tracking code…")}</p>}
+              </aside>
             </div>
-            <button type="button" className="kiosk-success-home" onClick={resetSession}><Home size={18} />{t.home}</button>
+            <footer className="tracking-ticket-footer"><span><ShieldCheck size={17}/>{t.sessionNote}</span><button type="button" onClick={resetSession}><Home size={18}/>{t.home}</button></footer>
           </div>
         </section>
       )}

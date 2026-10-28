@@ -1,0 +1,95 @@
+/* Scoped receipt layout, independent of the previous success panels. */
+.kiosk-tracking-ticket{width:min(100%,800px);margin-inline:auto;padding:20px;background:#fffcf4f5;border:1px solid #d9c394;border-radius:24px;box-shadow:0 14px 40px #123d2d16;color:#164939;text-align:start}
+.tracking-ticket-heading{display:flex;align-items:center;gap:16px;padding-bottom:22px}
+.tracking-ticket-check{display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:50%;color:#fff;background:#0d5845;box-shadow:0 0 0 6px #e8eee3}
+.tracking-ticket-heading h1{font-size:calc(clamp(25px,2.2vw,32px) * var(--public-type-scale,1));line-height:1.6;margin:0;font-weight:700;color:#0d463a}
+.tracking-ticket-heading p{font-size:16px;line-height:1.8;color:#6d7c6c;margin:3px 0 0;max-width:64ch}
+.tracking-ticket-summary{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;padding:17px 20px;background:#f1f3e9;border:1px solid #e2e5d7;border-radius:16px}
+.tracking-ticket-number{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.tracking-ticket-number>span,.tracking-ticket-reference>span{font-size:13px;color:#72816b}
+.tracking-ticket-number strong{font-size:30px;line-height:1.4;letter-spacing:.02em;color:#0d463a}
+.tracking-ticket-reference{display:grid;gap:4px;min-width:0}
+.tracking-ticket-reference>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tracking-ticket-reference code{font:12px/1.6 ui-monospace,monospace;color:#5a6c58;overflow-wrap:anywhere}
+.tracking-ticket-reference button{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:7px 10px;min-height:40px;background:#fffefa;border:1px solid #d7dece;border-radius:10px;color:#245b46;font-family:inherit;font-size:13px;font-weight:500;cursor:pointer}
+.tracking-ticket-status{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:6px 13px;margin-inline-start:auto;border-radius:30px;background:#fff9e9;border:1px solid #dfd0aa;color:#88672c;font-size:14px;font-weight:600}
+.tracking-ticket-status i{width:7px;height:7px;background:currentColor;border-radius:50%;flex:none}
+.tracking-ticket-status[data-status="RESOLVED"]{background:#e9f2e6;color:#316748;border-color:#cfdfc8}
+.tracking-ticket-status[data-status="CANCELLED"]{background:#f4eee8;color:#8b6354;border-color:#e4d8cf}
+.tracking-ticket-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px 24px;margin:20px 0 22px;padding:0 4px}
+.tracking-ticket-facts>div{display:grid;gap:6px;min-width:0}
+.tracking-ticket-facts dt{display:flex;align-items:center;gap:6px;font-size:13px;color:#7e8876}
+.tracking-ticket-facts dd{font-size:15px;line-height:1.7;margin:0;color:#345444;overflow-wrap:anywhere;font-weight:500}
+.tracking-ticket-body{display:grid;grid-template-columns:minmax(0,1fr) 235px;gap:16px;align-items:start}
+.tracking-ticket-progress{padding:16px;border:1px solid #e3dece;border-radius:18px;background:#fffefb;min-width:0}
+.tracking-section-title{display:flex;align-items:start;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #eee8da}
+.tracking-section-title h2{font-size:18px;line-height:1.6;margin:0;color:#174c3b}
+.tracking-section-title p{font-size:12px;line-height:1.7;color:#83907d;margin:4px 0 0}
+.tracking-ticket-refresh{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:9px 11px;border:1px solid #dce2d4;border-radius:11px;background:#f4f6ee;color:#2d654d;font:inherit;font-size:13px;cursor:pointer;flex-shrink:0}
+.tracking-ticket-refresh:disabled{opacity:.65;cursor:wait}
+.tracking-ticket-steps{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:0}
+.tracking-ticket-steps li{display:flex;align-items:start;gap:13px;position:relative;min-height:52px;padding:0 0 10px;color:#8c9585}
+.tracking-ticket-steps li:last-child{min-height:36px;padding-bottom:0}
+.tracking-ticket-steps li:not(:last-child):before{content:"";position:absolute;inset-inline-start:14px;top:30px;bottom:0;width:1px;background:#e1e5d9}
+.tracking-ticket-steps li.is-reached:not(:last-child):before{background:#759a7c}
+.tracking-step-marker{display:grid;place-items:center;flex:none;width:30px;height:30px;border:1px solid #e1e6d9;border-radius:50%;background:#f7f7f0;font-size:14px;position:relative;z-index:1}
+.tracking-ticket-steps li.is-reached{color:#38644c}.tracking-ticket-steps li.is-reached .tracking-step-marker{border-color:#b3cdb5;background:#e9f2e5;color:#2b704c}
+.tracking-ticket-steps li.is-current .tracking-step-marker{background:#0d5845;border-color:#0d5845;color:#fff;box-shadow:0 0 0 4px #edf2e8}
+.tracking-ticket-steps li>div{padding-top:5px;min-width:0;display:grid;gap:4px}
+.tracking-ticket-steps b{font-size:15px;line-height:1.6;font-weight:600}
+.tracking-ticket-steps small{font-size:12px;line-height:1.65;color:#82907c}
+.tracking-ticket-message{font-size:14px;line-height:1.8;color:#5f7863;margin:14px 0}.tracking-ticket-message.is-error{color:#a35340;background:#faf0e9;padding:10px;border-radius:9px}
+.tracking-ticket-share{display:flex;flex-direction:column;align-items:center;padding:16px;background:#f5f1e5;border:1px solid #e1d4b7;border-radius:18px;text-align:center;min-width:0}
+.tracking-share-caption{display:flex;align-items:center;justify-content:center;gap:8px;color:#936f37;margin-bottom:12px}
+.tracking-share-caption h2{font-size:15px;font-weight:600;line-height:1.5;margin:0;color:#345544}
+.tracking-share-code{display:grid;place-items:center;padding:10px;background:white;border:1px solid #e9e2d1;border-radius:14px}
+.tracking-ticket-share .ons-report-qr-code{width:152px;height:152px;border:0;border-radius:0;max-width:100%}
+.tracking-ticket-share p{font-size:14px;line-height:1.9;color:#6d7a65;max-width:28ch;margin:14px 0}
+.tracking-share-link{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;padding:9px 13px;background:#fffdf7;border:1px solid #dcd6c3;border-radius:11px;text-decoration:none;color:#245a42;font-size:14px;font-weight:600}
+.tracking-ticket-share>small{font-size:11px;color:#8c8b74;line-height:1.6;margin-top:10px}
+.tracking-ticket-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;padding-top:14px;border-top:1px solid #e6dfcf}
+.tracking-ticket-footer>span{display:flex;align-items:center;gap:8px;color:#7d8b77;font-size:13px}
+.tracking-ticket-footer button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 24px;background:#0d5845;color:white;border:1px solid #0d5845;border-radius:12px;font:inherit;font-size:15px;cursor:pointer}
+.kiosk-tracking-ticket :is(button,a):focus-visible{outline:3px solid #b68d43;outline-offset:3px}
+@media(max-width:1000px){.kiosk-tracking-ticket{padding:22px}.tracking-ticket-body{grid-template-columns:minmax(0,1fr) 235px;gap:16px}.tracking-ticket-progress{padding:17px}.tracking-section-title{flex-wrap:wrap}.tracking-ticket-heading h1{font-size:27px}}
+@media(max-width:700px){.kiosk-tracking-ticket{padding:20px 16px;border-radius:20px}.tracking-ticket-heading{align-items:start;gap:13px}.tracking-ticket-heading h1{font-size:24px;line-height:1.6}.tracking-ticket-heading p{font-size:15px}.tracking-ticket-check{width:42px;height:42px;margin-top:6px}.tracking-ticket-summary{padding:14px;gap:14px}.tracking-ticket-status{margin-inline-start:0}.tracking-ticket-reference{flex-basis:100%}.tracking-ticket-body{grid-template-columns:1fr}.tracking-ticket-share{display:grid;grid-template-columns:170px minmax(0,1fr);gap:10px 16px;text-align:start;padding:17px;align-items:center}.tracking-share-caption{grid-column:1/-1;margin-bottom:3px}.tracking-share-code{grid-column:1;grid-row:2/5;padding:8px}.tracking-ticket-share .ons-report-qr-code{width:150px;height:150px}.tracking-ticket-share p{grid-column:2;margin:0;max-width:none}.tracking-share-link{grid-column:2;font-size:13px}.tracking-ticket-share>small{grid-column:2;margin:0}.tracking-ticket-facts{grid-template-columns:1fr;margin-block:18px;gap:12px}.tracking-ticket-footer{flex-wrap:wrap}.tracking-ticket-footer button{width:100%}}
+@media(max-width:420px){.tracking-ticket-share{display:flex;text-align:center}.tracking-share-caption{margin-bottom:4px}.tracking-share-code{margin:4px 0}.tracking-ticket-share p{margin:8px 0}.tracking-ticket-share>small{margin-top:7px}.tracking-ticket-heading h1{font-size:22px}}
+
+.tracking-ticket-share>small{margin-top:16px}
+/* Compact, aligned receipt header and metadata. */
+.tracking-ticket-heading{gap:12px;padding:0 4px 16px;align-items:center}
+.tracking-ticket-heading h1{font-size:calc(clamp(23px,1.8vw,26px) * var(--public-type-scale,1));line-height:1.55}
+.tracking-ticket-heading p{font-size:14px;line-height:1.8;margin-top:5px}
+.tracking-ticket-check{width:46px;height:46px;box-shadow:0 0 0 5px #e8eee3}
+.tracking-ticket-summary{display:grid;grid-template-columns:90px minmax(0,1fr) max-content;gap:0;padding:12px 14px;border-radius:14px;background:#f5f5ed;border-color:#e1e4d7;align-items:center}
+.tracking-ticket-number{display:grid;gap:3px;justify-items:start;padding-inline-end:18px;border-inline-end:1px solid #dde1d3}
+.tracking-ticket-number>span,.tracking-ticket-reference>span{font-size:13px;line-height:1.7}
+.tracking-ticket-number strong{font-size:23px;line-height:1.4}
+.tracking-ticket-reference{padding-inline:15px;gap:5px}
+.tracking-ticket-reference>div{gap:12px;flex-wrap:nowrap;justify-content:flex-start}
+.tracking-ticket-reference code{font-size:12px;letter-spacing:0}
+.tracking-ticket-reference button{min-height:38px;padding:6px 9px;flex:none;border-radius:9px}
+.tracking-ticket-status{margin:0;min-height:34px;padding:6px 11px;font-size:13px;white-space:normal;max-width:190px;line-height:1.6}
+.tracking-ticket-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 16px;padding:0}
+.tracking-ticket-facts>div{padding:9px 12px;background:#fffef9;border:1px solid #e8e4d7;border-radius:12px;gap:6px;align-content:start}
+.tracking-ticket-facts dt{font-size:12px;color:#89917d}
+.tracking-ticket-facts dd{font-size:14px;font-weight:500;line-height:1.7}
+@media(max-width:760px){.tracking-ticket-summary{grid-template-columns:100px minmax(0,1fr);gap:14px 0;padding:14px}.tracking-ticket-reference{padding-inline:16px 0}.tracking-ticket-status{grid-column:1/-1;justify-self:start;max-width:none}.tracking-ticket-reference>div{flex-wrap:wrap}.tracking-ticket-facts{gap:10px}.tracking-ticket-facts>div{padding:12px}}
+@media(max-width:480px){.tracking-ticket-heading{align-items:start;gap:12px;padding-bottom:18px}.tracking-ticket-heading h1{font-size:22px}.tracking-ticket-heading p{font-size:14px}.tracking-ticket-facts{grid-template-columns:1fr}.tracking-ticket-summary{grid-template-columns:80px minmax(0,1fr)}.tracking-ticket-reference{padding-inline-start:12px}.tracking-ticket-number{padding-inline-end:12px}}
+
+.kiosk-terminal.kiosk-report-tracking .kiosk-tracking-screen{flex:1 0 auto;display:grid;place-items:center;padding:16px 24px}
+@media(max-width:700px){.kiosk-terminal.kiosk-report-tracking .kiosk-tracking-screen{padding:16px 12px}.kiosk-tracking-ticket{padding:18px 16px}.tracking-ticket-body{grid-template-columns:1fr}}
+/* Lightweight report identity row instead of a large tinted banner. */
+.tracking-ticket-summary{display:flex;align-items:center;flex-wrap:wrap;gap:14px 20px;padding:13px 2px;border:0;border-block:1px solid #e5dfcf;border-radius:0;background:transparent}
+.tracking-ticket-number{order:0;display:flex;align-items:center;gap:10px;padding:0;border:0;flex:none}
+.tracking-ticket-number>span{font-size:13px;color:#7d8773}
+.tracking-ticket-number strong{font-size:23px;line-height:1.4;color:#164d3a;font-weight:700}
+.tracking-ticket-status{order:1;min-height:30px;padding:4px 10px;font-size:12px;border:0;background:#f1eddf;border-radius:8px;margin:0;max-width:none}
+.tracking-ticket-status[data-status="RESOLVED"]{background:#eaf2e5}
+.tracking-ticket-reference{order:2;display:flex;align-items:center;gap:10px;padding:0;margin-inline-start:auto;flex-basis:auto}
+.tracking-ticket-reference>span{font-size:11px;color:#8c927e;white-space:nowrap}
+.tracking-ticket-reference>div{display:flex;gap:9px;flex-wrap:nowrap}
+.tracking-ticket-reference code{font-size:11px;color:#78816f}
+.tracking-ticket-reference button{width:40px;height:40px;min-height:40px;padding:8px;border:1px solid #e4e7db;border-radius:10px;background:#fffef8}
+.tracking-ticket-reference button>span{display:none}
+@media(max-width:700px){.tracking-ticket-summary{gap:10px 16px}.tracking-ticket-reference{flex-basis:100%;margin:0;justify-content:space-between}.tracking-ticket-reference>div{flex-wrap:nowrap}.tracking-ticket-reference>span{font-size:12px}}

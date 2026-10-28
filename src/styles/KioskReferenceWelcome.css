@@ -49,7 +49,7 @@
 .kiosk-terminal.kiosk-welcome>.ons-kiosk-guide{position:absolute;inset:auto clamp(24px,4vw,64px) 64px auto;display:grid;grid-template-columns:minmax(0,225px) 164px;grid-template-areas:"bubble avatar" "voice voice";align-items:end;gap:12px 8px;width:397px;max-width:calc(100% - 32px);margin:0;direction:ltr;z-index:2}
 .kiosk-welcome .ons-guide-avatar{grid-area:avatar;align-self:end;justify-self:end}
 .kiosk-welcome .ons-guide-character{width:164px;height:195px}
-.kiosk-welcome .ons-guide-avatar>span:not(.ons-guide-move):not(.ons-guide-stage){display:none}
+
 .kiosk-welcome .ons-guide-bubble{grid-area:bubble;align-self:start;position:relative;width:100%;max-width:none;min-width:0;direction:rtl;padding:17px 19px;border:1px solid #d4c09c;border-radius:22px;background:#fffdf5f5;box-shadow:0 6px 22px #2643300c;text-align:start}
 .kiosk-welcome .ons-guide-bubble strong{display:block;font-size:calc(18px * var(--public-type-scale));font-weight:650;line-height:1.6;padding-inline-end:8px;color:#113f32}
 .kiosk-welcome .ons-guide-bubble p{display:block;margin:7px 0 0;font-size:calc(14px * var(--public-type-scale));font-weight:400;line-height:1.85;color:#254d3d;max-width:none}

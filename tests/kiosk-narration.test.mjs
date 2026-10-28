@@ -46,3 +46,21 @@ test('all kiosk languages ship local audio and distinct instructions for every p
    assert.notEqual(manifest[code]['identity-qr'].text,manifest[code]['identity-manual'].text);
  }
 });
+
+test('press-to-listen stays silent on navigation and starts only the new page on demand',async()=>{
+ const {audio,narrator}=setup();
+ narrator.setPlan([{language:'ar',clip:{src:'/ar-steps.mp3',start:5,end:12}}],'manual',false,false);
+ await flush();assert.equal(audio.plays.length,0);assert.equal(narrator.state.playing,false);
+ narrator.toggle();await flush();assert.deepEqual(audio.plays.at(-1),{src:'/ar-steps.mp3',time:5});
+ narrator.setPlan([{language:'ar',clip:{src:'/ar-steps.mp3',start:30,end:38}}],'tracking',false,false);
+ await flush();assert.equal(audio.paused,true);assert.equal(audio.plays.length,1);
+ narrator.toggle();await flush();assert.deepEqual(audio.plays.at(-1),{src:'/ar-steps.mp3',time:30});
+});
+
+test('replay restarts the current instruction from its own start',async()=>{
+ const {audio,narrator}=setup();
+ narrator.setPlan([{language:'ur',clip:{src:'/ur-steps.mp3',start:20,end:30}}],'ur-menu');await flush();
+ audio.currentTime=26;narrator.replay();await flush();
+ assert.deepEqual(audio.plays.at(-1),{src:'/ur-steps.mp3',time:20});
+ assert.equal(narrator.state.playing,true);
+});

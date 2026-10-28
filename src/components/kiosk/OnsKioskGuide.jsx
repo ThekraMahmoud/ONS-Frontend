@@ -1,7 +1,7 @@
-import {useEffect, useId, useRef, useState, useSyncExternalStore} from "react";
+import {useEffect, useRef, useState, useSyncExternalStore} from "react";
 import {getKioskNarrator} from "../../utils/kioskNarrator.js";
 import {kioskLanguages} from "../../i18n/kioskLocales.js";
-import {Move, Pause, Volume2, X} from "lucide-react";
+import {Move, RotateCcw, Volume2} from "lucide-react";
 import "../../styles/OnsKioskGuide.css";
 
 function OnsCharacter({speaking}) {
@@ -30,7 +30,6 @@ function OnsCharacter({speaking}) {
   </svg>;
 }
 export default function OnsKioskGuide({screen,language,t,identityMethod,phase}) {
-  const [open,setOpen]=useState(screen === "welcome");
   const [clips,setClips]=useState({});
   const narrator=getKioskNarrator();
   const narration=useSyncExternalStore(narrator.subscribe,narrator.getSnapshot,narrator.getSnapshot);
@@ -77,14 +76,28 @@ export default function OnsKioskGuide({screen,language,t,identityMethod,phase}) 
     });
     window.addEventListener('resize',resize);return()=>window.removeEventListener('resize',resize);
   },[]);
-  const panelId=useId();
+  // Keep a dragged position between steps only while it leaves the new task clear.
+  useEffect(()=>{
+    const frame=window.requestAnimationFrame(()=>{
+      const terminal=guide.current?.closest('.kiosk-terminal');
+      const task=terminal?.querySelector('.kiosk-flow-screen,.kiosk-service-screen,.kiosk-arrival');
+      if(!task)return;
+      const area=task.getBoundingClientRect();
+      setPosition(current=>{
+        if(!current)return current;
+        const bounds=guide.current?.getBoundingClientRect();
+        if(!bounds)return current;
+        const overlaps=bounds.left<area.right&&bounds.right>area.left&&bounds.top<area.bottom&&bounds.bottom>area.top;
+        return overlaps?null:current;
+      });
+    });
+    return()=>window.cancelAnimationFrame(frame);
+  },[screen,phase]);
   const name=["ar","fa","ur"].includes(language)?"اُنس":"Ons";
-  const fallbackText=screen === "welcome" ? (language==="ar"?"أنا اُنس، مساعدك في الحرم. أستطيع أن أشرح لك الخدمات باللغة التي اخترتها.":t.menuHint) : screen === "menu" ? t.menuHint : screen === "assistance" ? t.scanHint : screen === "identity" ? (identityMethod === "manual" ? t.manualHint : t.qrInstructions || t.scanHint) : screen === "report-tracking" ? t.reportTrackHint : t.sessionNote;
   const audioLabels={ar:["اسمع الشرح","إيقاف الصوت"],en:["Listen","Pause audio"],ur:["سنیں","آواز روکیں"],fr:["Écouter","Pause"],id:["Dengarkan","Jeda"],tr:["Dinle","Duraklat"],bn:["শুনুন","বিরতি"],fa:["گوش کنید","توقف صدا"],ha:["Saurara","Dakatar"],sw:["Sikiliza","Sitisha"],zh:["听讲解","暂停"],ru:["Слушать","Пауза"],am:["ያዳምጡ","አቁም"]};
-  const [listenLabel,pauseLabel]=audioLabels[language]||audioLabels.en;
+  const [listenLabel]=audioLabels[language]||audioLabels.en;
   const audioKey=phase || (screen === "identity" ? `identity-${identityMethod}` : screen);
   const clip=clips[language]?.[audioKey];
-  const text=clip?.text || fallbackText;
   const planKey=JSON.stringify([screen,language,audioKey,Object.keys(clips).length]);
   const canSpeak=screen === "welcome" ? Object.keys(clips).length>0 : !!clip;
   useEffect(()=>{let active=true;fetch('/audio/kiosk/index.json').then(r=>r.ok?r.json():{}).then(value=>{if(active)setClips(value);}).catch(()=>{});return()=>{active=false;};},[]);
@@ -93,13 +106,9 @@ export default function OnsKioskGuide({screen,language,t,identityMethod,phase}) 
     narrator.setPlan(plan,planKey,screen === "welcome");
     return()=>narrator.clear(planKey);
   },[clips,screen,language,clip,narrator,planKey]);
-  function close(){narrator.pause();setOpen(false);}
-  function speak(){setOpen(true);narrator.toggle();}
-  return <aside ref={guide} style={position?{position:"fixed",left:position.left,top:position.top,right:"auto",bottom:"auto",width:position.width,maxWidth:"calc(100vw - 16px)",margin:0,zIndex:50}:undefined} className={`ons-kiosk-guide${position ? " is-positioned" : ""}${open ? " is-open" : " is-collapsed"}`} aria-label={name}>
-    <button type="button" className="ons-guide-avatar" title={language==="ar"?"اسحب اُنس لتحريكها، أو استخدم أسهم لوحة المفاتيح. Escape لإعادتها.":"Drag Ons to move, or use arrow keys. Escape resets position."} onPointerDown={beginDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onLostPointerCapture={endDrag} onKeyDown={moveWithKeys} onClick={()=>{if(suppressClick.current){suppressClick.current=false;return;}if(canSpeak)speak();else setOpen(v=>!v);}} aria-label={`${name} — ${canSpeak ? (playing ? pauseLabel : listenLabel) : t.helpTitle}`} aria-expanded={open} aria-controls={panelId}>
-      <span className="ons-guide-move" aria-hidden="true"><Move size={16}/></span><span key={`${screen}-${audioKey}`} className="ons-guide-stage"><OnsCharacter speaking={playing}/></span><span>{name}{canSpeak&&<Volume2 size={18}/>}</span>
+  return <aside ref={guide} style={position?{position:"fixed",left:position.left,top:position.top,right:"auto",bottom:"auto",maxWidth:"calc(100vw - 16px)",margin:0,zIndex:50}:undefined} className={`ons-kiosk-guide is-voice-only${position ? " is-positioned" : ""}`} aria-label={name}>
+    <button type="button" className="ons-guide-avatar" title={language==="ar"?"اضغط على اُنس لإعادة الشرح، واسحبه لتغيير مكانه.":"Press Ons to replay. Drag to move."} onPointerDown={beginDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onLostPointerCapture={endDrag} onKeyDown={moveWithKeys} onClick={()=>{if(suppressClick.current){suppressClick.current=false;return;}if(canSpeak)narrator.replay();}} aria-label={`${name} — ${failed ? t.audioUnavailable : language==="ar" ? "إعادة الشرح" : listenLabel}`} aria-busy={narration.loading}>
+      <span className="ons-guide-move" aria-hidden="true"><Move size={16}/></span><span key={`${screen}-${audioKey}`} className="ons-guide-stage"><OnsCharacter speaking={playing}/></span><span className="ons-guide-name">{name}{playing?<RotateCcw size={18}/>:<Volume2 size={18}/>}</span><span className={`ons-guide-audio-wave${playing?" is-playing":""}`} aria-hidden="true">{Array.from({length:9},(_,index)=><i key={index} style={{"--wave-delay":`${index*-.09}s`}}/>)}</span>
     </button>
-    {open&&<div id={panelId} className="ons-guide-bubble"><button type="button" className="ons-guide-close" aria-label={t.back} onClick={close}><X size={19}/></button><strong>{screen==="welcome"&&language==="ar"?"حيّاك الله!":t.welcome}</strong><p>{text}</p>{screen==="welcome"&&narration.language&&<small className="ons-guide-language" lang={narration.language}>{kioskLanguages.find(item=>item.code===narration.language)?.nativeName}</small>}{canSpeak&&screen!=="welcome"&&<button type="button" className="ons-guide-listen" onClick={()=>void speak()}>{playing?<Pause size={21}/>:<Volume2 size={21}/>}<span>{playing ? pauseLabel : listenLabel}</span></button>}{failed&&<small role="alert">{t.audioUnavailable}</small>}</div>}
-    {screen==="welcome"&&canSpeak&&<div className="ons-welcome-voice-controls"><button type="button" className="ons-guide-listen" onClick={()=>speak()}>{playing?<Pause size={19}/>:<Volume2 size={19}/>}<span className={`ons-voice-bars${playing?" is-speaking":""}`} aria-hidden="true"><i/><i/><i/><i/><i/></span><span>{playing?pauseLabel:listenLabel}</span></button></div>}
   </aside>;
 }

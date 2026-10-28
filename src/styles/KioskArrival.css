@@ -50,7 +50,7 @@
 .kiosk-welcome .ons-guide-bubble strong{font-size:18px;line-height:1.6;font-weight:650;padding-inline-end:0}
 .kiosk-welcome .ons-guide-bubble p{font-size:14px;line-height:1.85;margin:7px 0 0;color:#254c3e}
 .kiosk-welcome .ons-guide-bubble .ons-guide-language{display:none}
-.kiosk-welcome .ons-guide-avatar>span:not(.ons-guide-move):not(.ons-guide-stage){display:none}
+
 .kiosk-welcome .ons-guide-close{width:25px;height:25px;inset-inline-start:-6px;inset-inline-end:auto;top:-6px;border-radius:50%;background:#f1f1e6}
 .ons-guide-stage{display:block;animation:ons-follow-step .65s ease-out both}
 @keyframes ons-follow-step{0%{transform:translateX(-20px) translateY(0)}25%{transform:translateX(-13px) translateY(-4px)}50%{transform:translateX(-7px) translateY(0)}75%{transform:translateX(-3px) translateY(-3px)}100%{transform:translateX(0) translateY(0)}}
@@ -139,3 +139,13 @@
  .kiosk-terminal.kiosk-menu .kiosk-service-copy{grid-column:2;grid-row:1;align-self:center;min-width:0;padding:0}
  .kiosk-terminal.kiosk-menu .kiosk-service-action{grid-column:3;grid-row:1;align-self:center;justify-self:center}
 }
+
+.arrival-quran{margin:24px auto 0;text-align:center;max-width:100%;color:#174b3c}
+.arrival-quran blockquote{margin:0;font-family:"Noto Naskh Arabic","Traditional Arabic",serif;font-size:calc(clamp(28px,2.7vw,39px) * var(--public-type-scale,1));font-weight:500;line-height:2;letter-spacing:0;word-spacing:.08em;text-wrap:balance}
+.arrival-quran figcaption{margin-top:6px;font-family:"IBM Plex Sans Arabic",sans-serif;font-size:13px;font-weight:400;line-height:1.8;color:#96763c}
+@media(max-width:720px){.arrival-quran{margin-top:18px}.arrival-quran blockquote{font-size:calc(29px * var(--public-type-scale,1));line-height:1.9}.arrival-quran figcaption{font-size:12px}}
+
+@media(min-width:1051px){.arrival-welcome-copy{top:64px}}
+@media(max-width:1050px){.arrival-welcome-copy{margin-top:0}}
+.arrival-quran blockquote{font-weight:700}
+.arrival-quran figcaption{font-size:14px;font-weight:700;color:#8b6d35}
