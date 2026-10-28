@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, CheckCircle2, Copy, X } from "lucide-react";
+import { Check, CheckCircle2, CircleDot, Copy, X } from "lucide-react";
 
 const statusLabels = { OPEN: "مفتوح", ASSIGNED: "مسند", IN_PROGRESS: "قيد التنفيذ", RESOLVED: "مكتمل", CANCELLED: "ملغي", ACTIVE: "نشط", INACTIVE: "غير نشط", EXPIRED: "منتهي" };
 export function StatusPill({ status, label }) {
   const key = String(status || "").toUpperCase();
-  return <span className={`ons-status is-${key.toLowerCase()}`}>{label || statusLabels[key] || "غير محدد"}</span>;
+  return <span className={`ons-status is-${key.toLowerCase()}`}>{key === "OPEN" && <CircleDot size={14} aria-hidden="true" />}{label || statusLabels[key] || "غير محدد"}</span>;
 }
 
 export function ListSkeleton({ rows = 4 }) {

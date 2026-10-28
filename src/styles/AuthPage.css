@@ -137,3 +137,20 @@
 }
 @media (max-width: 360px) { .auth-fields-two { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .auth-brand-copy,.auth-card,.auth-success,.auth-scene-image { animation: none; } }
+
+/* The image stays on the left and the form on the right in both modes. */
+.auth-page.auth-page-login,.auth-page.auth-page-register{grid-template-columns:minmax(0,46fr) minmax(0,54fr)}
+.auth-page .auth-brand-panel{grid-column:2;grid-row:1}
+.auth-page .auth-form-side{grid-column:1;grid-row:1}
+.auth-page .auth-brand-copy,.auth-page .auth-card{animation:none}
+.auth-page .auth-scene-image{animation:auth-picture-change .6s ease-out both}
+.auth-page .auth-form>*,.auth-page .auth-progress{animation:auth-fields-change .4s ease-out both}
+.auth-page .auth-form>:nth-child(2){animation-delay:35ms}
+.auth-page .auth-form>:nth-child(3){animation-delay:70ms}
+.auth-page .auth-form>:nth-child(4){animation-delay:105ms}
+.auth-page .auth-form>:nth-child(5){animation-delay:140ms}
+@keyframes auth-picture-change{from{opacity:.25;transform:scale(1.018)}to{opacity:1;transform:scale(1)}}
+@keyframes auth-fields-change{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1050px) and (min-width:761px){.auth-page.auth-page-login,.auth-page.auth-page-register{grid-template-columns:minmax(0,52fr) minmax(0,48fr)}.auth-page .auth-form-side{padding-inline:28px}}
+@media(max-width:760px){.auth-page.auth-page-login,.auth-page.auth-page-register{display:flex;flex-direction:column}.auth-page .auth-brand-panel,.auth-page .auth-form-side{grid-column:auto;grid-row:auto}}
+@media(prefers-reduced-motion:reduce){.auth-page .auth-scene-image,.auth-page .auth-form>*,.auth-page .auth-progress{animation:none}}

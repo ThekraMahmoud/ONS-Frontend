@@ -1,3 +1,4 @@
+import ReportTrackingPage from "./pages/ReportTrackingPage.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import AuthPage from "./pages/AuthPage.jsx";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/set-password" element={<SetPasswordPage />} />
 
+        <Route path="/track/:reportId" element={<ReportTrackingPage />} />
         <Route path="/dashboard" element={<RoleDashboardRouter />} />
         <Route path="/campaign-dashboard" element={<CampaignDashboard />} />
         <Route path="/supervisor-dashboard" element={<SupervisorDashboard />} />

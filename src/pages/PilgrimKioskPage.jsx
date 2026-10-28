@@ -1,3 +1,6 @@
+import ReportQrCode from "../components/kiosk/ReportQrCode.jsx";
+import {buildReportTrackingLink,getReportShareOrigin} from "../utils/reportShareLink.js";
+import "../styles/ReportShare.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Accessibility, ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, Copy, DoorOpen, Globe, Home, Languages, LifeBuoy,
@@ -162,6 +165,14 @@ function PilgrimKioskPage() {
   const [reportError, setReportError] = useState("");
   const [reportCaseNumber, setReportCaseNumber] = useState("");
   const [createdReportId, setCreatedReportId] = useState(null);
+  const [shareLink, setShareLink] = useState("");
+  const [shareLinkError, setShareLinkError] = useState("");
+  useEffect(() => {
+    if (!createdReportId) return;
+    let active = true;
+    getReportShareOrigin().then(origin => { const link=buildReportTrackingLink(origin,createdReportId);if (active) {setShareLink(link);setShareLinkError("");} }).catch(() => {if(active){setShareLink("");setShareLinkError("تعذر تجهيز رابط المتابعة على الشبكة. تأكد من اتصال الجهاز بشبكة Wi-Fi.");}});
+    return () => {active=false;};
+  }, [createdReportId]);
   const [referenceCopied, setReferenceCopied] = useState(false);
   const reportRequestLock = useRef(false);
   const [placeType, setPlaceType] = useState(null);
@@ -271,7 +282,8 @@ function PilgrimKioskPage() {
   const reportCampaignName = pilgrimRecord?.campaignName ?? pilgrimRecord?.CampaignName ?? "";
   const displayedReportStatus = trackedStatus || (reportStatus === "created" ? "OPEN" : "");
   const displayedReportStatusLabel = t[`reportStatus${displayedReportStatus}`] || t.reportTrackingUnknown;
-  const trackedStaffName = reportTracking.record?.authorizedStaff?.user?.name
+  const trackedStaffName = reportTracking.record?.assigneeName
+    || reportTracking.record?.authorizedStaff?.user?.name
     || reportTracking.record?.authorizedStaff?.name
     || reportTracking.record?.AuthorizedStaff?.user?.name
     || reportTracking.record?.AuthorizedStaff?.name;
@@ -816,14 +828,12 @@ function PilgrimKioskPage() {
                 </div>
                 <dl className="kiosk-success-facts">
                   <div><dt>{reportTracking.status === "ready" ? t.reportStatusCurrent : t.reportStatusInitial}</dt><dd><span className="kiosk-live-status-dot" />{displayedReportStatusLabel}</dd></div>
+                  {device.record?.locationName && <div><dt>{locale.code === "ar" ? "موقع الجهاز" : "Kiosk location"}</dt><dd>{device.record.locationName}</dd></div>}
                   {trackedCreatedAt && <div><dt>{t.reportTrackingCreatedAt}</dt><dd>{trackedCreatedAt}</dd></div>}
                   {reportCampaignName && <div><dt>{t.manualCampaignName}</dt><dd>{reportCampaignName}</dd></div>}
                   {activeTimelineIndex >= 1 && trackedStaffName && <div><dt>{t.reportRepresentative}</dt><dd>{trackedStaffName}</dd></div>}
                 </dl>
-                <div className="kiosk-qr-unavailable" role="note">
-                  <QrCode size={26} aria-hidden="true" />
-                  <div><strong>{t.reportQrUnavailable}</strong><p>{t.reportQrRequirement}</p></div>
-                </div>
+                <div className="kiosk-report-qr">{shareLink ? <><ReportQrCode url={shareLink}/><div><strong>{locale.code === "ar" ? "تابع طلبك من جوالك" : "Track your request on your phone"}</strong><p>{locale.code === "ar" ? "امسح الرمز لعرض الحالة واسم المندوب وآخر التحديثات. يجب أن يكون الجوال والجهاز على نفس شبكة Wi-Fi." : "Scan to see the status and latest updates. Connect your phone to the same Wi-Fi network."}</p><a href={shareLink} target="_blank" rel="noopener noreferrer" dir="ltr">{shareLink}</a></div></> : <p role="status">{shareLinkError || (locale.code === "ar" ? "جارٍ تجهيز رابط المتابعة…" : "Preparing tracking link…")}</p>}</div>
               </article>
 
               <article className="kiosk-success-panel kiosk-report-timeline-panel">

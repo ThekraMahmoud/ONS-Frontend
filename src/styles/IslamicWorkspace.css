@@ -127,3 +127,14 @@ body .ons-role-admin .admin-device-summary>button{display:grid;grid-template-col
 @media(max-width:850px){body .ons-workspace-theme .ons-report-filters{grid-template-columns:1fr 1fr}.ons-report-filters>.pd-search{grid-column:1/-1}.admin-people-tools{flex-wrap:wrap}.admin-people-tools .pd-search{flex-basis:100%}.admin-people-tools>label:not(.pd-search){flex:1;min-width:0}body .ons-role-admin .admin-device-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-people-directory .admin-panel-heading{flex-direction:column;align-items:stretch}.admin-people-directory .pd-actions{flex-wrap:wrap}}
 
 .admin-kiosk-row-actions{display:flex;gap:8px;flex-wrap:wrap}.admin-kiosk-fields{border:0;padding:0;margin:0;min-width:0;display:grid;gap:16px}
+
+/* Open reports follow the current role palette and existing table rhythm. */
+body .ons-workspace-theme .ons-status.is-open{display:inline-flex;align-items:center;gap:6px;background:var(--role-soft)!important;color:var(--role-ink)!important;border:1px solid var(--role-line)!important;font-weight:600;box-shadow:none}
+body .ons-workspace-theme .ons-report-directory tr.ons-open-report{background:transparent!important}
+body .ons-workspace-theme .ons-report-directory tr.ons-open-report:hover{background:var(--role-soft)!important}
+body .ons-workspace-theme .ons-report-directory tr.ons-open-report>td:first-child{box-shadow:inset -3px 0 var(--role-primary)}
+.ons-open-report-hint{display:block;margin-top:4px;color:var(--role-muted)!important;font-size:11px!important;white-space:nowrap}
+body .ons-workspace-theme .ons-report-tabs>button.ons-open-tab{background:#fff!important;border:1px solid var(--role-line)!important;color:var(--role-ink)!important}
+body .ons-workspace-theme .ons-report-tabs>button.ons-open-tab.is-active{background:var(--role-soft)!important;border-color:var(--role-primary)!important;box-shadow:none!important;color:var(--role-ink)!important}
+body .ons-workspace-theme .ons-assigned-reports .ons-task-card.is-open{border-top-color:var(--role-primary)!important;background:#fffef9!important}
+@media(max-width:700px){body .ons-workspace-theme .ons-report-directory tr.ons-open-report{border-inline-start:3px solid var(--role-primary)!important}body .ons-workspace-theme .ons-report-directory tr.ons-open-report>td:first-child{box-shadow:none}}

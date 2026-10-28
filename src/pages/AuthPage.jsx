@@ -33,6 +33,10 @@ export default function AuthPage({ mode }) {
   const [success, setSuccess] = useState("");
   const [showRecovery, setShowRecovery] = useState(false);
 
+  function clearModeFeedback() {
+    setError(""); setSuccess(""); setShowRecovery(false); setShowPassword(false);
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     setError("");
@@ -87,7 +91,7 @@ export default function AuthPage({ mode }) {
 
   return <main className={`auth-page ${isRegister ? "auth-page-register" : "auth-page-login"}`} dir="rtl">
     <section className="auth-brand-panel">
-      <img className="auth-scene-image" src={isRegister ? makkahRegistrationImage : madinahLoginImage} alt={isRegister ? "الكعبة والمسجد الحرام وقت الغروب" : "المسجد النبوي وقبته الخضراء وقت الغروب"} />
+      <img key={mode} className="auth-scene-image" src={isRegister ? makkahRegistrationImage : madinahLoginImage} alt={isRegister ? "الكعبة والمسجد الحرام وقت الغروب" : "المسجد النبوي وقبته الخضراء وقت الغروب"} />
       <div className="auth-scene-shade" />
       {!isRegister && <EmbraceIllustration variant="welcome"/>}
       <div className="auth-brand-copy"><span className="auth-brand-eyebrow">أهلًا بك في أُنس</span><h1>{isRegister ? <>ابدأ بتنظيم<br/><em>رعاية حملتك</em></> : <>أهلًا بعودتك<br/><em>إلى أُنس</em></>}</h1><p>{isRegister ? "أنشئ مساحة موحدة لفريق حملتك، وتابع خطوات التفعيل بوضوح. نحن معك في خدمة ضيوف الرحمن." : "سجّل الدخول للوصول إلى مساحة العمل المناسبة لدورك في الحملة."}</p></div>
@@ -102,7 +106,7 @@ export default function AuthPage({ mode }) {
       <h2>{isRegister ? "تسجيل حملة جديدة" : "تسجيل الدخول"}</h2>
       <p className="auth-intro">{isRegister ? "يسعدنا أن نرافق حملتكم. ابدأ بإدخال بياناتها الأساسية." : "أدخل بيانات حسابك للمتابعة."}</p>
       {isRegister && <div className="auth-progress" aria-label="الخطوة الأولى من خطوتين"><span className="is-current"><i>١</i><b>بيانات الحملة</b></span><span className="auth-progress-line"/><span><i>٢</i><b>تفعيل الحساب</b></span></div>}
-      {success ? <div className="auth-success" role="status"><span className="auth-success-icon"><EmbraceMark/><CheckCircle2 size={25}/></span><b>خطوة جميلة اكتملت</b><span>{success}</span></div> : <form className="auth-form" onSubmit={handleSubmit}>
+      {success ? <div className="auth-success" role="status"><span className="auth-success-icon"><EmbraceMark/><CheckCircle2 size={25}/></span><b>خطوة جميلة اكتملت</b><span>{success}</span></div> : <form key={mode} className="auth-form" onSubmit={handleSubmit}>
         {isRegister && <>
           <label>اسم الحملة<div className="auth-input"><Building2 size={17}/><input name="campaignName" maxLength={100} required placeholder="أدخل اسم الحملة" autoComplete="organization"/></div></label>
           <div className="auth-fields-two auth-single-field"><label>رقم التواصل<div className="auth-input"><Phone size={16}/><input name="contactNumber" type="tel" inputMode="numeric" pattern="05[0-9]{8}" maxLength="10" title="أدخل رقمًا يبدأ بـ05 ويتكوّن من 10 أرقام." required placeholder="05xxxxxxxx"/></div></label></div>
@@ -115,7 +119,7 @@ export default function AuthPage({ mode }) {
         {error && <div className="auth-error" role="alert"><p>{error.message}</p></div>}
         <button className="auth-submit" type="submit" disabled={submitting} aria-busy={submitting}>{submitting ? "جارٍ المعالجة…" : isRegister ? "متابعة إلى التفعيل" : "تسجيل الدخول"}<ArrowRight size={17}/></button>
       </form>}
-      <div className="auth-card-footer">{isRegister ? <>لديك حساب بالفعل؟ <Link to="/login">سجّل الدخول</Link></> : <>تدير حملة جديدة؟ <Link to="/register">أنشئ حساب حملة</Link></>}</div>
+      <div className="auth-card-footer">{isRegister ? <>لديك حساب بالفعل؟ <Link to="/login" onClick={clearModeFeedback}>سجّل الدخول</Link></> : <>تدير حملة جديدة؟ <Link to="/register" onClick={clearModeFeedback}>أنشئ حساب حملة</Link></>}</div>
     </div><footer className="auth-legal">أُنس — لكم من القلب أُنس، ومنا اهتمام.</footer></section>
   </main>;
 }

@@ -11,7 +11,7 @@ import { workspaceSections } from "../auth/workspaceSections.js";
 import { getCampaignAnalytics } from "../services/campaignService.js";
 import { getMyCampaignAccommodations } from "../services/accommodationService.js";
 import { getPilgrims, updatePilgrim, deletePilgrim } from "../services/pilgrimService.js";
-import { getEmployeesBySupervisor, getAllAuthorizedStaff, getStaffReports, getNearbyStaffReports, acceptPilgrimReport, advanceReportStatus } from "../services/authorizedStaffService.js";
+import { getEmployeesBySupervisor, getAllAuthorizedStaff, getStaffReports, acceptPilgrimReport, advanceReportStatus } from "../services/authorizedStaffService.js";
 import { presentApiError } from "../utils/errorMessages.js";
 import PilgrimAddMethodDialog from "./PilgrimAddMethodDialog.jsx";
 import PilgrimDirectory from "./PilgrimDirectory.jsx";
@@ -32,7 +32,6 @@ const messageOf = (error, fallback) => presentApiError(error, fallback).message;
 
 function AssignedReports({ user, onCount }) {
   const [rows, setRows] = useState([]);
-  const [nearby, setNearby] = useState([]);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(null);
   const [error, setError] = useState("");
@@ -63,27 +62,17 @@ function AssignedReports({ user, onCount }) {
         if (!pilgrimId) throw new Error("بيانات الحاج المرتبط بالبلاغ غير مكتملة.");
         await acceptPilgrimReport(user.id, pilgrimId, row.reportId);
       } else await advanceReportStatus(user.id, row.reportId);
-      setNearby((current) => current.filter((item) => item.reportId !== row.reportId));
       await load(); setNotice(row.status === "ASSIGNED" ? "بدأت المساعدة. عند الانتهاء اضغط إكمال المساعدة." : row.status === "IN_PROGRESS" ? "اكتملت المساعدة، وتم تحديث حالة البلاغ للحاج." : "تم استلام البلاغ وإضافته إلى مهامك.");
       window.dispatchEvent(new CustomEvent("ons-report-updated"));
     } catch (failure) { setError(messageOf(failure, "تعذر تحديث البلاغ. أعد المحاولة.")); }
     finally { setBusy(null); }
   }
-  function findNearby() {
-    if (!navigator.geolocation) { setError("تحديد الموقع غير متاح في هذا المتصفح."); return; }
-    setBusy("nearby"); setError("");
-    navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-      try { setNearby(asList(await getNearbyStaffReports(coords.latitude, coords.longitude))); setNotice("تم تحديث قائمة البلاغات القريبة."); }
-      catch (failure) { setError(messageOf(failure, "تعذر تحميل البلاغات القريبة الآن.")); }
-      finally { setBusy(null); }
-    }, () => { setError("لم يتم تحديد موقعك. اسمح بالوصول إلى الموقع وأعد المحاولة."); setBusy(null); }, { timeout: 10000, maximumAge: 30000 });
-  }
-  const combined = [...new Map([...nearby, ...rows].map((row) => [row.reportId, row])).values()];
+  const combined = rows;
   const filtered = combined.toSorted((a, b) => ({ IN_PROGRESS: 0, ASSIGNED: 1, OPEN: 2, RESOLVED: 3, CANCELLED: 4 }[a.status] ?? 5) - ({ IN_PROGRESS: 0, ASSIGNED: 1, OPEN: 2, RESOLVED: 3, CANCELLED: 4 }[b.status] ?? 5)).filter((row) => (!status || row.status === status) && `${row.caseNumber || ""} ${row.pilgrim?.fullName || ""}`.toLocaleLowerCase("ar").includes(query.trim().toLocaleLowerCase("ar")));
   const pages = Math.max(1, Math.ceil(filtered.length / 10)); const currentPage = Math.min(page, pages);
   return <section className="pilgrim-directory ons-assigned-reports" dir="rtl" aria-label="بلاغاتي المسندة" aria-busy={loading}>
-    <header className="pd-heading"><div><span className="ons-kicker">المهام الميدانية · {combined.length} بلاغ</span><p>ابدأ التنفيذ بعد استلام البلاغ، ثم أكمله عند انتهاء المساعدة.</p></div><div className="pd-actions"><button className="pd-secondary" disabled={busy !== null || loading} onClick={() => void load()}><RefreshCw size={18} /> تحديث</button><button className="pd-primary" disabled={busy !== null} onClick={findNearby}><MapPin size={18} /> بلاغات قريبة</button></div></header>
-    <div className="pd-toolbar"><label className="pd-search"><input aria-label="بحث في بلاغاتي" placeholder="رقم البلاغ أو اسم الحاج" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} /></label><select aria-label="حالة البلاغ" value={status} onChange={(event) => { setStatus(event.target.value); setPage(1); }}><option value="">كل الحالات</option>{Object.entries(statusLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></div>
+    <header className="pd-heading"><div><span className="ons-kicker">مهامي المسندة · {combined.length} بلاغ</span><p>هذه بلاغاتك التي استلمتها فقط؛ ابدأ المساعدة ثم حدّثها عند اكتمالها.</p></div><div className="pd-actions"><button className="pd-secondary" disabled={busy !== null || loading} onClick={() => void load()}><RefreshCw size={18} /> تحديث</button></div></header>
+    <div className="pd-toolbar"><label className="pd-search"><input aria-label="بحث في بلاغاتي" placeholder="رقم البلاغ أو اسم الحاج" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} /></label><select aria-label="حالة البلاغ" value={status} onChange={(event) => { setStatus(event.target.value); setPage(1); }}><option value="">كل الحالات</option>{Object.entries(statusLabels).filter(([value]) => value !== "OPEN").map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></div>
     {error && <div className="pd-error ons-list-error" role="alert"><span>{error}</span><button className="pd-secondary" disabled={loading} onClick={() => void load()}>إعادة المحاولة</button></div>}
     <Toast message={notice} onDismiss={setNotice} />
     {loading && !combined.length ? <ListSkeleton rows={3} /> : <div className="ons-task-grid">{filtered.slice((currentPage - 1) * 10, currentPage * 10).map((row) => {

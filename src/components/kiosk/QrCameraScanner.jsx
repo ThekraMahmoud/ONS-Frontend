@@ -23,6 +23,8 @@ export default function QrCameraScanner({
   onRetry,
 }) {
   const videoRef = useRef(null);
+  const decodedHandler = useRef(onDecoded);
+  useEffect(() => { decodedHandler.current = onDecoded; }, [onDecoded]);
   const [status, setStatus] = useState("requesting");
   const [errorKey, setErrorKey] = useState(null);
 
@@ -82,7 +84,7 @@ export default function QrCameraScanner({
             const imageFile = blob ? new File([blob], "pilgrim-card.jpg", { type: "image/jpeg" }) : null;
             setStatus("decoded");
             stopStream();
-            onDecoded(value, imageFile);
+            decodedHandler.current(value, imageFile);
           }, "image/jpeg", 0.88);
         });
         if (!mounted) controls?.stop();
@@ -99,7 +101,7 @@ export default function QrCameraScanner({
       mounted = false;
       stopStream();
     };
-  }, [onDecoded, retryToken]);
+  }, [retryToken]);
 
   return (
     <div className="kiosk-scanner">
